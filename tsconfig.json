@@ -1,9 +1,26 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "lib": ["ESNext"],
-    "module": "esnext",
-    "target": "esnext",
-    // "bun-types" is the important part
-    "types": ["bun-types"]
-  }
+    "moduleResolution": "NodeNext",
+    "module": "ESNext",
+    "target": "ESNext",  
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "paths": {
+      "webpackConfig/*": ["./webpack/*"],
+      "@/*": ["./src/*"],
+      "react": ["./node_modules/preact/compat"],
+      "react-dom": ["./node_modules/preact/compat"],
+    },
+  },
+  "include": [
+    "./src/**/*",
+    "./tests/**/*",
+    "./webpack/**/*",
+    "preact-router",
+  ]
 }
