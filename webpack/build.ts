@@ -1,9 +1,10 @@
-import webpack, { Configuration } from 'webpack'
+import { Configuration } from 'webpack'
 import path from 'path'
 import devConfig from './dev'
 
 import TerserPlugin from 'terser-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { isDevelopment } from '@/helpers/ssr-utils'
 
 const buildConfig: Configuration = {
   mode: 'production',
@@ -15,7 +16,6 @@ const buildConfig: Configuration = {
   },
 
   output: {
-    clean: true,
     publicPath: '/',
     filename: '[name].[contenthash].js',
     chunkFilename: 'chunk-[id].[contenthash].js',
@@ -25,13 +25,14 @@ const buildConfig: Configuration = {
     rules: [
       ...devConfig.module.rules.slice(0, -1),
       {
-        test: /\.(css)$/i,
+        test: /\.(p?css)$/i,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {},
           },
           'css-loader',
+          'postcss-loader', 
         ],
       },
     ]
@@ -41,10 +42,6 @@ const buildConfig: Configuration = {
   optimization: {
     minimize: true,
     minimizer: [
-      new webpack.EnvironmentPlugin({
-        NODE_ENV: 'production',
-      }),
-
       new TerserPlugin({
         parallel: true,
       }),

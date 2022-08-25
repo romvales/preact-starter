@@ -1,7 +1,6 @@
 import { isDevelopment } from '@/helpers/ssr-utils'
-import webpack, { Configuration } from 'webpack'
-import { WebpackManifestPlugin as ManifestPlugin } from 'webpack-manifest-plugin'
-import NodemonPlugin from 'nodemon-webpack-plugin'
+import { Configuration } from 'webpack'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpackNodeExts from 'webpack-node-externals'
 import path from 'path'
 
@@ -10,65 +9,66 @@ import buildConfig from './build'
 const ssrConfig: Configuration = {
   mode: isDevelopment ? 'development' : 'production',
   devtool: isDevelopment ? 'cheap-module-source-map' : 'source-map',
+  name: 'server',
+  node: {
+    __dirname: false,
+  },
 
   entry: {
-    index: [
+    server: [
       path.resolve('src', 'server', 'index.ts'),
     ],
   },
 
   output: {
     path: path.resolve('dist'),
-    libraryTarget: 'commonjs',
     publicPath: '/',
     globalObject: 'this',
-    filename: isDevelopment ? 'server.js' : 'server.[contenthash].js',
-    chunkFilename: 'chunk-[id].[contenthash].js',
+    filename: isDevelopment ? '[name].js' : '[name].[contenthash].js',
     clean: true,
   },
 
   module: {
     rules: [
-      ...buildConfig.module.rules,
-
-      ...(isDevelopment ? [
-
-
-      ] : [])
+      {
+        test: /\.(ts|tsx)$/i,
+        use: 'swc-loader',
+      },
+      {
+        test: /\.(gif|png|jpe?g|webp|mp[3-4]|ogg|mpeg|m4a|flac|ico|3gp|toff)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[hash][ext][query]',
+        },
+      },
+      {
+        test: /\.(svg)$/i,
+        type: 'asset/inline',
+      },
+      {
+        test: /\.(p?css)$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+        ],
+      },
     ]
   },
 
   plugins: [
-    ...buildConfig.plugins,
+    ...buildConfig.plugins.slice(0, -1),
 
-    new ManifestPlugin({
-      fileName: 'server-manifest.json',
+    new MiniCssExtractPlugin({
+      linkType: 'text/css',
+      filename: isDevelopment ? 'assets/styles/index.css' : 'assets/styles/index.[contenthash].css',
     }),
-
-    ...(isDevelopment ? [
-
-      new NodemonPlugin({
-        script: path.resolve('dist', 'server.js'),
-
-        // @ts-ignore
-        watch: path.resolve('src'),
-        ignore: [ '*.js.map' ],
-        ext: 'js,json,webmanifest',
-        verbose: true,
-        env: {
-          NODE_ENV: 'development',
-        },
-      }),
-
-      new webpack.EnvironmentPlugin({
-        NODE_ENV: 'development',
-      }),
-
-    ] : [])
   ],
 
   resolve: buildConfig.resolve,
   optimization: isDevelopment ? {} : buildConfig.optimization,
+
+  stats: 'normal',
 
   externalsPresets: { node: true },
   experiments: { topLevelAwait: true },

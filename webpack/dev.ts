@@ -5,14 +5,13 @@ import path from 'path'
 import HtmlPlugin from 'html-webpack-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
 
-
 const devConfig: Configuration = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   name: 'web',
 
   entry: {
-    index: [ 
+    index: [
       path.resolve('src', 'index.tsx'),
       'webpack-hot-middleware/client?name=web&path=/__webpack_hmr&timeout=2000',
     ]
@@ -35,7 +34,7 @@ const devConfig: Configuration = {
         test: /\.(gif|png|jpe?g|webp|mp[3-4]|ogg|mpeg|m4a|flac|ico|3gp|toff)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/[hash][ext][query]'
+          filename: 'assets/[hash][ext][query]',
         },
       },
       {
@@ -43,10 +42,11 @@ const devConfig: Configuration = {
         type: 'asset/inline',
       },
       {
-        test: /\.(css)$/i,
+        test: /\.(p?css)$/i,
         use: [
           'style-loader',
           'css-loader',
+          'postcss-loader',
         ],
       },
     ],
@@ -59,8 +59,8 @@ const devConfig: Configuration = {
       'react': path.resolve('node_modules', 'preact', 'compat'),
       'react-dom': path.resolve('node_modules', 'preact', 'compat'),
     },
-    extensions: [ '.ts', '.tsx', '.json', '.pcss', '.js' ],
-    modules: [ 'node_modules' ],
+    extensions: ['.ts', '.tsx', '.json', '.pcss', '.js'],
+    modules: ['node_modules'],
   },
 
   plugins: [
@@ -72,8 +72,10 @@ const devConfig: Configuration = {
       publicPath: '/',
       filename: path.resolve('dist', 'index.html'),
       meta: {
-        viewport: { content: 'width=device-width, initial-scale=1.0' },
-      }
+        charset: { charset: 'utf-8' },
+        viewport: { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+        xUaCompatible: { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+      },
     }),
 
     new CopyPlugin({
@@ -87,13 +89,16 @@ const devConfig: Configuration = {
 
     new webpack.HotModuleReplacementPlugin(),
   ],
-  
+
   externalsPresets: { web: true, webAsync: true },
   experiments: { topLevelAwait: true },
+
+  stats: 'normal',
 
   // @ts-ignore
   devServer: {
     hot: true,
+    compress: true, 
     historyApiFallback: true,
   },
 }
