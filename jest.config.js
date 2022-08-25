@@ -15,6 +15,7 @@ const jestConf = {
     '^node_modules/(?!preact-render-to-string/.*|preact-router/.*)',
   ],
   moduleNameMapper: {
+    '^@/(.*)\\.(png|jpe?g|gif|mp[3-4]|mpeg|mkv|ico|webp|3gp|ogg|m4a|flac)$': '<rootDir>/tests/__mocks__/fileMocks.js',
     '^@/(.*)\\.(p?css)$': 'identity-obj-proxy', 
     '^react$': '<rootDir>/node_modules/preact/compat',
     '^react-dom$': '<rootDir>/node_modules/preact/compat',
