@@ -15,7 +15,6 @@ export function setupDevMiddleware(app: Express) {
     serverSideRender: true,
     writeToDisk: true,
     publicPath: devConfig.output.publicPath,
-    stats: 'normal',
   }))
 
   app.use(webpackHotMiddleware(devCompiler, {
