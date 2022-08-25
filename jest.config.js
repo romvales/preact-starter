@@ -5,6 +5,8 @@ const config = JSON.parse(readFileSync('./.swcrc', 'utf-8'))
 /** @type {import('jest').Config} */
 const jestConf = {
   preset: 'jest-preset-preact',
+  globalSetup: '<rootDir>/tests/globalSetup.js',
+  globalTeardown: '<rootDir>/tests/globalTeardown.js',
   verbose: true,
   extensionsToTreatAsEsm: [ '.ts', '.tsx', '.jsx' ],
   testEnvironment: 'jsdom',
