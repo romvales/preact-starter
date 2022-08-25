@@ -7,14 +7,21 @@ export const isDevelopment = process.env.NODE_ENV === 'development'
 export const isProduction = !isDevelopment
 
 export function initUniStore(store?: Store<any>) {
-  const initState = window.__UNISTORE_STATE__ ?? {}
+  const initState = window.__UNISTORE_STATE__ ? 
+    window.__UNISTORE_STATE__ : 
+    (window.__UNISTORE_STATE__ = {})
   const C = createStore
 
   return isDevelopment && isBrowser ? devtools(C(initState)) : C(initState)
 }
 
 export function initAppState() {
-  const initState = window.__APP_STATE__ ?? {}
+  const initState = window.__APP_STATE__ ? 
+    window.__APP_STATE__ : 
+    (window.__APP_STATE__ = { clientRuntimeConfig: APP_CONFIG.clientRuntimeConfig })
 
+  global.clientRuntimeConfig = 
+    window.clientRuntimeConfig = 
+      window.__APP_STATE__.clientRuntimeConfig
   return initState
 }
