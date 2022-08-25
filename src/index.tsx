@@ -1,14 +1,14 @@
-import { render } from 'preact'
+import { hydrate } from 'preact'
 import { App } from '@/App'
 import { ServerContext } from '@/server/SSRContext'
-import { enableDevTools } from '@/helpers'
+import { enableDevTools, initUniStore, initAppState } from '@/helpers'
 
 enableDevTools()
 
 function renderApp(App) {
   const appRootEl = document.querySelector('.app-root')
-  render(
-    <ServerContext>
+  hydrate(
+    <ServerContext value={initAppState()} store={initUniStore()}>
       <App />
     </ServerContext>  
   , appRootEl)
