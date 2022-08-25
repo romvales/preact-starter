@@ -32,7 +32,7 @@ const devConfig: Configuration = {
         use: 'swc-loader',
       },
       {
-        test: /\.(gif|png|jpe?g|webp|mp[3-4]|toff|ogg)$/i,
+        test: /\.(gif|png|jpe?g|webp|mp[3-4]|ogg|mpeg|m4a|flac|ico|3gp|toff)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/[hash][ext][query]'
@@ -55,6 +55,7 @@ const devConfig: Configuration = {
   resolve: {
     alias: {
       '@': path.resolve('src'),
+      'webpackConfig': path.resolve('webpack'),
       'react': path.resolve('node_modules', 'preact', 'compat'),
       'react-dom': path.resolve('node_modules', 'preact', 'compat'),
     },
@@ -64,12 +65,15 @@ const devConfig: Configuration = {
 
   plugins: [
     new HtmlPlugin({
-      minify: isDevelopment,
+      minify: !isDevelopment,
       template: path.resolve('src', 'assets', 'index.html'),
       inject: 'body',
       scriptLoading: 'module',
       publicPath: '/',
       filename: path.resolve('dist', 'index.html'),
+      meta: {
+        viewport: { content: 'width=device-width, initial-scale=1.0' },
+      }
     }),
 
     new CopyPlugin({
