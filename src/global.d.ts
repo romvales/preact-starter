@@ -19,3 +19,9 @@ declare module '*.mkv'
 declare module '*.ico'
 declare module '*.flac'
 declare module '*.webp'
+
+declare module NodeJS {
+  interface Global {
+    APP_CONFIG: AppConfig
+  }
+}
