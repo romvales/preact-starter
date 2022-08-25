@@ -1,4 +1,4 @@
-import '@/assets/styles/main.css'
+import '@/assets/styles/main.pcss'
 
 import { FunctionComponent } from 'preact'
 import Router from 'preact-router'
@@ -9,6 +9,7 @@ export const App: FunctionComponent<{}> = props => {
   return (
     <>
       <nav>
+        <Link href='/'>Main Root</Link>
         <Link href='/home'>Home</Link>
       </nav>
       <hr />
