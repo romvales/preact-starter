@@ -8,7 +8,7 @@ describe('App', () => {
     const { container } = render(<App />)
     const headline: HTMLHeadingElement = container.querySelector('.headline')
 
-    expect(headline.textContent).toBe('The quick brown fox jumps over the lazy dog.')
+    expect(headline.textContent).toBe('Smiling golden doggo')
   })
 
 })
