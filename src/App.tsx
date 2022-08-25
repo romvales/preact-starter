@@ -12,7 +12,7 @@ export const App: FunctionComponent<{}> = props => {
         <Link href='/home'>Home</Link>
       </nav>
       <hr />
-      <Router onChange={handleRouteChange}>
+      <Router url={new URL(document.URL).pathname} onChange={handleRouteChange}>
         <LPageView path='/home' /> 
       </Router> 
     </>
