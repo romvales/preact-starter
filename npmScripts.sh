@@ -8,15 +8,16 @@ function main {
   case $verb in
   dev)
     NODE_ENV=development \
-    $NODE_RUNTIME src/server/index.ts
+    $NODE_RUNTIME node_modules/.bin/webpack --config ./webpack/ssr.ts --watch
     ;;
   build)
     NODE_ENV=production \
+    $NODE_RUNTIME node_modules/.bin/webpack --config ./webpack/ssr.ts && \
     $NODE_RUNTIME node_modules/.bin/webpack --config ./webpack/build.ts
     ;;
   serve)
-    NODE_ENV=development \
-    $NODE_RUNTIME 
+    NODE_ENV=production \
+    $NODE_RUNTIME ./dist/server.js
     ;;
   test)
     NODE_ENV=development \
