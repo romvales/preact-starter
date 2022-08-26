@@ -5,7 +5,8 @@ import Router from 'preact-router'
 import { Link } from 'preact-router/match'
 import { LPageView } from '@/views'
 
-export const App: FunctionComponent<{}> = props => {  
+export const App: FunctionComponent<{}> = props => {
+
   return (
     <>
       <nav>
@@ -13,6 +14,7 @@ export const App: FunctionComponent<{}> = props => {
         <Link href='/home'>Home</Link>
       </nav>
       <hr />
+      {}
       <Router url={new URL(document.URL).pathname} onChange={handleRouteChange}>
         <LPageView path='/home' /> 
       </Router> 
