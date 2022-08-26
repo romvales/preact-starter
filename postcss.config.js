@@ -3,7 +3,7 @@ module.exports = {
     tailwindcss: {},
     autoprefixer: {},
     'postcss-nested': {},
-    ...(proces.env.NODE_ENV === 'development' ? {} : {
+    ...(process.env.NODE_ENV === 'development' ? {} : {
       cssnano: {},
     })
   }
