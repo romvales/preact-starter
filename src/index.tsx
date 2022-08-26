@@ -1,7 +1,12 @@
 import { hydrate, render } from 'preact'
 import { App } from '@/App'
 import { ServerContext } from '@/server/SSRContext'
-import { enableDevTools, initUniStore, initAppState, isDevelopment } from '@/helpers'
+import { 
+  enableDevTools, 
+  initUniStore, 
+  initAppState, 
+  isDevelopment 
+} from '@/helpers'
 
 enableDevTools()
 
@@ -14,6 +19,8 @@ function renderApp(App) {
       <App />
     </ServerContext>  
   , appRootEl)
+
+  delete window.__UNISTORE_STATE__
 }
 
 document.addEventListener('DOMContentLoaded', () => renderApp(App))
