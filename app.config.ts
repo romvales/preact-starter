@@ -1,4 +1,4 @@
-import { isDevelopment } from './src/helpers/ssr-utils'
+
 
 export const APP_CONFIG: AppConfig = Object.freeze({
   title: 'Preact.JS Template',
@@ -39,4 +39,4 @@ export const APP_CONFIG: AppConfig = Object.freeze({
 
 global.APP_CONFIG = APP_CONFIG
 global.serverRuntimeConfig = APP_CONFIG.serverRuntimeConfig
-
+global.pendingServerSideProps = []
