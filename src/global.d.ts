@@ -1,10 +1,15 @@
+
+
 interface NodeModule {
   hot: any;
 }
 
 interface Window {
   __UNISTORE_STATE__: { [key: string]: any },
-  __APP_STATE__: { [key: string]: any },
+  __APP_STATE__: {
+    serverSideProps?: any,
+    [key: string]: any 
+  },
 }
 
 declare module '*.mp4'
@@ -22,6 +27,6 @@ declare module '*.webp'
 
 declare module NodeJS {
   interface Global {
-    APP_CONFIG: AppConfig
+    APP_CONFIG: AppConfig 
   }
 }
