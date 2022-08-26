@@ -42,6 +42,7 @@
   "dependencies": {
     "@preact-hooks/unistore": "^1.1.2",
     "@swc-node/register": "^1.5.1",
+    "axios": "^0.27.2",
     "cookie-parser": "^1.4.6",
     "devalue": "^2.0.1",
     "dotenv": "^16.0.1",
@@ -49,6 +50,7 @@
     "helmet": "^5.1.1",
     "jsdom": "^20.0.0",
     "morgan": "^1.10.0",
+    "node-fetch": "^3.2.10",
     "postcss": "^8.4.16",
     "preact": "^10.10.6",
     "preact-render-to-string": "^5.2.2",
