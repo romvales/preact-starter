@@ -1,12 +1,13 @@
 import { isDevelopment } from './ssr-utils'
 
 export { 
-  isDevelopment, 
-  isBrowser, 
-  isServer, 
+  isDevelopment,
   isProduction,
   initAppState,
   initUniStore,
+  getServerSideProps,
+  resolvePendingProps,
+
 } from './ssr-utils'
 
 export function enableDevTools() {
