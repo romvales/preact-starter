@@ -1,14 +1,14 @@
 import { createContext, FunctionComponent } from 'preact'
-import { Provider } from 'unistore/preact'
+import { StoreProvider } from '@preact-hooks/unistore' 
 import { Store } from 'unistore'
 
 export const SSRContext = createContext(null)
 export const ServerContext: FunctionComponent<{ value: any, store: Store<any> }> = (props) => {
   return (
     <SSRContext.Provider value={props.value}>
-      <Provider store={props.store}>
+      <StoreProvider value={props.store}>
         {props.children}
-      </Provider>
+      </StoreProvider>
     </SSRContext.Provider>
   )
 }

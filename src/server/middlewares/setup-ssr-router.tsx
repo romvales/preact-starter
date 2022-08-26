@@ -4,7 +4,7 @@ import { render } from 'preact-render-to-string'
 import path from 'path'
 import devalue from 'devalue'
 
-import { initAppState, initUniStore } from '@/helpers'
+import { initAppState, initUniStore, resolvePendingProps } from '@/helpers'
 import { ServerContext } from '@/server/SSRContext'
 import { App } from '@/App'
 
@@ -28,7 +28,7 @@ async function renderDoc(req: Request, res: Response) {
     resources: 'usable',
     runScripts: 'dangerously',
     cookieJar: null,
-  }) 
+  })
 
   // @ts-ignore
   global.window = doc.window
@@ -37,19 +37,24 @@ async function renderDoc(req: Request, res: Response) {
   const initState = initAppState()
   const initStore = initUniStore()
 
+  await resolvePendingProps({ req, res })
+
   renderApp(initAppState, initStore)
- 
+
+  // Setup the index.html here that will be send to the browser
+
   document.title = APP_CONFIG.title
   document.body.innerHTML += `
   <script crossorigin="use-credentials">
     window.__APP_STATE__ = ${devalue(initState)}
     window.__UNISTORE_STATE__ = ${devalue(initStore.getState())}
     window.clientRuntimeConfig = window.__APP_STATE__.clientRuntimeConfig
-  </script>
+  </script> 
   `
-
+  
+  
+  //
   document.querySelector('.app-root').innerHTML = renderApp()
-   
   return doc.serialize()
 }
 
