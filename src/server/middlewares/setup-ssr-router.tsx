@@ -7,6 +7,7 @@ import devalue from 'devalue'
 import { initAppState, initUniStore, resolvePendingProps } from '@/helpers'
 import { ServerContext } from '@/server/SSRContext'
 import { App } from '@/App'
+import { resolvePendingAsyncDataFetches } from '@/helpers/ssr-utils'
 
 const ssrRouter = Router({ strict: true })
 
@@ -38,23 +39,22 @@ async function renderDoc(req: Request, res: Response) {
   const initStore = initUniStore()
 
   await resolvePendingProps({ req, res })
+  await resolvePendingAsyncDataFetches()
 
   renderApp(initAppState, initStore)
 
   // Setup the index.html here that will be send to the browser
-
-  document.title = APP_CONFIG.title
   document.body.innerHTML += `
   <script crossorigin="use-credentials">
     window.__APP_STATE__ = ${devalue(initState)}
     window.__UNISTORE_STATE__ = ${devalue(initStore.getState())}
     window.clientRuntimeConfig = window.__APP_STATE__.clientRuntimeConfig
-  </script> 
-  `
-  
-  
+  </script>
+  `  
+
   //
   document.querySelector('.app-root').innerHTML = renderApp()
+
   return doc.serialize()
 }
 
