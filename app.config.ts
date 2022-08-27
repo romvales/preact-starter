@@ -1,7 +1,11 @@
+let appConfig = Object.freeze({
+  title: 'Webpack App',
 
-
-export const APP_CONFIG: AppConfig = Object.freeze({
-  title: 'Preact.JS Template',
+  meta: [
+    { charset: 'utf-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+    { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+  ],
 
   // --- Server options
   serverHost: '0.0.0.0',
@@ -37,6 +41,16 @@ export const APP_CONFIG: AppConfig = Object.freeze({
 
 })
 
-global.APP_CONFIG = APP_CONFIG
-global.serverRuntimeConfig = APP_CONFIG.serverRuntimeConfig
+global.APP_CONFIG = appConfig
+global.serverRuntimeConfig = appConfig.serverRuntimeConfig
+
+// pendingServerSideProps is a stack of all the pending `getServerSideProps` that was called
+// from across the app.
+// 
 global.pendingServerSideProps = []
+
+// pendingAsyncDataFetches is pretty much the same as pendingServerSideProps.. the only difference
+// is that this stack is used by `useAsyncDataFetch` hook for data fetching, and it can also be omitted
+// if the `useAsyncDataFetch` options contains `fetchOnServer: false`
+//
+global.pendingAsyncDataFetches = []
