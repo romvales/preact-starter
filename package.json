@@ -11,6 +11,7 @@
     "@swc/core": "^1.2.242",
     "@swc/jest": "^0.2.22",
     "@testing-library/preact": "^3.2.2",
+    "@testing-library/preact-hooks": "^1.1.0",
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.13",
     "@types/jest": "^28.1.7",
