@@ -7,8 +7,13 @@ export {
   initUniStore,
   getServerSideProps,
   resolvePendingProps,
+  resolvePendingAsyncDataFetches,
+  useAsyncDataFetch,
+  FetchStateStatus,
 
 } from './ssr-utils'
+
+export { useRouterChangeEffect } from './useRouterChangeEffect'
 
 export function enableDevTools() {
   if (isDevelopment) {
@@ -16,3 +21,6 @@ export function enableDevTools() {
     require('preact/devtools')
   }
 }
+
+
+
