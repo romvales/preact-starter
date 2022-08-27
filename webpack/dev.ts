@@ -1,3 +1,5 @@
+require('../app.config')
+
 import webpack, { Configuration } from 'webpack'
 import { isDevelopment } from '@/helpers/ssr-utils'
 import path from 'path'
@@ -66,16 +68,13 @@ const devConfig: Configuration = {
   plugins: [
     new HtmlPlugin({
       minify: !isDevelopment,
+      title: APP_CONFIG.title,
       template: path.resolve('src', 'assets', 'index.html'),
       inject: 'body',
       scriptLoading: 'module',
       publicPath: '/',
       filename: path.resolve('dist', 'index.html'),
-      meta: {
-        charset: { charset: 'utf-8' },
-        viewport: { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
-        xUaCompatible: { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
-      },
+      meta: Object.assign({}, APP_CONFIG.meta),
     }),
 
     new CopyPlugin({
