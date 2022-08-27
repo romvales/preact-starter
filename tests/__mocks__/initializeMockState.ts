@@ -3,9 +3,13 @@ import { FunctionalComponent } from 'preact'
 
 export let mockDefaultProps = {}
 export const mockPendingSSProps = []
+export const mockPendingAsyncDataFetches = []
 export const mockAppState = {
   serverSideProps: [],
   serverSidePropsIndex: 0,
+
+  asyncDataFetchResults: [],
+  asyncDataFetchResultsIndex: 0,
 }
 
 export function initializeGlobalMocksState(TC?: FunctionalComponent<any>) {

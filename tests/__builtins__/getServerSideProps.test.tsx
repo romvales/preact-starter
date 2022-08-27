@@ -26,7 +26,6 @@ describe('getServerSideProps', () => {
     teardownGlobalMocksState(TC)
   })
 
-
   test('should define the necessary variable and objects...', () => {
     expect(window).toBeDefined()
     expect(window.__APP_STATE__).toBeDefined()
@@ -60,6 +59,15 @@ describe('getServerSideProps', () => {
     expect(mockPendingSSPropsLength).toBe(2)
 
     switchEnvironment()
+  })
+
+  test('should throw an error when passed a non function component as first parameter.', () => {
+    expect(() => {
+      getServerSideProps(function() {} as any, async () => {
+        return {}
+      })
+
+    }).toThrowError('(anonymous) is not a valid function component.')
   })
 
 })
