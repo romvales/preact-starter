@@ -7,8 +7,9 @@ interface NodeModule {
 interface Window {
   __UNISTORE_STATE__: { [key: string]: any },
   __APP_STATE__: {
+    asyncDataFetches?: any,
     serverSideProps?: any,
-    [key: string]: any 
+    [key: string]: any,
   },
 }
 

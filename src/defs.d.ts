@@ -2,12 +2,24 @@
 import { HelmetOptions } from 'helmet'
 import { CookieParseOptions } from 'cookie-parser'
 import morgan from 'morgan'
+import { FetchStateStatus } from '@/helpers'
+import { StateUpdater } from 'preact/hooks'
 import { FunctionComponent } from 'preact'
 import { Request, Response } from 'express'
 
+declare global { 
 
-declare global {
-  interface AppConfig {
+  type FetchState<T = string> = {
+    status: FetchStateStatus,
+    message?: T,
+  }
+
+  type FetchOptions<T = any> = {
+    onServer?: boolean,
+    resolveToState?: StateUpdater<T>,
+  }
+
+  type AppConfig = {
     title?: string
     serverHost?: string
     serverPort?: number
@@ -17,9 +29,10 @@ declare global {
     morganOptions?: morgan.Options<Request, Response>
     clientRuntimeConfig?: { [key: string]: any }
     serverRuntimeConfig?: { [key: string]: any }
+    meta?: { [key: string]: any }
   }
 
-  interface ServerContextRef {
+  type ServerContextRef = {
     req: Request
     res: Response
   }
@@ -30,5 +43,9 @@ declare global {
   var pendingServerSideProps: {
     C: FunctionComponent<any>,
     aF: (ctx: ServerContextRef) => Promise<any>,
+  }[]
+  var pendingAsyncDataFetches: {
+    C: () => Promise<any>,
+    options: FetchOptions<any>,
   }[]
 }
