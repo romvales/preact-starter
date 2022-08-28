@@ -157,7 +157,7 @@ export function useAsyncDataFetch<T = any, S = string>(options: FetchOptions = {
   const { isBrowser, isServer } = environment
   const [fState, setState] = useState<FetchState<S>>({ status: FetchStateStatus.Pending })
   const [fRes, setFRes] = useState<T>(null)
-  let fRCb: FetchResultCallback<T>
+  let fRCb: FetchResultCallback<T> = () => {}
 
   if (isBrowser) {
     useRouterChangeEffect(() => {
