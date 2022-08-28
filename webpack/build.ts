@@ -40,6 +40,7 @@ const buildConfig: Configuration = {
 
   resolve: devConfig.resolve,
   optimization: {
+    usedExports: true,
     minimize: true,
     minimizer: [
       new TerserPlugin({

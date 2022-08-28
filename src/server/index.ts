@@ -11,7 +11,7 @@ import helmet from 'helmet'
 
 const server = express()
 
-setupDevMiddleware(server)
+if (isDevelopment) setupDevMiddleware(server)
 
 server.use(helmet(APP_CONFIG.helmetOptions))
 server.use(cookieParser('', APP_CONFIG.cookieParserOptions))
