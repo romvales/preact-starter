@@ -1,3 +1,7 @@
+/**
+ * Note: Due to some intellectual limitations, my final jest setup does not cover all server-side 
+ * code by default. I have mocked up some of the data fetching global variables and functions.
+ */
 const { readFileSync } = require('fs')
 
 const config = JSON.parse(readFileSync('./.swcrc', 'utf-8'))
