@@ -7,16 +7,18 @@ import { StateUpdater } from 'preact/hooks'
 import { FunctionComponent } from 'preact'
 import { Request, Response } from 'express'
 
-declare global { 
+declare global {
+  
+  type FetchResultCallback<T> = (cb: (fetchResults: T) => void) => void
 
   type FetchState<T = string> = {
     status: FetchStateStatus,
     message?: T,
   }
 
-  type FetchOptions<T = any> = {
+  type FetchOptions = {
     onServer?: boolean,
-    resolveToState?: StateUpdater<T>,
+    reuse?: boolean,
   }
 
   type AppConfig = {
@@ -44,8 +46,10 @@ declare global {
     C: FunctionComponent<any>,
     aF: (ctx: ServerContextRef) => Promise<any>,
   }[]
+
   var pendingAsyncDataFetches: {
     C: () => Promise<any>,
-    options: FetchOptions<any>,
+    options: FetchOptions,
   }[]
+
 }
