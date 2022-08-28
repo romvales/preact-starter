@@ -2,7 +2,7 @@ import createStore, { Store } from 'unistore'
 import devtools from 'unistore/devtools'
 import { FunctionComponent } from 'preact'
 import { Inputs, useEffect, useState } from 'preact/hooks'
-import { useRouterChangeEffect } from './useRouterChangeEffect'
+import { useRouterChangeEffect } from './hooks'
 
 export const environment = {
   get isBrowser() {
@@ -63,7 +63,7 @@ export function getServerSideProps<T = any>(C: FunctionComponent<any>, aF: (ctx:
   if (!memoTchecksOldRes) {
     memoTchecks[fName] = isNotComponent = !/(_jsxRuntime|children|jsxs|Fragment)/g.test(C.toString())
   }
-  
+
   if (isNotComponent) {
     throw new TypeError(`${C.name.length ? C.name : '(anonymous)'} is not a valid function component.`)
   }
@@ -138,54 +138,97 @@ export async function resolvePendingProps(ctx: ServerContextRef) {
 }
 
 /**
- * useAsyncDataFetch is a hook function that performs data fetching on the client and server-side. The following
- * simple definition describes how this process works:
+ * useAsyncDataFetch is a hook function that performs data fetching on the client and server-side, it accepts
+ * two parameters: `options` and `aCb`, the `options` contains flags that can control how `useAsyncDataFetch`
+ * data fetches these flags are (`onServer` and `reuse`).
  * 
- * [client]
- * 1. useAsyncDataFetch is only (unless onServer is set to false) executed on the client-side when the route is changed, 
- *    underthehood we use the `useEffect` function to perform this check (specifically we perform checks on `location.pathname`) 
- *    after it detected that the route changed...
- * 
- * 2. (*) useAsyncDataFetch will use the available previous data that was fetched in the server during server-side rendering,
- *    and then flag out and delete this data from window.\_\_APP_STATE_\_.asyncDataFetches. When there is a detected
- *    navigation to the component containing a useAsyncDataFetch, it will cause the useAsyncDataFetch to either go to (*) or
- *    call the async callback (aCb) which is used as sa callback to the `useEffect` to trigger side-effects that forces 
- *    rerender on the component.
- * 
- * [server]
- * 
- *  -- wip --
+ *  `onServer` instructs this hook to whether data fetch only in the browser or both.
+ *  `reuse`    instructs this hook to not perform the `aCb` callback / data fetch in the browser and must
+ *             only index the (by the `aCb` callback) the data that was fetched from the server.
+ *
+ * `aCb` call back is where the data fetched will go after `useAsyncDataFetch` has finished fetching.
  * 
  * @param aCb 
  */
-export function useAsyncDataFetch<T = any, S = string>(options: FetchOptions<T> = { onServer: true }, aCb: () => Promise<T>): FetchState<S> {
+export function useAsyncDataFetch<T = any, S = string>(options: FetchOptions = { onServer: true, reuse: false }, aCb: () => Promise<T>):
+  // returned type
+  [FetchState<S>, FetchResultCallback<T>] {
+
   const { isBrowser, isServer } = environment
-  const [ fState, setState ] = useState<FetchState<S>>({ status: FetchStateStatus.Pending })
+  const [fState, setState] = useState<FetchState<S>>({ status: FetchStateStatus.Pending })
+  const [fRes, setFRes] = useState<T>(null)
+  let fRCb: FetchResultCallback<T>
 
   if (isBrowser) {
     useRouterChangeEffect(() => {
-      aCb().then(
-        res => {
-          const { resolveToState } = options
-          setState({ status: FetchStateStatus.Success })
-          
-          // if `options.resolveToState` is specified, we use the resolveToState to trigger a state
-          // update to the targeted state by the resolveToState (StateUpdater).
-          if (resolveToState) resolveToState(res)
-        }
-      ).catch(
-        err => {
-          setState({ status: FetchStateStatus.Error, message: err })
-        }
-      )
+      const ssrDataCounter = window.__APP_STATE__.asyncDataFetchesIndex
+      const ssrData = window.__APP_STATE__.asyncDataFetches[ssrDataCounter - 1]
+      let isNotPopulated = true
+
+      // If the ssrData has not been indexed in the browser, instead of
+      // performing an HTTP request, we are gonna used the value of `ssrData.data`
+      // then we flag `ssrData.data` as used.
+      if (options.onServer && ssrData && (!ssrData.used || options.reuse)) {
+        setState({ status: FetchStateStatus.Success })
+        setFRes(ssrData.data)
+
+        ssrData.used = true
+        isNotPopulated = false
+
+        window.__APP_STATE__.asyncDataFetchesIndex++
+        // Reset asyncDataFetches counter when it reaches the maximum length.
+        if (ssrDataCounter >= window.__APP_STATE__.asyncDataFetches.length)
+          window.__APP_STATE__.asyncDataFetchesIndex = 1
+      }
+
+      if (isNotPopulated) {
+        aCb().then(
+          res => {
+            setState({ status: FetchStateStatus.Success })
+            setFRes(res)
+          }
+        ).catch(
+          err => {
+            setState({ status: FetchStateStatus.Error, message: err })
+          }
+        )
+      }
     })
+
+    fRCb = (cb) => {
+      useEffect(() => {
+        if (fState.status == FetchStateStatus.Success) cb(fRes)
+      }, [fState.status])
+    }
   }
 
   if (options.onServer && isServer) {
+    const asyncDataFetches = window.__APP_STATE__.asyncDataFetches
+    if (!asyncDataFetches) {
+      pendingAsyncDataFetches.push({ C: aCb, options })
+    } else {
+      fRCb = (cb) => {
+        const ssrDataCounter = window.__APP_STATE__.asyncDataFetchesIndex
+        const ssrData = asyncDataFetches[ssrDataCounter - 1]
 
+        if (ssrData) {
+          setState({ status: FetchStateStatus.Success })
+          setFRes(ssrData.data)
+
+          window.__APP_STATE__.asyncDataFetchesIndex++
+          // Reset asyncDataFetches counter when it reaches the maximum length.
+          if (ssrDataCounter >= window.__APP_STATE__.asyncDataFetches.length)
+            window.__APP_STATE__.asyncDataFetchesIndex = 1
+
+          if (fRes) {
+            return cb(fRes)
+          }
+        }
+      }
+    }
   }
 
-  return fState
+  return [fState, fRCb]
 }
 
 export const enum FetchStateStatus {
@@ -198,6 +241,24 @@ export const enum FetchStateStatus {
  * resolvePendingAsyncDataFetches
  */
 export async function resolvePendingAsyncDataFetches() {
+  const Pa = pendingAsyncDataFetches
+  const asyncDataFetches = []
 
+  const resolveFetches = []
+  for (let index = 0; index < Pa.length; index++) {
+    if (!Pa[index].options.onServer) continue
 
+    resolveFetches.push((async (Pi, index) => {
+      const { C } = Pi
+      asyncDataFetches[index] = { data: await C(), used: false }
+
+      Promise.resolve()
+    })(Pa[index], index))
+  }
+
+  await Promise.all(resolveFetches)
+
+  window.__APP_STATE__.asyncDataFetches = asyncDataFetches
+  window.__APP_STATE__.asyncDataFetchesIndex = resolveFetches.length
+  pendingAsyncDataFetches = []
 }

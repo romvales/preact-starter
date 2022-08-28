@@ -13,7 +13,13 @@ export {
 
 } from './ssr-utils'
 
-export { useRouterChangeEffect } from './useRouterChangeEffect'
+export { 
+  useRouterChangeEffect, 
+
+  useDocMetadata, 
+  setDocMetadata, 
+
+} from './hooks'
 
 export function enableDevTools() {
   if (isDevelopment) {
