@@ -39,9 +39,10 @@ async function renderDoc(req: Request, res: Response) {
   const initStore = initUniStore()
 
   await resolvePendingProps({ req, res })
-  await resolvePendingAsyncDataFetches()
 
   renderApp(initAppState, initStore)
+
+  await resolvePendingAsyncDataFetches()
 
   // Setup the index.html here that will be send to the browser
   document.body.innerHTML += `
@@ -50,9 +51,8 @@ async function renderDoc(req: Request, res: Response) {
     window.__UNISTORE_STATE__ = ${devalue(initStore.getState())}
     window.clientRuntimeConfig = window.__APP_STATE__.clientRuntimeConfig
   </script>
-  `  
+  `
 
-  //
   document.querySelector('.app-root').innerHTML = renderApp()
 
   return doc.serialize()
