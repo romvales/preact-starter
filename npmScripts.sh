@@ -18,7 +18,7 @@ function main {
     ;;
   serve)
     NODE_ENV=production \
-    $NODE_RUNTIME ./dist/server.*.js
+    node ./dist/server.*.js
     ;;
   test)
     NODE_ENV=development \
