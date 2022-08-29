@@ -1,5 +1,3 @@
-
-
 interface NodeModule {
   hot: any;
 }
@@ -9,6 +7,7 @@ interface Window {
   __APP_STATE__: {
     asyncDataFetches?: { data: any, used: boolean }[],
     serverSideProps?: any,
+    serverSideRoutesWhitelist: { [routeName: string]: boolean | Element | any },
     [key: string]: any,
   },
 }

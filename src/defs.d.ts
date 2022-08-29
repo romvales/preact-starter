@@ -3,7 +3,6 @@ import { HelmetOptions } from 'helmet'
 import { CookieParseOptions } from 'cookie-parser'
 import morgan from 'morgan'
 import { FetchStateStatus } from '@/helpers'
-import { StateUpdater } from 'preact/hooks'
 import { FunctionComponent } from 'preact'
 import { Request, Response } from 'express'
 
@@ -20,6 +19,9 @@ declare global {
     onServer?: boolean,
     reuse?: boolean,
   }
+
+  type Route<T = any> = { path: string, component: FunctionComponent<T>, lazy?: boolean, loading?: () => FunctionComponent<T> | Element }
+  type Routes = Route[]
 
   type AppConfig = {
     title?: string
@@ -48,7 +50,8 @@ declare global {
   }[]
 
   var pendingAsyncDataFetches: {
-    C: () => Promise<any>,
+    fState: any[],
+    C: ([]: any) => Promise<any>,
     options: FetchOptions,
   }[]
 
