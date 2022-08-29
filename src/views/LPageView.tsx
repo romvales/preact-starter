@@ -1,18 +1,16 @@
-import { FunctionComponent, render } from 'preact'
+import { FunctionComponent } from 'preact'
 import { getServerSideProps, useAsyncDataFetch, FetchStateStatus, setDocMetadata } from '@/helpers'
 
 import dogVideo from '@/assets/images/hapi-golden-retriever.mp4'
 import { useState } from 'preact/hooks'
 import axios from 'axios'
 
-export const LPageView: FunctionComponent<{ path: string, data?: 1 }> = (props) => {
+export const LPageView: FunctionComponent<{ path: string, data?: 1, user: any }> = (props) => {
   const [user, setUser] = useState()
 
   const [ fState, fRCb ] = useAsyncDataFetch({ onServer: true, reuse: true }, async () => {
-    const user = await axios.get('https://random-data-api.com/api/v2/users').then(res => res.data)
-    
+    const user = await axios.get('https://random-data-api.com/api/v2/users').then(res => res.data)  
     document.title = `${user.username} ${new Date}`
-
     return { user }
   })
 
@@ -26,6 +24,7 @@ export const LPageView: FunctionComponent<{ path: string, data?: 1 }> = (props) 
       <h1 className='headline bg-gray-300 font-light'>Smilling golden doggo {clientRuntimeConfig.BASE_URL}</h1>
       <video src={dogVideo} autoPlay loop></video>
       <div>
+        {JSON.stringify(props)}
         {renderUserInfo(fState, user)}
       </div>
     </>
