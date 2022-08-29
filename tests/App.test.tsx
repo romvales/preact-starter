@@ -12,15 +12,15 @@ import {
 } from './__mocks__/initializeMockState'
 
 describe('App', () => {
-  let App: FunctionComponent<any>
+  let LPageView: FunctionComponent<any>
 
   beforeEach(() => {
     initializeGlobalMocksState()
     window.clientRuntimeConfig = {
-      BASE_URL: 'http://localhost:3000'
+      BASE_URL: 'http://localhost:3000/home'
     }
 
-    App = require('@/App').App
+    LPageView = require('@/views/LPageView').LPageView
   })
 
   afterEach(() => {
@@ -36,15 +36,14 @@ describe('App', () => {
   })
 
   test('should contain a heading with a pangram message.', () => {
-    initializeGlobalMocksState(App)
+    initializeGlobalMocksState(LPageView)
     switchEnvironment()
 
-    history.replaceState({}, null, '/home')
-    const { container } = render(<App />)
+    const { container } = render(<LPageView />)
     expect(container.querySelector('.headline').textContent).toBe(`Smilling golden doggo ${clientRuntimeConfig.BASE_URL}`)
     expect(window.__UNISTORE_STATE__).toBeUndefined()
 
-    teardownGlobalMocksState(App)
+    teardownGlobalMocksState(LPageView)
     switchEnvironment()
   })
 

@@ -1,10 +1,10 @@
-import { environment, getServerSideProps, resolvePendingProps } from '@/helpers/ssr-utils'
+import { environment, getServerSideProps } from '@/helpers/ssr-utils'
 import { render } from '@testing-library/preact'
 import { FunctionComponent } from 'preact'
 import { switchEnvironment } from '../utils'
 
 import {
-  mockAppState, 
+  mockAppState,
   mockPendingSSProps,
 
   initializeGlobalMocksState,
@@ -12,11 +12,15 @@ import {
 } from '../__mocks__/initializeMockState'
 
 describe('getServerSideProps', () => {
-  const TC: FunctionComponent<{ message?: string }> = (props) => {
+
+  const TC: FunctionComponent<{ message?: string, data?: 1 }> = (props) => {
     return (
-      <p className='message'>{props.message}</p>
+      <>
+        <p className='message'>{props.message}</p>
+        <p className='message-2'>{props.data}</p>
+      </>
     )
-  } 
+  }
 
   beforeEach(() => {
     initializeGlobalMocksState(TC) 
@@ -37,6 +41,7 @@ describe('getServerSideProps', () => {
   })
 
   test('should populate the `defaultProps` of a component with async data (data fetched).', async () => {
+
     // Setup the defaultProps of the TC component.
     getServerSideProps(TC, async () => {
       return { message: 'The quick brown fox jumps over the lazy dog.' }
@@ -44,30 +49,42 @@ describe('getServerSideProps', () => {
 
     // not passed 
     getServerSideProps(TC, async () => {
-      return null
+      return { data: 1 }
     })
 
-    await resolvePendingProps({} as any)
+    const resolvePendingProps = jest.fn(async () => {
+      for (const pending of pendingServerSideProps) {
+        const C = pending.C
+        const cb = pending.aF
+        const result = await pending.aF(null)
+
+        C.defaultProps = Object.assign(C.defaultProps ?? {}, result)
+        window.__APP_STATE__.serverSideProps.push(result)
+      }
+
+      window.__APP_STATE__.serverSidePropsIndex = window.__APP_STATE__.serverSideProps.length
+    })
+
+    await resolvePendingProps()
+
+    switchEnvironment() // browser mode
 
     const mockPendingSSPropsLength = mockPendingSSProps.length
-    switchEnvironment()
 
     const { container } = render(<TC />)
-    expect(container.querySelector('p').textContent).toBe('The quick brown fox jumps over the lazy dog.')
-    expect(mockAppState.serverSidePropsIndex).toBe(1)
-    expect(mockAppState.serverSideProps).toHaveLength(1)
+    expect(resolvePendingProps).toHaveBeenCalled()
+    expect(container.querySelector('p.message').textContent).toBe('The quick brown fox jumps over the lazy dog.')
+    expect(container.querySelector('p.message-2').textContent).toBe("1")
+    expect(mockAppState.serverSidePropsIndex).toBe(2)
+    expect(mockAppState.serverSideProps).toHaveLength(2)
     expect(mockPendingSSPropsLength).toBe(2)
 
-    switchEnvironment()
+    switchEnvironment() // server
   })
 
-  test('should throw an error when passed a non function component as first parameter.', () => {
-    expect(() => {
-      getServerSideProps(function() {} as any, async () => {
-        return {}
-      })
-
-    }).toThrowError('(anonymous) is not a valid function component.')
+  test('should throw an error when passed a non function component as first parameter.', async () => {
+    const err = await getServerSideProps(function () { } as any, async () => ({})).catch(err => err)
+    expect(() => { throw err }).toThrowError('(anonymous) is not a valid function component.')
   })
 
 })
