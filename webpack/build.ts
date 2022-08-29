@@ -2,7 +2,7 @@ import { Configuration } from 'webpack'
 import path from 'path'
 import devConfig from './dev'
 
-import TerserPlugin from 'terser-webpack-plugin'
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 const buildConfig: Configuration = {
@@ -42,9 +42,7 @@ const buildConfig: Configuration = {
     usedExports: true,
     minimize: true,
     minimizer: [
-      new TerserPlugin({
-        parallel: true,
-      }),
+      new UglifyJsPlugin(),
     ],
   },
 
