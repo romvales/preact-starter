@@ -1,6 +1,6 @@
 import '../../app.config'
 import { isDevelopment } from '@/helpers/ssr-utils'
-import { setupDevMiddleware, ssrRouter } from './middlewares'
+import { ssrRouter, setupDevMiddleware } from './middlewares'
 import morgan from 'morgan'
 import express from 'express'
 import cookieParser from 'cookie-parser'
@@ -11,7 +11,9 @@ import helmet from 'helmet'
 
 const server = express()
 
-if (isDevelopment) setupDevMiddleware(server)
+if (isDevelopment) {
+  setupDevMiddleware(server)
+}
 
 server.use(helmet(APP_CONFIG.helmetOptions))
 server.use(cookieParser('', APP_CONFIG.cookieParserOptions))
