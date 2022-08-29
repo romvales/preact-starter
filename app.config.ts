@@ -1,3 +1,4 @@
+
 let appConfig = Object.freeze({
   title: 'Webpack App',
 
@@ -10,11 +11,9 @@ let appConfig = Object.freeze({
   // --- Server options
   serverHost: '0.0.0.0',
   serverPort: parseInt(process.env.PORT) || 3000,
-
   secretPhrase: process.env.SECRET_PHRASE,
 
   // --- Middleware options
-
   helmetOptions: {
     contentSecurityPolicy: false,
   },
