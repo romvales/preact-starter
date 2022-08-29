@@ -54,6 +54,7 @@
     "morgan": "^1.10.0",
     "node-fetch": "^3.2.10",
     "preact": "^10.10.6",
+    "preact-async-route": "^2.2.1",
     "preact-render-to-string": "^5.2.2",
     "preact-router": "^4.1.0",
     "regenerator-runtime": "^0.13.9",
