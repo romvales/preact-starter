@@ -4,7 +4,6 @@ import devConfig from './dev'
 
 import TerserPlugin from 'terser-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import { isDevelopment } from '@/helpers/ssr-utils'
 
 const buildConfig: Configuration = {
   mode: 'production',
