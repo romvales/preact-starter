@@ -1,7 +1,7 @@
 import createStore, { Store } from 'unistore'
 import devtools from 'unistore/devtools'
 import { FunctionComponent } from 'preact'
-import { Inputs, useEffect, useState } from 'preact/hooks'
+import { StateUpdater, useEffect, useLayoutEffect, useState } from 'preact/hooks'
 import { useRouterChangeEffect } from './hooks'
 
 export const environment = {
@@ -33,7 +33,9 @@ export function initAppState() {
     window.__APP_STATE__ :
     (window.__APP_STATE__ = {
       serverSideProps: [],
+      serverSideRoutesWhitelist: {},
       clientRuntimeConfig: APP_CONFIG.clientRuntimeConfig,
+      whitelistedRoutes: {},
     })
 
   global.clientRuntimeConfig =
@@ -49,7 +51,7 @@ export function initAppState() {
  * @param C 
  * @param aF 
  */
-export function getServerSideProps<T = any>(C: FunctionComponent<any>, aF: (ctx: ServerContextRef) => Promise<T>) {
+export async function getServerSideProps<T = any>(C: FunctionComponent<any>, aF: (ctx: ServerContextRef) => Promise<T>) {
   const fName = C.name
   const memoTchecksOldRes = memoTchecks[fName]
   let isNotComponent = false
@@ -61,10 +63,10 @@ export function getServerSideProps<T = any>(C: FunctionComponent<any>, aF: (ctx:
   //     that the JSX runtime (and other possible candidate keywords) uses and
   //     memoize the result to `memoTchecks` and then update the flag `isNotComponent`
   if (!memoTchecksOldRes) {
-    memoTchecks[fName] = isNotComponent = !/(_jsxRuntime|children|jsxs|Fragment)/g.test(C.toString())
+    memoTchecks[fName] = isNotComponent = !/(_jsxRuntime|children|jsxs?|Fragment)/g.test(C.toString())
   }
 
-  if (isNotComponent) {
+  if (isNotComponent) { 
     throw new TypeError(`${C.name.length ? C.name : '(anonymous)'} is not a valid function component.`)
   }
 
@@ -72,14 +74,31 @@ export function getServerSideProps<T = any>(C: FunctionComponent<any>, aF: (ctx:
     pendingServerSideProps.push({ C, aF })
 
     // Once this function is reached by the browser, we index the serverSideProps
-    // on the window.__APP_STATE___ using serverSidePropsIndex
+    // on the window.__APP_STATE___ using serverSidePropsIndex. But if `C` is 
+    // in the list of whitelisted routes (window.__APP_STATE__.serverSideRoutesWhitelist). 
+    // we will call `aF` so that the `defaultProps` will be populated with the data fetched 
+    // data in the browser.
   } else {
-    const serverSideProps = window.__APP_STATE__.serverSideProps
-    let index = window.__APP_STATE__.serverSidePropsIndex--
+    let defaultProps: any
 
-    // Reset the pointer's value to serverSideProps.
-    if (index == 0) index = window.__APP_STATE__.serverSidePropsIndex = serverSideProps.length
-    C.defaultProps = Object.assign(C.defaultProps ?? {}, serverSideProps[serverSideProps.length - index])
+    if (window.__APP_STATE__.serverSideRoutesWhitelist[fName]) {
+      await aF(null).then(props => {
+        const routeUi = window[`${fName}-route`] 
+        routeUi.props = Object.assign(routeUi.props, props)
+        defaultProps = props
+        delete window[`${fName}-route`]
+      })
+    } else {
+      const serverSideProps = window.__APP_STATE__.serverSideProps
+      let index = window.__APP_STATE__.serverSidePropsIndex--
+
+      // Reset the pointer's value to serverSideProps.
+      if (index == 0) index = window.__APP_STATE__.serverSidePropsIndex = serverSideProps.length
+      defaultProps = serverSideProps[serverSideProps.length - index]
+    }
+
+
+    C.defaultProps = Object.assign(C.defaultProps ?? {}, defaultProps)
   }
 }
 
@@ -90,6 +109,8 @@ const memoTchecks: { [componentName: string]: boolean } = {}
  * @param ctx 
  */
 export async function resolvePendingProps(ctx: ServerContextRef) {
+  const routes: Routes = require('@/views').default
+  const routesWhitelist: { [routeName: string]: boolean } = {}
   const Ps = pendingServerSideProps
   const serverSideProps = []
 
@@ -109,6 +130,39 @@ export async function resolvePendingProps(ctx: ServerContextRef) {
   // the browser.
   const propsResolvers = []
   for (let index = 0; index < Ps.length; index++) {
+    Ps[index].C.defaultProps = {}
+
+    const { req } = ctx
+    let isExcluded = false
+
+    // When component `Ps[index].C` does not match the current request URL path
+    // we exclude it from the ones that will be data fetched by the server and
+    // we put it in a `whitelist` that will be data fetched in the client
+    // once `useRouterChangeEffect` detected a URL change in the browser.
+    //
+    // Additionally, if it matches the current request URL path we will capture
+    // the request url for any url parameters ':[keyword]' and then place it
+    // into the `defaultProps` of the component.
+    for (const route of routes) {
+      const patt = new RegExp(route.path.replaceAll(/:[^/]+/g, '([^/]+)')) 
+
+      if (route.component == Ps[index].C && route.path != req.path && !patt.test(req.path)) {
+        isExcluded = true
+        routesWhitelist[Ps[index].C.name] = true
+        break
+      }
+
+      let currIndex = 1
+      const params = route.path.matchAll(/:([^/]+)/g)
+      for (const [, param] of params) {
+        const matches = req.path.match(patt) ?? []
+        const C = Ps[index].C
+        C.defaultProps = Object.assign(C.defaultProps, { [param]: matches[currIndex++] })
+      }
+    }
+
+    if (isExcluded) continue
+
     propsResolvers.push((async (Ps, i: number) => {
       let isGoodProps = true
       const { C, aF } = Ps[i]
@@ -125,7 +179,7 @@ export async function resolvePendingProps(ctx: ServerContextRef) {
         numBadProps++
       }
 
-      if (isGoodProps) C.defaultProps = Object.assign(C.defaultProps ?? {}, asyncProps)
+      if (isGoodProps) C.defaultProps = Object.assign(C.defaultProps, asyncProps)
 
       Promise.resolve()
     })(Ps, index))
@@ -135,6 +189,7 @@ export async function resolvePendingProps(ctx: ServerContextRef) {
 
   window.__APP_STATE__.serverSideProps = serverSideProps
   window.__APP_STATE__.serverSidePropsIndex = propsResolvers.length - numBadProps
+  window.__APP_STATE__.serverSideRoutesWhitelist = routesWhitelist
 }
 
 /**
@@ -150,14 +205,17 @@ export async function resolvePendingProps(ctx: ServerContextRef) {
  * 
  * @param aCb 
  */
-export function useAsyncDataFetch<T = any, S = string>(options: FetchOptions = { onServer: true, reuse: false }, aCb: () => Promise<T>):
+export function useAsyncDataFetch<T = any, S = string>(
+  options: FetchOptions = { onServer: true, reuse: false }, 
+  aCb: (fetchState: [ FetchState<S>, StateUpdater<FetchState<S>> ]) => Promise<T>,
+):
   // returned type
   [FetchState<S>, FetchResultCallback<T>] {
 
   const { isBrowser, isServer } = environment
   const [fState, setState] = useState<FetchState<S>>({ status: FetchStateStatus.Pending })
   const [fRes, setFRes] = useState<T>(null)
-  let fRCb: FetchResultCallback<T> = () => {}
+  let fRCb: FetchResultCallback<T> = () => { }
 
   if (isBrowser) {
     useRouterChangeEffect(() => {
@@ -182,7 +240,7 @@ export function useAsyncDataFetch<T = any, S = string>(options: FetchOptions = {
       }
 
       if (isNotPopulated) {
-        aCb().then(
+        aCb([ fState, setState ]).then(
           res => {
             setState({ status: FetchStateStatus.Success })
             setFRes(res)
@@ -205,7 +263,7 @@ export function useAsyncDataFetch<T = any, S = string>(options: FetchOptions = {
   if (options.onServer && isServer) {
     const asyncDataFetches = window.__APP_STATE__.asyncDataFetches
     if (!asyncDataFetches) {
-      pendingAsyncDataFetches.push({ C: aCb, options })
+      pendingAsyncDataFetches.push({ fState: [ fState, setState ], C: aCb, options })
     } else {
       fRCb = (cb) => {
         const ssrDataCounter = window.__APP_STATE__.asyncDataFetchesIndex
@@ -249,8 +307,8 @@ export async function resolvePendingAsyncDataFetches() {
     if (!Pa[index].options.onServer) continue
 
     resolveFetches.push((async (Pi, index) => {
-      const { C } = Pi
-      asyncDataFetches[index] = { data: await C(), used: false }
+      const { C, fState } = Pi
+      asyncDataFetches[index] = { data: await C(fState), used: false }
 
       Promise.resolve()
     })(Pa[index], index))
