@@ -1,4 +1,12 @@
-dist
-node_modules
+*
 
-.env
+!/dist*
+!/.env.production
+!/bun.lockb
+!/package*.json
+!/.env.production
+!/Dockerfile
+!/README.md
+!/.swcrc
+!/.gitignore
+!/npmScripts.sh
