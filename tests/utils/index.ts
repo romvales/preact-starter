@@ -14,3 +14,7 @@ export function switchEnvironment() {
   Object.defineProperty(environment, 'isServer', { get() { return !isServer } }) 
 }
 
+export function throwNotImplemented(cMesg?: string) {
+  throw new Error(cMesg ?? 'Not implemented')
+}
+

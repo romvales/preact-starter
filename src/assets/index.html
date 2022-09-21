@@ -2,12 +2,19 @@
 <html lang="en">
 <head>
   <%= htmlWebpackPlugin.options.headTags %>
+
+  <link rel="manifest" href="/app.webmanifest">
+  <link rel="preconnect" href="https://www.dogbreedslist.info">
+  <link rel="preconnect" href="https://www.google.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
   <noscript>
     <p>You need to enable JavaScript to continue in the app.</p>
   </noscript>
-  <div class="app-root"></div>
+  <div class="app-root">
+  </div>
 </body>
 </html>

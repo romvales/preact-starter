@@ -1,9 +1,10 @@
-import { Configuration } from 'webpack'
+import webpack, { Configuration } from 'webpack'
 import path from 'path'
 import devConfig from './dev'
 
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
+import TerserPlugin from 'terser-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { GenerateSW } from 'workbox-webpack-plugin'
 
 const buildConfig: Configuration = {
   mode: 'production',
@@ -21,6 +22,7 @@ const buildConfig: Configuration = {
   },
 
   module: {
+    noParse: /gun\.js$/,
     rules: [
       ...devConfig.module.rules.slice(0, -1),
       {
@@ -39,20 +41,47 @@ const buildConfig: Configuration = {
 
   resolve: devConfig.resolve,
   optimization: {
+    splitChunks: {
+      chunks: 'async',
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          reuseExistingChunk: true,
+        },
+        default: {
+          minChunks: 2,
+          priority: -10,
+          reuseExistingChunk: true,
+        },
+      },
+    },
     usedExports: true,
     minimize: true,
     minimizer: [
-      new UglifyJsPlugin(),
+      new TerserPlugin({
+        parallel: true,
+        terserOptions: {
+          mangle: true,
+          module: true,
+          sourceMap: true,
+        },
+      }),
     ],
   },
 
   plugins: [
     ...devConfig.plugins.slice(0, -1),
-    
+
+    new GenerateSW(),
+  
     new MiniCssExtractPlugin({
       linkType: 'text/css',
-      filename: 'assets/styles/[name].[contenthash].css',
-      chunkFilename: 'assets/styles/chunk-[id].[contenthash].css',
+      filename: 'assets/styles/[name].[contenthash].css', 
+      attributes: {
+        media: 'all',
+        onload: 'this.media = \'all\'',
+      },
     }),
   ],
 

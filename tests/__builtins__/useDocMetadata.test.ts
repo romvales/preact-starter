@@ -7,9 +7,7 @@ describe('useDocMetadata', () => {
   beforeAll(() => {
     const meta1 = document.createElement('meta')
     meta1.setAttribute('charset', 'utf-8')
-
     testMetadata = meta1
-
     document.head.appendChild(meta1)
   })
 
@@ -25,6 +23,7 @@ describe('useDocMetadata', () => {
   })
 
   test('should append and set a metadata to the document.', () => {
+    global.finalRender = true
     setDocMetadata([
       { name: 'viewport', content: 'width=device-width,initial-scale=1.0' },
       { name: 'author', content: 'romdevmod@gmail.com' },

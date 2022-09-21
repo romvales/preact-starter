@@ -1,6 +1,6 @@
 import { isDevelopment } from './ssr-utils'
 
-export { 
+export {
   isDevelopment,
   isProduction,
   initAppState,
@@ -11,22 +11,20 @@ export {
   useAsyncDataFetch,
   FetchStateStatus,
 
+  environment,
 } from './ssr-utils'
 
-export { 
-  useRouterChangeEffect, 
-
-  useDocMetadata, 
-  setDocMetadata, 
+export {
+  useAppTheme,
+  useRouterChangeEffect,
+  useDocMetadata,
+  setDocMetadata,
 
 } from './hooks'
 
 export function enableDevTools() {
   if (isDevelopment) {
-    require('preact/debug')
-    require('preact/devtools')
+    import('preact/devtools')
+    import('preact/debug')
   }
 }
-
-
-

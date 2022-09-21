@@ -1,7 +1,7 @@
 import { Fragment, FunctionComponent } from 'preact'
-import { render, renderHook, act } from '@testing-library/preact'
+import { render, renderHook } from '@testing-library/preact'
 import { StateUpdater, useState } from 'preact/hooks'
-import { useAsyncDataFetch, FetchStateStatus, resolvePendingAsyncDataFetches } from '@/helpers'
+import { useAsyncDataFetch, FetchStateStatus } from '@/helpers'
 import {
 
   initializeGlobalMocksState,

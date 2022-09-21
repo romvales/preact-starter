@@ -7,11 +7,11 @@ import devalue from 'devalue'
 import { initAppState, initUniStore, resolvePendingProps } from '@/helpers'
 import { ServerContext } from '@/server/SSRContext'
 import { App } from '@/App'
-import { resolvePendingAsyncDataFetches } from '@/helpers/ssr-utils'
+import { isDevelopment, resolvePendingAsyncDataFetches } from '@/helpers/ssr-utils'
 
 const ssrRouter = Router({ strict: true })
 
-ssrRouter.get('**', async (req, res) => {
+ssrRouter.get('*', async (req, res) => {
   res.status(200)
     .set('Content-Type', 'text/html')
     .send(await renderDoc(req, res))
@@ -38,22 +38,28 @@ async function renderDoc(req: Request, res: Response) {
   const initState = initAppState()
   const initStore = initUniStore()
 
-  await resolvePendingProps({ req, res })
-
-  renderApp(initAppState, initStore)
-
-  await resolvePendingAsyncDataFetches()
+  if (APP_CONFIG.mode == 'ssr') {
+    await resolvePendingProps({ req, res })
+    renderApp(initAppState, initStore)
+    await resolvePendingAsyncDataFetches()
+  }
 
   // Setup the index.html here that will be send to the browser
   document.body.innerHTML += `
   <script crossorigin="use-credentials">
     window.__APP_STATE__ = ${devalue(initState)}
     window.__UNISTORE_STATE__ = ${devalue(initStore.getState())}
+    window.__whitelistRoutes = {}
+    window.__routes = {}
     window.clientRuntimeConfig = window.__APP_STATE__.clientRuntimeConfig
   </script>
   `
 
-  document.querySelector('.app-root').innerHTML = renderApp()
+  if (APP_CONFIG.mode == 'ssr') {
+    global.finalRender = true
+    document.querySelector('.app-root').innerHTML = renderApp()
+    delete global.finalRender
+  }
 
   return doc.serialize()
 }
@@ -64,7 +70,7 @@ function renderApp(appState?: any, store?: any) {
       <App />
     </ServerContext>,
     null,
-    { pretty: true },
+    { pretty: isDevelopment },
   )
 }
 

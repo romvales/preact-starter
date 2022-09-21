@@ -1,0 +1,135 @@
+.about-page {
+  @apply px-3 flex flex-col container mx-auto min-h-screen
+    pb-[5rem];
+
+  .about-page__header {
+    @apply pt-[4rem];
+
+    .header__logo {
+      @apply h-52 w-52;
+    }
+    
+    .header__fr-main {
+      @apply text-3xl font-semibold my-6 text-primary-400;
+      @apply dark:text-white;
+    }
+
+    p {
+      @apply mb-4;
+    }
+  }
+
+  .about-page__main {
+
+    .main__gcash-qrcode {
+
+      figcaption {
+        @apply flex flex-col items-center my-8;
+
+        .gcash-qrcode__separator {
+          @apply font-semibold my-2;
+        }
+
+        .gcash-qrcode__mobile {
+          @apply flex w-full border-2 rounded-xl border-primary-100;
+        
+          @apply dark:bg-slate-800;
+
+
+          input {
+            @apply grow outline-none rounded-lg text-center
+              text-lg dark:text-gray-600 font-semibold;
+            
+            @apply bg-transparent dark:text-white;
+          }
+
+          button {
+            @apply rounded-lg p-3 flex justify-center items-center
+              rounded-tl-none rounded-bl-none;
+            
+            @apply bg-primary-200 text-white;
+          }
+        }
+      }
+      
+      aside.qr-modal {
+        @apply fixed h-screen top-0 left-0 flex-col justify-center 
+          z-10 bg-gray-700 items-center w-full;
+        
+        img {
+          @apply w-96;
+        }
+      } 
+
+      .gcash-qrcode__qr-modal {
+        background-color: #007dfe;
+
+        @apply flex items-center py-2 px-3 w-full
+          justify-center rounded-2xl text-white;
+
+        .qr-modal__logo {
+          @apply w-12 rounded-md;
+        }
+
+        span {
+          @apply ml-3 font-bold;
+        }
+
+      }
+
+    }
+  }
+
+  .about-page__footer {
+
+    .footer__email-form {
+      @apply mt-9 border p-4 rounded-lg shadow-lg bg-primary-200
+        text-white;
+
+      @apply dark:bg-slate-800 dark:border-none;
+
+      .email-form__title {
+        line-height: -2%;
+        @apply text-2xl font-semibold mb-4;
+      }
+
+      p.email-form__message {
+        @apply mb-4 dark:text-slate-400;
+      }
+
+      p.email-form__note {
+        @apply flex border-2 dark:border-primary-400 my-2
+          p-3 rounded-lg dark:text-slate-400 mb-4;
+
+        svg {
+          @apply w-32 dark:text-primary-200;
+        }
+      }
+
+      section {
+        @apply flex flex-col;
+      }
+
+      label {
+        @apply absolute mt-3 ml-3 text-gray-400;
+      }
+
+      input[type='email'], input[type='tel'], input[type='text'], textarea {
+        @apply outline-none border border-slate-300 rounded-lg mb-2
+          p-3 text-black;
+
+        @apply dark:text-white dark:bg-slate-900
+          dark:border-none;
+      }
+
+      textarea {
+        @apply resize-none;
+      }
+
+      .email-form__submit-btn {
+        @apply cursor-pointer w-full p-4 mt-7 bg-primary-400 rounded-xl
+          shadow-lg font-semibold text-white text-lg;
+      }
+    }    
+  }
+}

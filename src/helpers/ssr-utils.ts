@@ -1,7 +1,7 @@
 import createStore, { Store } from 'unistore'
 import devtools from 'unistore/devtools'
 import { FunctionComponent } from 'preact'
-import { StateUpdater, useEffect, useLayoutEffect, useState } from 'preact/hooks'
+import { StateUpdater, useEffect, useState } from 'preact/hooks'
 import { useRouterChangeEffect } from './hooks'
 
 export const environment = {
@@ -13,6 +13,10 @@ export const environment = {
 
   get isServer() {
     return !this.isBrowser && typeof module !== 'undefined'
+  },
+
+  get isFinalRender() {
+    return global.finalRender
   }
 }
 
@@ -20,12 +24,12 @@ export const isDevelopment = process.env.NODE_ENV === 'development'
 export const isProduction = !isDevelopment
 
 export function initUniStore(store?: Store<any>) {
-  const initState = window.__UNISTORE_STATE__ ?
+  const initStore = window.__UNISTORE_STATE__ ?
     window.__UNISTORE_STATE__ :
     (window.__UNISTORE_STATE__ = {})
   const C = createStore
 
-  return isDevelopment && environment.isBrowser ? devtools(C(initState)) : C(initState)
+  return isDevelopment && environment.isBrowser ? devtools(C(initStore)) : C(initStore)
 }
 
 export function initAppState() {
@@ -66,7 +70,7 @@ export async function getServerSideProps<T = any>(C: FunctionComponent<any>, aF:
     memoTchecks[fName] = isNotComponent = !/(_jsxRuntime|children|jsxs?|Fragment)/g.test(C.toString())
   }
 
-  if (isNotComponent) { 
+  if (isNotComponent) {
     throw new TypeError(`${C.name.length ? C.name : '(anonymous)'} is not a valid function component.`)
   }
 
@@ -77,17 +81,21 @@ export async function getServerSideProps<T = any>(C: FunctionComponent<any>, aF:
     // on the window.__APP_STATE___ using serverSidePropsIndex. But if `C` is 
     // in the list of whitelisted routes (window.__APP_STATE__.serverSideRoutesWhitelist). 
     // we will call `aF` so that the `defaultProps` will be populated with the data fetched 
-    // data in the browser.
+    // data in the browser. We will fallback to browser when the `window.__APP_STATE__.serverSideProps`
+    // resulted into `undefined` during server side.
   } else {
     let defaultProps: any
 
-    if (window.__APP_STATE__.serverSideRoutesWhitelist[fName]) {
+    const browserPropsFallback = async (fName: string, routes: { [componentName: string]: any }) => {
       await aF(null).then(props => {
-        const routeUi = window[`${fName}-route`] 
+        const routeUi = routes[fName]
         routeUi.props = Object.assign(routeUi.props, props)
         defaultProps = props
-        delete window[`${fName}-route`]
       })
+    }
+
+    if (window.__APP_STATE__.serverSideRoutesWhitelist[fName]) {
+      await browserPropsFallback(fName, window.__whitelistRoutes)
     } else {
       const serverSideProps = window.__APP_STATE__.serverSideProps
       let index = window.__APP_STATE__.serverSidePropsIndex--
@@ -95,6 +103,9 @@ export async function getServerSideProps<T = any>(C: FunctionComponent<any>, aF:
       // Reset the pointer's value to serverSideProps.
       if (index == 0) index = window.__APP_STATE__.serverSidePropsIndex = serverSideProps.length
       defaultProps = serverSideProps[serverSideProps.length - index]
+
+      if (defaultProps == undefined)
+        await browserPropsFallback(fName, window.__routes)
     }
 
 
@@ -144,7 +155,7 @@ export async function resolvePendingProps(ctx: ServerContextRef) {
     // the request url for any url parameters ':[keyword]' and then place it
     // into the `defaultProps` of the component.
     for (const route of routes) {
-      const patt = new RegExp(route.path.replaceAll(/:[^/]+/g, '([^/]+)')) 
+      const patt = new RegExp(route.path.replaceAll(/:[^/]+/g, '([^/]+)'))
 
       if (route.component == Ps[index].C && route.path != req.path && !patt.test(req.path)) {
         isExcluded = true
@@ -206,8 +217,8 @@ export async function resolvePendingProps(ctx: ServerContextRef) {
  * @param aCb 
  */
 export function useAsyncDataFetch<T = any, S = string>(
-  options: FetchOptions = { onServer: true, reuse: false }, 
-  aCb: (fetchState: [ FetchState<S>, StateUpdater<FetchState<S>> ]) => Promise<T>,
+  options: FetchOptions = { onServer: true, reuse: false, forced: false },
+  aCb: (fetchState: [FetchState<S>, StateUpdater<FetchState<S>>]) => Promise<T>,
 ):
   // returned type
   [FetchState<S>, FetchResultCallback<T>] {
@@ -215,7 +226,7 @@ export function useAsyncDataFetch<T = any, S = string>(
   const { isBrowser, isServer } = environment
   const [fState, setState] = useState<FetchState<S>>({ status: FetchStateStatus.Pending })
   const [fRes, setFRes] = useState<T>(null)
-  let fRCb: FetchResultCallback<T> = () => { }
+  let fRCb: FetchResultCallback<T> = () => {}
 
   if (isBrowser) {
     useRouterChangeEffect(() => {
@@ -234,13 +245,17 @@ export function useAsyncDataFetch<T = any, S = string>(
         isNotPopulated = false
 
         window.__APP_STATE__.asyncDataFetchesIndex++
-        // Reset asyncDataFetches counter when it reaches the maximum length.
+        // Reset asyncDataFetches counter whene it reaches the maximum length.
         if (ssrDataCounter >= window.__APP_STATE__.asyncDataFetches.length)
           window.__APP_STATE__.asyncDataFetchesIndex = 1
       }
 
-      if (isNotPopulated) {
-        aCb([ fState, setState ]).then(
+      // If there wasn't an ssr data found in the window.__APP_STATE___ (i.e.
+      // the fetched data was not populated) we will call the async callback
+      // passed and populated the data with the fetched ones. If the options.forced
+      // option on the other hand is set we will enforce to call the callback function.
+      if (isNotPopulated || (options.forced)) {
+        aCb([fState, setState]).then(
           res => {
             setState({ status: FetchStateStatus.Success })
             setFRes(res)
@@ -251,19 +266,20 @@ export function useAsyncDataFetch<T = any, S = string>(
           }
         )
       }
+
     })
 
     fRCb = (cb) => {
       useEffect(() => {
         if (fState.status == FetchStateStatus.Success) cb(fRes)
-      }, [fState.status])
+      }, [ fState.status ])
     }
   }
 
   if (options.onServer && isServer) {
     const asyncDataFetches = window.__APP_STATE__.asyncDataFetches
     if (!asyncDataFetches) {
-      pendingAsyncDataFetches.push({ fState: [ fState, setState ], C: aCb, options })
+      pendingAsyncDataFetches.push({ fState: [fState, setState], C: aCb, options })
     } else {
       fRCb = (cb) => {
         const ssrDataCounter = window.__APP_STATE__.asyncDataFetchesIndex

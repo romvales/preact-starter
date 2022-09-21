@@ -12,6 +12,7 @@ export function setupDevMiddleware(app: Express) {
 
   app.use(webpackDevMiddleware(devCompiler, {
     index: false,
+    stats: 'errors-warnings',
     serverSideRender: true,
     writeToDisk: true,
     publicPath: devConfig.output.publicPath,

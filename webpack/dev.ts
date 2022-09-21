@@ -1,4 +1,4 @@
-require('../app.config')
+import '../app.config'
 
 import webpack, { Configuration } from 'webpack'
 import { isDevelopment } from '@/helpers/ssr-utils'
@@ -27,6 +27,7 @@ const devConfig: Configuration = {
   },
 
   module: {
+    noParse: /gun\.js$/,
     rules: [
       {
         test: /\.(ts|tsx)$/i,
@@ -41,7 +42,10 @@ const devConfig: Configuration = {
       },
       {
         test: /\.(svg)$/i,
-        type: 'asset/inline',
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[hash][ext][query]',
+        },
       },
       {
         test: /\.(p?css)$/i,
@@ -58,8 +62,9 @@ const devConfig: Configuration = {
     alias: {
       '@': path.resolve('src'),
       'webpackConfig': path.resolve('webpack'),
-      'react': path.resolve('node_modules', 'preact', 'compat'),
-      'react-dom': path.resolve('node_modules', 'preact', 'compat'),
+      'react': 'preact/compat',
+      'react-dom': 'preact/compat',
+      'react/jsx-runtime': 'preact/jsx-runtime',
     },
     extensions: ['.ts', '.tsx', '.json', '.pcss', '.js'],
     modules: ['node_modules'],
@@ -70,6 +75,7 @@ const devConfig: Configuration = {
       minify: !isDevelopment,
       title: APP_CONFIG.title,
       template: path.resolve('src', 'assets', 'index.html'),
+      favicon: path.resolve('src', 'assets', 'images', 'breedfind.png'),
       inject: 'body',
       scriptLoading: 'module',
       publicPath: '/',
@@ -82,7 +88,27 @@ const devConfig: Configuration = {
         {
           from: path.resolve('src', 'assets', 'app.webmanifest'),
           to: path.resolve('dist'),
-        }
+        },
+        {
+          from: path.resolve('src', 'sw.js'),
+          to: path.resolve('dist'),
+        },
+        {
+          from: path.resolve('src', 'assets', 'robots.txt'),
+          to: path.resolve('dist'),
+        },
+        {
+          from: path.resolve('src', 'assets', 'android'),
+          to: path.resolve('dist/android'),
+        },
+        {
+          from: path.resolve('src', 'assets', 'windows11'),
+          to: path.resolve('dist/windows11'),
+        },
+        {
+          from: path.resolve('src', 'assets', 'ios'),
+          to: path.resolve('dist/ios'),
+        },
       ],
     }),
 

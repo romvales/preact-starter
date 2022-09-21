@@ -1,0 +1,30 @@
+
+.message-notification {
+  @apply flex border p-4 rounded-lg my-3 shadow-md;
+
+  @apply dark:bg-slate-800 dark:border-slate-800;
+
+  .message-notification__content {
+    @apply grow flex-1 mx-4;
+
+    .content__title {
+      @apply text-lg mb-3 font-semibold;
+    }
+
+    .content__message {
+      @apply text-left;
+
+      .message__link {
+        @apply text-blue-700 dark:text-blue-400;
+      }
+    }
+  }
+
+  .message-notification__icon-wrapper {
+    @apply grow-0 flex-shrink mt-1;
+  }
+
+  .message-notification__hide {
+    @apply grow-0 flex-shrink inline-flex items-center;
+  }
+}

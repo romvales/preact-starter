@@ -1,6 +1,9 @@
 
-let appConfig = Object.freeze({
-  title: 'Webpack App',
+
+global.APP_CONFIG = {
+  title: 'breedFind | A Dog Breed Database',
+  
+  mode: 'ssr',
 
   meta: [
     { charset: 'utf-8' },
@@ -16,6 +19,7 @@ let appConfig = Object.freeze({
   // --- Middleware options
   helmetOptions: {
     contentSecurityPolicy: false,
+    crossOriginEmbedderPolicy: false,
   },
 
   cookieParserOptions: {
@@ -35,13 +39,12 @@ let appConfig = Object.freeze({
   },
 
   serverRuntimeConfig: {
-    
+
   },
 
-})
+}
 
-global.APP_CONFIG = appConfig
-global.serverRuntimeConfig = appConfig.serverRuntimeConfig
+global.serverRuntimeConfig = APP_CONFIG.serverRuntimeConfig
 
 // pendingServerSideProps is a stack of all the pending `getServerSideProps` that was called
 // from across the app.
