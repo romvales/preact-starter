@@ -24,7 +24,7 @@ function main {
     ;;
   serve)
     NODE_ENV=production \
-    forever start ./dist/server.*.js &
+    node ./dist/server.*.js &
 
     ./dist/api/app
     read
