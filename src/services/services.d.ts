@@ -7,9 +7,9 @@ type AppState = {
     closedAt: number,
     closed: boolean
   },
-  breedLocations: string[],
-  breedGroups: string[],
-  breedSizes: string[],
+  breedLocations?: string[],
+  breedGroups?: string[],
+  breedSizes?: string[],
 }
 
 type Breed = {

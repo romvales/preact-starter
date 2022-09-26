@@ -21,16 +21,13 @@ const jestConf = {
     '^node_modules/(?!preact-render-to-string/.*|preact-router/.*)',
   ],
   moduleNameMapper: {
-    '^@/(.*)\\.(png|jpe?g|gif|mp[3-4]|mpeg|mkv|ico|webp|3gp|ogg|m4a|flac)$': '<rootDir>/tests/__mocks__/fileMocks.js',
+    '^@/(.*)\\.(png|jpe?g|gif|mp[3-4]|mpeg|mkv|ico|webp|3gp|ogg|m4a|flac|svg)$': '<rootDir>/tests/__mocks__/fileMocks.js',
     '^@/(.*)\\.(p?css)$': 'identity-obj-proxy',
     '^\./(.*)\\.(p?css)$': 'identity-obj-proxy', 
     '^react$': '<rootDir>/node_modules/preact/compat',
     '^react-dom$': '<rootDir>/node_modules/preact/compat',
     '^react/jsx-runtime$': '<rootDir>/node_modules/preact/jsx-runtime',
     '^preact-router$': '<rootDir>/node_modules/preact-router',
-    '^@fortawesome/fontawesome-svg-core': '<rootDir>/node_modules/@fortawesome/fontawesome-svg-core',
-    '^@fortawesome/free-solid-svg-icons': '<rootDir>/node_modules/@fortawesome/free-solid-svg-icons',
-    '^@fortawesome/react-fontawesome': '<rootDir>/node_modules/@fortawesome/react-fontawesome',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
 }

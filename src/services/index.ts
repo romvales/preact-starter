@@ -3,12 +3,10 @@ import { route } from 'preact-router'
 import { Store } from 'unistore'
 import axios from 'axios'
 import { environment } from '@/helpers'
-import { useWorld } from './world'
 
-export { useWorld } from './world'
 export class AppStateStore {
   static _lkey: string = 'breedfind-web'
-  private _store: Store<{ A: AppState, world: World }>
+  private _store: Store<{ A: AppState }>
   private _state: AppState
 
   get store() {
@@ -112,7 +110,7 @@ export class AppStateStore {
     }, 1e3)
   }
 
-  constructor(store?: Store<{ A: AppState, world: World }>) {
+  constructor(store?: Store<{ A: AppState }>) {
     this._store = store ?? useStore()
   }
 

@@ -4,7 +4,6 @@ import { FunctionComponent } from 'preact'
 
 import { Image } from '@/components'
 import { useState, useRef } from 'preact/hooks'
-import { useWorld } from '@/services'
 
 import qrCodeImage from '@/assets/images/GCASH_QRCode.jpg'
 import gcashLogo from '@/assets/images/gcash-logo.png'
@@ -16,8 +15,6 @@ export const About: FunctionComponent<{}> = (props) => {
   const modalRef = useRef<HTMLElement>()
   const gcashNumRef = useRef<HTMLInputElement>()
 
-  // state
-  const { data, helpIncre } = useWorld()
   const [form, setForm] = useState<EmailForm>({})
 
   const onFormSubmit = async (ev: Event) => {
@@ -38,7 +35,6 @@ export const About: FunctionComponent<{}> = (props) => {
     if (classList.contains('hidden')) {
       classList.remove('hidden')
       classList.add('flex')
-      helpIncre()
     } else {
       classList.remove('flex')
       classList.add('hidden')
@@ -50,8 +46,6 @@ export const About: FunctionComponent<{}> = (props) => {
   const onMobileNumberCopy = () => {
     navigator.clipboard.writeText('09636434432')
     navigator.vibrate([ 200 ])
-
-    helpIncre()
   }
 
   return (
@@ -65,12 +59,12 @@ export const About: FunctionComponent<{}> = (props) => {
           <h3 className='header__fr-main'>Asking for help,</h3>
 
           <p className='header__fr-message'>
-            Good day, I am asking for a small help from all of you that found this web app. Right now
-            I am currently unemployed (trying to find a job) and struggling with my personal financial issues as a result,
-            my mental and physical health is becoming even worse, I am suffering right now from various types of
-            symptoms of inflammatory bowel disease and rectal and colon bleeding, these drastically
-            affected my mental health and my overall well-being. A small help from each of you is hugely
-            enough to address all my doubts.
+            Good day, I am asking for a small help from all of you who found this app. Currently I am unemployed 
+            (trying to find a job) and struggling with my personal financial issues as a result, both
+            my mental and physical health becomes a lot worse than before, I am in agonizing right now from various
+            symptoms of inflammatory bowel disease, constipation, rectal and colon bleeding, these drastically
+            affected my mental health and my overall well-being. A small help from all of you is hugely
+            enough to help myself return to a much more stable state. 
           </p>
 
           <p className='header__fr-small-message'>

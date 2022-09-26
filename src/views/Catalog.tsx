@@ -7,13 +7,12 @@ import { JSXInternal } from 'node_modules/preact/src/jsx'
 import { route } from 'preact-router'
 import { environment, FetchStateStatus, setDocMetadata, useAsyncDataFetch } from '@/helpers'
 import { useAppTheme } from '@/helpers/hooks'
-import { useWorld } from '@/services'
 
 import {
   Image,
   MessageNotification
 } from '@/components'
-import { StatCounter } from '@/components/StatCounter'
+
 
 // To avoid repeatedly calling the useAsyncDataFetch function
 // we create a cached version of the breeds and lovedBreeds that
@@ -116,7 +115,7 @@ export const Catalog: FunctionComponent<CatalogProps> = (props) => {
       setLoveBsCount(Object.values(lovedBreeds).length)
       setCount(Object.values(breeds).length)
 
-      cBreeds = {} 
+      cBreeds = {}
       cLovedBreeds = {}
 
       return () => {
@@ -244,7 +243,7 @@ export const Catalog: FunctionComponent<CatalogProps> = (props) => {
   ])
 
   return (
-    <Fragment> 
+    <Fragment>
       {(fState.status === FetchStateStatus.Success || cBreeds) &&
         <div className='catalog-page'>
           <header className='catalog-page__header' ref={headerBarRef}>
@@ -367,7 +366,7 @@ export const Catalog: FunctionComponent<CatalogProps> = (props) => {
                 }
               </form>
             </section>
-            <section className='main__love-section'>
+            <section className='main__love-section'> 
               <nav className='love-section__title-nav'>
                 <hr />
                 <h2 className='title-nav__section-title'>
@@ -456,7 +455,6 @@ const FavoriteItems: FunctionComponent<{ breeds: Breeds, lovedBreeds: LovedBreed
   for (const id in props.lovedBreeds) {
     const stats = props.lovedBreeds[id]
     const breed = props.breeds[id]
-    const { data } = useWorld(id)
     const onBreedClick = () => {
       localStorage.catalogState = JSON.stringify(props.options)
       route(`/breeds/${id}`)
@@ -540,7 +538,6 @@ const ListItems: FunctionComponent<{ breeds: Breeds, options: CatalogOptions, se
   const j = options.itemCount * (options.cursor + 1)
 
   for (const [id, breed] of filtered.slice(i, j)) {
-    const { data } = useWorld(id, options)
     const onBreedClick = () => {
       localStorage.catalogState = JSON.stringify(options)
       route('/breeds/' + id)
@@ -551,7 +548,6 @@ const ListItems: FunctionComponent<{ breeds: Breeds, options: CatalogOptions, se
         <figure className='item__breed-info'>
           <Image className='breed-info__image' src={breed.images.at(0)} alt={`${breed.name} image`} onClick={onBreedClick} />
           <figcaption className='breed-info__details'>
-            <StatCounter data={data ? data[id] : null} />
             <h2 className='details__breed-name' dangerouslySetInnerHTML={{ __html: breed.name }} onClick={onBreedClick}></h2>
             <p className='details__breed-other-names'
               dangerouslySetInnerHTML={{ __html: breed.otherNames.join(' / ') }}>

@@ -10,6 +10,7 @@ import {
 import createStore from 'unistore'
 import mockBreeds from './breeds.json'
 import { StoreProvider } from '@preact-hooks/unistore'
+import { FetchStateStatus } from '@/helpers/ssr-utils'
 
 jest.mock('axios', () => ({
 
@@ -21,12 +22,17 @@ jest.mock('axios', () => ({
 
 jest.mock('@/helpers/ssr-utils', () => ({
 
+  useAsyncDataFetch() {
+    return [ { status: FetchStateStatus.Pending }, () => ({ breeds: mockBreeds, lovedBreeds: mockBreeds }) ] 
+  },
   pendingServerSideProps() { },
   getServerSideProps() { },
 
   environment: {
     isBrowser: true,
   },
+
+  FetchStateStatus: { Pending: 2, Success: 0, Error: 1 },
 
 }))
 
@@ -56,15 +62,15 @@ describe('Catalog view', () => {
     // that manipulate how the final set of items will be displayed.
 
     expect(searchBar).toBeDefined()
-    expect(items.children).toHaveLength(Object.values(mockBreeds).length + 2)
+    expect(items.children).toHaveLength(Object.values(mockBreeds).length)
 
     fireEvent.input(searchBar, { target: { value: 'Blahblahblah' } })
     expect(searchBar.value).toBe('Blahblahblah')
-    expect(items.children).toHaveLength(2)
+    expect(items.children).toHaveLength(0)
 
     fireEvent.input(searchBar, { target: { value: '' } })
     expect(searchBar.value).toBe('')
-    expect(items.children).toHaveLength(Object.values(mockBreeds).length + 2)
+    expect(items.children).toHaveLength(Object.values(mockBreeds).length)
   })
 
   describe('[love] should show a list of the breeds loved by user.', () => {
@@ -83,7 +89,7 @@ describe('Catalog view', () => {
 
       const loveSectionItems = container.querySelector('.love-section__data-items ul')
 
-      expect(loveSectionItems.children).toHaveLength(Object.values(mockBreeds).length)
+      expect(loveSectionItems.children).toHaveLength(0)
     })
 
     test('should contain the breed name in each item.', () => {

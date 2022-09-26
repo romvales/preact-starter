@@ -1,6 +1,10 @@
 .info-page {
   @apply container mx-auto min-h-screen;
 
+  p {
+    @apply dark:text-slate-500;
+  }
+
   .info-page__header {
     @apply relative;
 
@@ -36,6 +40,10 @@
     .info-page__modal-nav {
       @apply z-10 absolute right-0
         text-white bottom-[-1px];
+
+      p {
+        @apply text-white;
+      }
 
       .modal-nav__view-button {
         @apply bg-primary-300 text-white p-5 rounded-full
@@ -237,7 +245,7 @@
         }
 
         li {
-          @apply border-b py-2;
+          @apply border-b py-2 dark:border-slate-700;
         }
       }
 

@@ -7,11 +7,9 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 import path from 'path'
 import compression from 'compression'
-import Gun from 'gun'
 
 // @ts-ignore
 import helmet, { HelmetOptions } from 'helmet'
-
 
 const server = express()
 
@@ -25,11 +23,8 @@ server.use(cookieParser('', APP_CONFIG.cookieParserOptions))
 server.use(morgan('dev', APP_CONFIG.morganOptions))
 server.use(express.static(path.resolve('dist'), { index: false }))
 
-// @ts-ignore
-server.use(Gun.serve)
 server.use('/api', apiRouter)
 server.use(ssrRouter)
 
 const wSrv = server.listen(APP_CONFIG.serverPort, APP_CONFIG.serverHost, () => {})
 
-new Gun({ web: wSrv })
