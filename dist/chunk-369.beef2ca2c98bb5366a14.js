@@ -1,2 +1,0 @@
-(self.webpackChunkpreact_starter=self.webpackChunkpreact_starter||[]).push([[369],{4369:(n,t,e)=>{e.r(t),e.d(t,{addHookName:()=>a});var o=e(6400);function a(n,t){return o.options.__a&&o.options.__a(t),n}"undefined"!=typeof window&&window.__PREACT_DEVTOOLS__&&window.__PREACT_DEVTOOLS__.attachPreact("10.10.6",o.options,{Fragment:o.Fragment,Component:o.Component})}}]);
-//# sourceMappingURL=chunk-369.beef2ca2c98bb5366a14.js.map

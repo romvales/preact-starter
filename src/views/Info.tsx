@@ -15,7 +15,6 @@ import {
 
 import dogIcon from '@/assets/images/dog-icon.svg'
 import fciLogo from '@/assets/images/logo.svg'
-import { StatCounter } from '@/components/StatCounter'
 
 export const Info: FunctionComponent<InfoProps> = (props) => {
   const state = new AppStateStore()
@@ -58,7 +57,6 @@ export const Info: FunctionComponent<InfoProps> = (props) => {
       classList.remove('hidden')
     else
       classList.add('hidden')
-
   }
 
   const onClickShareButton = () => {
