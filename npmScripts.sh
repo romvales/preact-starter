@@ -8,6 +8,10 @@ function main {
   local verb=$1
 
   case $verb in
+  install)
+    npm i --force --legacy-peer-deps
+
+    ;;
   dev)
     NODE_ENV=development \
     $NODE_RUNTIME node_modules/.bin/webpack --config ./webpack/ssr.ts && \

@@ -14,6 +14,9 @@ const jestConf = {
   verbose: true,
   extensionsToTreatAsEsm: [ '.ts', '.tsx', '.jsx' ],
   testEnvironment: 'jsdom',
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+  ],
   transform: {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { ...config }],
   },

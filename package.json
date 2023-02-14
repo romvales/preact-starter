@@ -1,7 +1,7 @@
 {
   "name": "preact-starter",
   "main": "src/index.ts",
-  "version": "",
+  "version": "v0.0.0",
   "scripts": {
     "dev": "sh npmScripts.sh dev",
     "build": "sh npmScripts.sh build",
@@ -26,6 +26,7 @@
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",
     "jest-preset-preact": "^4.0.5",
+    "jest-watch-typeahead": "^2.2.2",
     "mini-css-extract-plugin": "^2.6.1",
     "nodemon": "^2.0.19",
     "postcss": "^8.4.16",
