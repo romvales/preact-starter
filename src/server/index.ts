@@ -1,7 +1,7 @@
 import '../../app.config'
 import { isDevelopment } from '@/helpers/ssr-utils'
 import { ssrRouter, setupDevMiddleware } from './middlewares'
-import apiRouter from './api'
+// import apiRouter from './api'
 import morgan from 'morgan'
 import express from 'express'
 import cookieParser from 'cookie-parser'
@@ -23,8 +23,7 @@ server.use(cookieParser('', APP_CONFIG.cookieParserOptions))
 server.use(morgan('dev', APP_CONFIG.morganOptions))
 server.use(express.static(path.resolve('dist'), { index: false }))
 
-server.use('/api', apiRouter)
+// server.use('/api', apiRouter)
 server.use(ssrRouter)
 
-const wSrv = server.listen(APP_CONFIG.serverPort, APP_CONFIG.serverHost, () => {})
-
+server.listen(APP_CONFIG.serverPort, APP_CONFIG.serverHost, () => {})

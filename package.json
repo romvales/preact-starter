@@ -1,5 +1,5 @@
 {
-  "name": "preact-starter",
+  "name": "spec0-subsystem",
   "main": "src/index.ts",
   "version": "v0.0.0",
   "scripts": {
@@ -7,6 +7,9 @@
     "build": "sh npmScripts.sh build",
     "start": "sh npmScripts.sh serve",
     "test": "sh npmScripts.sh test"
+  },
+  "eslintConfig": {
+    "extends": "preact"
   },
   "devDependencies": {
     "@swc/core": "^1.2.242",
@@ -21,6 +24,8 @@
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "cssnano": "^5.1.13",
+    "eslint": "^8.34.0",
+    "eslint-config-preact": "^1.3.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.3",
@@ -49,7 +54,9 @@
     "@grpc/grpc-js": "^1.6.11",
     "@grpc/proto-loader": "^0.7.2",
     "@preact-hooks/unistore": "^1.1.2",
+    "@preact/signals": "^1.1.3",
     "@swc-node/register": "^1.5.1",
+    "@types/marked": "^4.0.8",
     "axios": "^0.27.2",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
@@ -58,6 +65,7 @@
     "express": "^4.18.1",
     "helmet": "^5.1.1",
     "jsdom": "^20.0.0",
+    "marked": "^4.2.12",
     "morgan": "^1.10.0",
     "node-fetch": "^3.2.10",
     "preact": "^10.10.6",
@@ -66,6 +74,7 @@
     "preact-router": "^4.1.0",
     "react": "npm:@preact/compat",
     "react-dom": "npm:@preact/compat",
+    "react-intl": "^6.2.10",
     "unistore": "^3.5.2"
   }
 }

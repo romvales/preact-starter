@@ -8,17 +8,26 @@ import { initAppState, initUniStore, resolvePendingProps } from '@/helpers'
 import { ServerContext } from '@/server/SSRContext'
 import { App } from '@/App'
 import { isDevelopment, resolvePendingAsyncDataFetches } from '@/helpers/ssr-utils'
+import expressCtx from './express-context'
+import { createContext } from 'preact'
 
-const ssrRouter = Router({ strict: true })
+const ssrRouter = Router({ strict: true, caseSensitive: true })
 
 ssrRouter.get('*', async (req, res) => {
-  res.status(200)
+  const ctx = { req, res, statusCode: null }
+
+  expressCtx.setContext(createContext(ctx))
+
+  const doc = await renderDoc(req, res)
+
+  res.status(ctx.statusCode ?? 200)
     .set('Content-Type', 'text/html')
-    .send(await renderDoc(req, res))
+    .send(doc)
     .end()
 })
 
 async function renderDoc(req: Request, res: Response) {
+
   const currentUrl = `${req.protocol}://${req.headers.host}${req.originalUrl}`
   const doc = await JSDOM.fromFile(path.resolve('dist', 'index.html'), {
     url: currentUrl,
@@ -42,6 +51,8 @@ async function renderDoc(req: Request, res: Response) {
     await resolvePendingProps({ req, res })
     renderApp(initAppState, initStore)
     await resolvePendingAsyncDataFetches()
+  } else {
+    window.__APP_STATE__.asyncDataFetches = []
   }
 
   // Setup the index.html here that will be send to the browser

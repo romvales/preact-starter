@@ -1,5 +1,6 @@
 node_modules
 radata
+dist
 
 .env
 .env.production

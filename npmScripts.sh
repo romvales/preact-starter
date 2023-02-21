@@ -21,17 +21,10 @@ function main {
     NODE_ENV=production \
     $NODE_RUNTIME node_modules/.bin/webpack --config ./webpack/ssr.ts && \
     $NODE_RUNTIME node_modules/.bin/webpack --config ./webpack/build.ts
-
-    mkdir ./dist/api
-    cp $GO_APIDIR/*.go -r ./dist/api
-    cp $GO_APIDIR/go* -r ./dist/api
     ;;
   serve)
     NODE_ENV=production \
-    node ./dist/server.*.js &
-
-    ./dist/api/app
-    read
+    node ./dist/server.*.js
     ;;
   test)
     NODE_ENV=development \

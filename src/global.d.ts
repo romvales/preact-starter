@@ -27,6 +27,7 @@ declare module '*.ico'
 declare module '*.flac'
 declare module '*.webp'
 declare module '*.svg'
+declare module '*.md'
 
 declare module NodeJS {
   interface Global {

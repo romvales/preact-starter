@@ -15,6 +15,7 @@ async function renderApp(App: FunctionComponent) {
   const appRootEl = document.querySelector('.app-root')
   const renderFunc = isDevelopment ? render : hydrate
 
+
   if (environment.isBrowser) {
     if (localStorage.theme === 'dark') {
       document.documentElement.classList.add('dark')
@@ -26,8 +27,7 @@ async function renderApp(App: FunctionComponent) {
   renderFunc(
     <ServerContext value={initAppState()} store={initUniStore()}>
       <App />
-    </ServerContext>
-    , appRootEl)
+    </ServerContext>, appRootEl)
 }
 
 renderApp(App)

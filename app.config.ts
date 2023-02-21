@@ -1,7 +1,7 @@
 
 
 global.APP_CONFIG = {
-  title: 'breedFind | A Dog Breed Database',
+  title: '',
   
   mode: 'ssr',
 
@@ -34,13 +34,9 @@ global.APP_CONFIG = {
   // --- Heroku options
 
   // --- Environmental options
-  clientRuntimeConfig: {
-    BASE_URL: 'http://localhost:3000',
-  },
+  clientRuntimeConfig: {},
 
-  serverRuntimeConfig: {
-
-  },
+  serverRuntimeConfig: {},
 
 }
 

@@ -28,7 +28,6 @@ const ssrConfig: Configuration = {
   },
 
   module: {
-    noParse: /gun\.js$/,
     rules: [
       {
         test: /\.(ts|tsx)$/i,
@@ -42,6 +41,10 @@ const ssrConfig: Configuration = {
         },
       },
       {
+        test: /\.(md)$/i,
+        type: 'asset/source',
+      },
+      {
         test: /\.(svg)$/i,
         type: 'asset/resource',
         generator: {
@@ -51,7 +54,6 @@ const ssrConfig: Configuration = {
       {
         test: /\.(p?css)$/i,
         use: [
-          // MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
         ],

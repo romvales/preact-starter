@@ -1,6 +1,5 @@
 import { FunctionalComponent } from 'preact' 
 
-
 export let mockDefaultProps = {}
 export const mockPendingSSProps = []
 export const mockPendingAsyncDataFetches = []

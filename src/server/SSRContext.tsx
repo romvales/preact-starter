@@ -12,3 +12,4 @@ export const ServerContext: FunctionComponent<{ value: any, store: Store<any> }>
     </SSRContext.Provider>
   )
 }
+

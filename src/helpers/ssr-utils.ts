@@ -80,7 +80,7 @@ export async function getServerSideProps<T = any>(C: FunctionComponent<any>, aF:
     // Once this function is reached by the browser, we index the serverSideProps
     // on the window.__APP_STATE___ using serverSidePropsIndex. But if `C` is 
     // in the list of whitelisted routes (window.__APP_STATE__.serverSideRoutesWhitelist). 
-    // we will call `aF` so that the `defaultProps` will be populated with the data fetched 
+    // we will call `aF` so that the `defaultProps` will be populated with the data fetched
     // data in the browser. We will fallback to browser when the `window.__APP_STATE__.serverSideProps`
     // resulted into `undefined` during server side.
   } else {
@@ -113,6 +113,12 @@ export async function getServerSideProps<T = any>(C: FunctionComponent<any>, aF:
   }
 }
 
+export const enum FetchStateStatus {
+  Success = 0,
+  Error,
+  Pending,
+}
+
 const memoTchecks: { [componentName: string]: boolean } = {}
 
 /**
@@ -140,6 +146,7 @@ export async function resolvePendingProps(ctx: ServerContextRef) {
   // props to the `serverSideProps` for rendering it later on
   // the browser.
   const propsResolvers = []
+
   for (let index = 0; index < Ps.length; index++) {
     Ps[index].C.defaultProps = {}
 
@@ -245,7 +252,7 @@ export function useAsyncDataFetch<T = any, S = string>(
         isNotPopulated = false
 
         window.__APP_STATE__.asyncDataFetchesIndex++
-        // Reset asyncDataFetches counter whene it reaches the maximum length.
+        // Reset asyncDataFetches counter when it reaches the maximum length.
         if (ssrDataCounter >= window.__APP_STATE__.asyncDataFetches.length)
           window.__APP_STATE__.asyncDataFetchesIndex = 1
       }
@@ -303,12 +310,6 @@ export function useAsyncDataFetch<T = any, S = string>(
   }
 
   return [fState, fRCb]
-}
-
-export const enum FetchStateStatus {
-  Success = 0,
-  Error,
-  Pending,
 }
 
 /**
