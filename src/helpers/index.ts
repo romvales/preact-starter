@@ -1,3 +1,4 @@
+import { getAppLocale, VALID_LOCALES } from '@/contents'
 import { isDevelopment } from './ssr-utils'
 
 export {
@@ -27,4 +28,8 @@ export function enableDevTools() {
     import('preact/devtools')
     import('preact/debug')
   }
+}
+
+export function getAppContentByLocale<T>(path: string, forceLocale?: VALID_LOCALES): T {
+  return require(`@/contents/${forceLocale ?? getAppLocale()}/${path}`)
 }

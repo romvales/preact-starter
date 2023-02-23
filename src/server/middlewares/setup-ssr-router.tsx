@@ -13,9 +13,8 @@ import { createContext } from 'preact'
 
 const ssrRouter = Router({ strict: true, caseSensitive: true })
 
-ssrRouter.get('*', async (req, res) => {
-  const ctx = { req, res, statusCode: null }
-
+const ssrHandler = async (req: Request, res: Response) => {
+  const ctx = { req, res, statusCode: null, routeFound: true }
   expressCtx.setContext(createContext(ctx))
 
   const doc = await renderDoc(req, res)
@@ -24,7 +23,9 @@ ssrRouter.get('*', async (req, res) => {
     .set('Content-Type', 'text/html')
     .send(doc)
     .end()
-})
+}
+
+ssrRouter.get('*', ssrHandler)
 
 async function renderDoc(req: Request, res: Response) {
 
@@ -43,6 +44,7 @@ async function renderDoc(req: Request, res: Response) {
   // @ts-ignore
   global.window = doc.window
   global.document = window.document
+  global.self = window.self
 
   const initState = initAppState()
   const initStore = initUniStore()
@@ -57,7 +59,7 @@ async function renderDoc(req: Request, res: Response) {
 
   // Setup the index.html here that will be send to the browser
   document.body.innerHTML += `
-  <script crossorigin="use-credentials">
+  <script>
     window.__APP_STATE__ = ${devalue(initState)}
     window.__UNISTORE_STATE__ = ${devalue(initStore.getState())}
     window.__whitelistRoutes = {}

@@ -12,7 +12,7 @@ global.APP_CONFIG = {
   ],
 
   // --- Server options
-  serverHost: '0.0.0.0',
+  serverHost: 'localhost',
   serverPort: parseInt(process.env.PORT) || 3000,
   secretPhrase: process.env.SECRET_PHRASE,
 
@@ -29,7 +29,6 @@ global.APP_CONFIG = {
   morganOptions: {
 
   },
-
 
   // --- Heroku options
 

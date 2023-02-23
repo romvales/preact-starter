@@ -1,12 +1,12 @@
 import '@/assets/styles/main.pcss'
 import { FunctionComponent } from 'preact'
-import Router from 'preact-router'
+import Router, { RouterOnChangeArgs } from 'preact-router'
 import AsyncRoute from 'preact-async-route'
 import routes from '@/views'
 import { environment } from '@/helpers'
 import { Request, Response } from 'express'
 import { useContext } from 'react'
-import expressCtx from '@/server/middlewares/express-context'
+import expressCtx, { handleInitialRouteRequest } from '@/server/middlewares/express-context'
 
 export const App: FunctionComponent<{}> = props => {
   const docUrl = new URL(document.URL)
@@ -34,11 +34,10 @@ export const App: FunctionComponent<{}> = props => {
 
             if (environment.isServer && route.statusCode) {
               const ctx = useContext(expressCtx.getContext<{ req: Request, res: Response, statusCode: number }>())
-              const rexp = new RegExp(`${route.path.replace(/:[^/]+/, '.+?')}`)
-              
+              const rexp = new RegExp(`${route.path.replace(/:[^/]+/, '[^/]+?')}`)
+
               if (rexp.test(docUrl.pathname)) {
                 ctx.statusCode = route.statusCode
-                console.log(docUrl.pathname, ctx.req.path, route.path)
               }
             }
 
@@ -50,6 +49,6 @@ export const App: FunctionComponent<{}> = props => {
   )
 }
 
-function handleRouteChange(ev: any) {
-
+function handleRouteChange(ev: RouterOnChangeArgs) {
+  handleInitialRouteRequest(ev)
 }

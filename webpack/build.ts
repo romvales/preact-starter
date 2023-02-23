@@ -42,7 +42,7 @@ const buildConfig: Configuration = {
   resolve: devConfig.resolve,
   optimization: {
     splitChunks: {
-      chunks: 'async',
+      chunks: 'all',
       cacheGroups: {
         defaultVendors: {
           test: /[\\/]node_modules[\\/]/,

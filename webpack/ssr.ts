@@ -21,9 +21,10 @@ const ssrConfig: Configuration = {
 
   output: {
     path: path.resolve('dist'),
-    publicPath: '/',
+    publicPath: '/', 
     globalObject: 'this',
     filename: isDevelopment ? '[name].js' : '[name].[contenthash].js',
+    chunkFilename: '[name].chunk.js',
     clean: true,
   },
 

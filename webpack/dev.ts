@@ -17,13 +17,14 @@ const devConfig: Configuration = {
     index: [
       path.resolve('src', 'index.tsx'),
       'webpack-hot-middleware/client?name=web&path=/__webpack_hmr&timeout=2000',
-    ]
+    ],
   },
 
   output: {
     path: path.resolve('dist'),
     publicPath: '/',
     filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
     clean: true,
   },
 
@@ -42,7 +43,7 @@ const devConfig: Configuration = {
       },
       {
         test: /\.(md)$/i,
-        type: 'asset/source',
+        type: 'asset/source'
       },
       {
         test: /\.(svg)$/i,
@@ -70,6 +71,7 @@ const devConfig: Configuration = {
       'react-dom': 'preact/compat',
       'react/jsx-runtime': 'preact/jsx-runtime',
     },
+    cache: false,
     extensions: ['.ts', '.tsx', '.json', '.pcss', '.js', '.md'],
     modules: ['node_modules'],
   },
@@ -78,10 +80,10 @@ const devConfig: Configuration = {
     new HtmlPlugin({
       minify: !isDevelopment,
       title: APP_CONFIG.title,
+      favicon: path.resolve('src', 'assets', 'favicon.ico'),
       template: path.resolve('src', 'assets', 'index.html'),
       inject: 'body',
       scriptLoading: 'module',
-      publicPath: '/',
       filename: path.resolve('dist', 'index.html'),
       meta: Object.assign({}, APP_CONFIG.meta),
     }),
@@ -110,7 +112,7 @@ const devConfig: Configuration = {
   // @ts-ignore
   devServer: {
     hot: true,
-    compress: true, 
+    compress: true,
     historyApiFallback: true,
   },
 }

@@ -23,6 +23,7 @@ declare global {
   // @ts-ignore
   type Route<T = any> = { 
     default?: boolean, 
+    name?: string,
     path: string, 
     component: FunctionComponent<T>, 
     lazy?: boolean, 

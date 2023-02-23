@@ -251,7 +251,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*! tailwindcss v3.2.6 | MIT License | https://tailwindcss.com*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:\"\"}html{-webkit-text-size-adjust:100%;font-feature-settings:normal;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){text-decoration:underline;-webkit-text-decoration:underline dotted currentColor;text-decoration:underline dotted currentColor}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-moz-placeholder, textarea::-moz-placeholder{color:#9ca3af;opacity:1}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}[hidden]{display:none}*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 transparent;--tw-ring-shadow:0 0 transparent;--tw-shadow:0 0 transparent;--tw-shadow-colored:0 0 transparent;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 transparent;--tw-ring-shadow:0 0 transparent;--tw-shadow:0 0 transparent;--tw-shadow-colored:0 0 transparent;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.dark .dark\\:bg-slate-900{--tw-bg-opacity:1;background-color:rgba(15,23,42,var(--tw-bg-opacity))}.dark .dark\\:text-white{--tw-text-opacity:1;color:rgba(255,255,255,var(--tw-text-opacity))}", "",{"version":3,"sources":["webpack://./src/assets/styles/main.pcss","<no source>"],"names":[],"mappings":"AAAA,+DAAc,CAAd,iBAAA,sBAAc,CAAd,qBAAc,CAAd,eAAA,eAAc,CAAd,KAAA,6BAAc,CAAd,4BAAc,CAAd,iNAAc,CAAd,eAAc,CAAd,eAAc,CAAd,aAAc,CAAd,UAAc,CAAd,KAAA,mBAAc,CAAd,QAAc,CAAd,GAAA,oBAAc,CAAd,aAAc,CAAd,QAAc,CAAd,oBAAA,yBAAc,CAAd,qDAAc,CAAd,6CAAc,CAAd,kBAAA,iBAAc,CAAd,mBAAc,CAAd,EAAA,aAAc,CAAd,uBAAc,CAAd,SAAA,kBAAc,CAAd,kBAAA,mGAAc,CAAd,aAAc,CAAd,MAAA,aAAc,CAAd,QAAA,aAAc,CAAd,aAAc,CAAd,iBAAc,CAAd,uBAAc,CAAd,IAAA,aAAc,CAAd,IAAA,SAAc,CAAd,MAAA,wBAAc,CAAd,oBAAc,CAAd,aAAc,CAAd,sCAAA,aAAc,CAAd,mBAAc,CAAd,cAAc,CAAd,mBAAc,CAAd,mBAAc,CAAd,QAAc,CAAd,SAAc,CAAd,cAAA,mBAAc,CAAd,gDAAA,yBAAc,CAAd,4BAAc,CAAd,qBAAc,CAAd,gBAAA,YAAc,CAAd,iBAAA,eAAc,CAAd,SAAA,uBAAc,CAAd,wDAAA,WAAc,CAAd,cAAA,4BAAc,CAAd,mBAAc,CAAd,4BAAA,uBAAc,CAAd,6BAAA,yBAAc,CAAd,YAAc,CAAd,QAAA,iBAAc,CAAd,mDAAA,QAAc,CAAd,SAAA,QAAc,CAAd,gBAAA,SAAc,CAAd,WAAA,eAAc,CAAd,QAAc,CAAd,SAAc,CAAd,SAAA,eAAc,CAAd,oDAAA,aAAc,CAAd,SAAc,CAAd,yCAAA,aAAc,CAAd,SAAc,CAAd,qBAAA,cAAc,CAAd,UAAA,cAAc,CAAd,+CAAA,aAAc,CAAd,qBAAc,CAAd,UAAA,WAAc,CAAd,cAAc,CAAd,SAAA,YAAc,CAAd,iBAAA,uBAAc,CAAd,uBAAc,CAAd,kBAAc,CAAd,kBAAc,CAAd,aAAc,CAAd,aAAc,CAAd,aAAc,CAAd,cAAc,CAAd,cAAc,CAAd,YAAc,CAAd,YAAc,CAAd,iBAAc,CAAd,qCAAc,CAAd,cAAc,CAAd,mBAAc,CAAd,qBAAc,CAAd,sBAAc,CAAd,uBAAc,CAAd,iBAAc,CAAd,0BAAc,CAAd,2BAAc,CAAd,mCAAc,CAAd,uCAAc,CAAd,gCAAc,CAAd,2BAAc,CAAd,mCAAc,CAAd,WAAc,CAAd,iBAAc,CAAd,eAAc,CAAd,gBAAc,CAAd,iBAAc,CAAd,aAAc,CAAd,eAAc,CAAd,YAAc,CAAd,kBAAc,CAAd,oBAAc,CAAd,0BAAc,CAAd,wBAAc,CAAd,yBAAc,CAAd,0BAAc,CAAd,sBAAc,CAAd,uBAAc,CAAd,wBAAc,CAAd,qBAAc,CAAd,WAAA,uBAAc,CAAd,uBAAc,CAAd,kBAAc,CAAd,kBAAc,CAAd,aAAc,CAAd,aAAc,CAAd,aAAc,CAAd,cAAc,CAAd,cAAc,CAAd,YAAc,CAAd,YAAc,CAAd,iBAAc,CAAd,qCAAc,CAAd,cAAc,CAAd,mBAAc,CAAd,qBAAc,CAAd,sBAAc,CAAd,uBAAc,CAAd,iBAAc,CAAd,0BAAc,CAAd,2BAAc,CAAd,mCAAc,CAAd,uCAAc,CAAd,gCAAc,CAAd,2BAAc,CAAd,mCAAc,CAAd,WAAc,CAAd,iBAAc,CAAd,eAAc,CAAd,gBAAc,CAAd,iBAAc,CAAd,aAAc,CAAd,eAAc,CAAd,YAAc,CAAd,kBAAc,CAAd,oBAAc,CAAd,0BAAc,CAAd,wBAAc,CAAd,yBAAc,CAAd,0BAAc,CAAd,sBAAc,CAAd,uBAAc,CAAd,wBAAc,CAAd,qBAAc,CAAd,0BAAA,kBCAA,ADAA,qDCAA,ADAA,wBAAA,oBCAA,ADAA,+CCAA","sourcesContent":["@tailwind base;\n@tailwind components;\n@tailwind utilities;",null],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -882,770 +882,6 @@ var o=0;function e(_,e,n,t,f){var l,s,u={};for(s in e)"ref"==s?l=e[s]:u[s]=e[s];
 
 /***/ }),
 
-/***/ "./node_modules/regenerator-runtime/runtime.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime.js ***!
-  \*****************************************************/
-/***/ ((module) => {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var runtime = (function (exports) {
-  "use strict";
-
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  function define(obj, key, value) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-    return obj[key];
-  }
-  try {
-    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
-    define({}, "");
-  } catch (err) {
-    define = function(obj, key, value) {
-      return obj[key] = value;
-    };
-  }
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  exports.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  define(IteratorPrototype, iteratorSymbol, function () {
-    return this;
-  });
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = GeneratorFunctionPrototype;
-  define(Gp, "constructor", GeneratorFunctionPrototype);
-  define(GeneratorFunctionPrototype, "constructor", GeneratorFunction);
-  GeneratorFunction.displayName = define(
-    GeneratorFunctionPrototype,
-    toStringTagSymbol,
-    "GeneratorFunction"
-  );
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      define(prototype, method, function(arg) {
-        return this._invoke(method, arg);
-      });
-    });
-  }
-
-  exports.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  exports.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      define(genFun, toStringTagSymbol, "GeneratorFunction");
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  exports.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator, PromiseImpl) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return PromiseImpl.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return PromiseImpl.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration.
-          result.value = unwrapped;
-          resolve(result);
-        }, function(error) {
-          // If a rejected Promise was yielded, throw the rejection back
-          // into the async generator function so it can be handled there.
-          return invoke("throw", error, resolve, reject);
-        });
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new PromiseImpl(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
-    return this;
-  });
-  exports.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
-    if (PromiseImpl === void 0) PromiseImpl = Promise;
-
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList),
-      PromiseImpl
-    );
-
-    return exports.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        // Note: ["return"] must be used for ES3 parsing compatibility.
-        if (delegate.iterator["return"]) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  define(Gp, toStringTagSymbol, "Generator");
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  define(Gp, iteratorSymbol, function() {
-    return this;
-  });
-
-  define(Gp, "toString", function() {
-    return "[object Generator]";
-  });
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  exports.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  exports.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-
-  // Regardless of whether this script is executing as a CommonJS module
-  // or not, return the runtime object so that we can declare the variable
-  // regeneratorRuntime in the outer scope, which allows this module to be
-  // injected easily by `bin/regenerator --include-runtime script.js`.
-  return exports;
-
-}(
-  // If this script is executing as a CommonJS module, use module.exports
-  // as the regeneratorRuntime namespace. Otherwise create a new empty
-  // object. Either way, the resulting object will be used to initialize
-  // the regeneratorRuntime variable at the top of this file.
-   true ? module.exports : 0
-));
-
-try {
-  regeneratorRuntime = runtime;
-} catch (accidentalStrictMode) {
-  // This module should not be running in strict mode, so the above
-  // assignment should always work unless something is misconfigured. Just
-  // in case runtime.js accidentally runs in strict mode, in modern engines
-  // we can explicitly access globalThis. In older engines we can escape
-  // strict mode using a global Function call. This could conceivably fail
-  // if a Content Security Policy forbids using Function, but in that case
-  // the proper solution is to fix the accidental strict mode problem. If
-  // you've misconfigured your bundler to force strict mode and applied a
-  // CSP to forbid Function, and you're not willing to fix either of those
-  // problems, please detail your unique predicament in a GitHub issue.
-  if (typeof globalThis === "object") {
-    globalThis.regeneratorRuntime = runtime;
-  } else {
-    Function("r", "regeneratorRuntime = r")(runtime);
-  }
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/strip-ansi/index.js":
 /*!******************************************!*\
   !*** ./node_modules/strip-ansi/index.js ***!
@@ -2114,18 +1350,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var App = function(props) {
-    var docUrl = new URL(document.URL);
+const App = (props)=>{
+    const docUrl = new URL(document.URL);
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
         className: "dark:bg-slate-900 dark:text-white",
         children: /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_router__WEBPACK_IMPORTED_MODULE_2__["default"], {
             url: docUrl.pathname,
             onChange: handleRouteChange,
-            children: _views__WEBPACK_IMPORTED_MODULE_4__["default"].map(function(route) {
-                var routeUi = route.lazy ? /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((preact_async_route__WEBPACK_IMPORTED_MODULE_3___default()), {
-                    getComponent: function() {
-                        return Promise.resolve(route.component);
-                    },
+            children: _views__WEBPACK_IMPORTED_MODULE_4__["default"].map((route)=>{
+                const routeUi = route.lazy ? /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((preact_async_route__WEBPACK_IMPORTED_MODULE_3___default()), {
+                    getComponent: ()=>Promise.resolve(route.component),
                     loading: route.loading,
                     path: route.path,
                     default: route.default
@@ -2136,23 +1370,22 @@ var App = function(props) {
                 // When a route component does not match the current url, we considered it 
                 // as a whitelist url, this is done so that `getServerSideProps` should only be
                 // able to add props into the component when navigated to the component.
-                var isWhitelist = window.__APP_STATE__.serverSideRoutesWhitelist[route.component.name];
+                const isWhitelist = window.__APP_STATE__.serverSideRoutesWhitelist[route.component.name];
                 if (_helpers__WEBPACK_IMPORTED_MODULE_5__.environment.isBrowser && isWhitelist) window.__whitelistRoutes[route.component.name] = routeUi;
                 else if (_helpers__WEBPACK_IMPORTED_MODULE_5__.environment.isBrowser && !isWhitelist) window.__routes[route.component.name] = routeUi;
                 if (_helpers__WEBPACK_IMPORTED_MODULE_5__.environment.isServer && route.statusCode) {
-                    var ctx = (0,react__WEBPACK_IMPORTED_MODULE_6__.useContext)(_server_middlewares_express_context__WEBPACK_IMPORTED_MODULE_7__["default"].getContext());
-                    var rexp = new RegExp("".concat(route.path.replace(/:[^/]+/, ".+?")));
-                    if (rexp.test(docUrl.pathname)) {
-                        ctx.statusCode = route.statusCode;
-                        console.log(docUrl.pathname, ctx.req.path, route.path);
-                    }
+                    const ctx = (0,react__WEBPACK_IMPORTED_MODULE_6__.useContext)(_server_middlewares_express_context__WEBPACK_IMPORTED_MODULE_7__["default"].getContext());
+                    const rexp = new RegExp(`${route.path.replace(/:[^/]+/, '[^/]+?')}`);
+                    if (rexp.test(docUrl.pathname)) ctx.statusCode = route.statusCode;
                 }
                 return routeUi;
             })
         })
     });
 };
-function handleRouteChange(ev) {}
+function handleRouteChange(ev) {
+    (0,_server_middlewares_express_context__WEBPACK_IMPORTED_MODULE_7__.handleInitialRouteRequest)(ev);
+}
 
 
 /***/ }),
@@ -2168,20 +1401,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Markdown": () => (/* binding */ Markdown)
 /* harmony export */ });
-/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
-/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
-/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! marked */ "./node_modules/marked/lib/marked.esm.js");
-/* harmony import */ var preact_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! preact/hooks */ "./node_modules/preact/hooks/dist/hooks.module.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/helpers */ "./src/helpers/index.ts");
-function _arrayLikeToArray(arr, len) {
-    if (len == null || len > arr.length) len = arr.length;
-    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
-    return arr2;
-}
-function _arrayWithHoles(arr) {
-    if (Array.isArray(arr)) return arr;
-}
+/* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
+/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! marked */ "./node_modules/marked/lib/marked.esm.js");
+/* harmony import */ var preact_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! preact/hooks */ "./node_modules/preact/hooks/dist/hooks.module.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/helpers */ "./src/helpers/index.ts");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
     try {
         var info = gen[key](arg);
@@ -2211,83 +1434,27 @@ function _asyncToGenerator(fn) {
         });
     };
 }
-function _iterableToArrayLimit(arr, i) {
-    var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
-    if (_i == null) return;
-    var _arr = [];
-    var _n = true;
-    var _d = false;
-    var _s, _e;
-    try {
-        for(_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true){
-            _arr.push(_s.value);
-            if (i && _arr.length === i) break;
-        }
-    } catch (err) {
-        _d = true;
-        _e = err;
-    } finally{
-        try {
-            if (!_n && _i["return"] != null) _i["return"]();
-        } finally{
-            if (_d) throw _e;
-        }
-    }
-    return _arr;
-}
-function _nonIterableRest() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _slicedToArray(arr, i) {
-    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-function _unsupportedIterableToArray(o, minLen) {
-    if (!o) return;
-    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor) n = o.constructor.name;
-    if (n === "Map" || n === "Set") return Array.from(n);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
 
 
 
 
-
-var Markdown = function(props) {
-    var ref = _slicedToArray((0,preact_hooks__WEBPACK_IMPORTED_MODULE_3__.useState)(""), 2), content = ref[0], setContent = ref[1];
+const Markdown = (props)=>{
+    const [content, setContent] = (0,preact_hooks__WEBPACK_IMPORTED_MODULE_2__.useState)('');
     var _options;
     if (props.src) {
-        var ref1 = _slicedToArray((0,_helpers__WEBPACK_IMPORTED_MODULE_4__.useAsyncDataFetch)({
+        const [_, fCb] = (0,_helpers__WEBPACK_IMPORTED_MODULE_3__.useAsyncDataFetch)({
             onServer: true,
             reuse: true
-        }, /*#__PURE__*/ _asyncToGenerator(/*#__PURE__*/ regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-            var content;
-            return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_ctx) {
-                while(1)switch(_ctx.prev = _ctx.next){
-                    case 0:
-                        _ctx.next = 2;
-                        return fetch(props.src).then(function(res) {
-                            return res.text();
-                        });
-                    case 2:
-                        content = _ctx.sent;
-                        return _ctx.abrupt("return", {
-                            content: content
-                        });
-                    case 4:
-                    case "end":
-                        return _ctx.stop();
-                }
-            }, _callee);
-        }))), 2), _ = ref1[0], fCb = ref1[1];
+        }, /*#__PURE__*/ _asyncToGenerator(function*() {
+            const content = yield fetch(props.src).then((res)=>res.text());
+            return {
+                content
+            };
+        }));
         var _options1;
-        fCb(function(param) {
-            var content = param.content;
-            return setContent(marked__WEBPACK_IMPORTED_MODULE_2__.marked.parse(content, (_options1 = props.options) !== null && _options1 !== void 0 ? _options1 : {}));
-        });
-    } else setContent(marked__WEBPACK_IMPORTED_MODULE_2__.marked.parse(props.content, (_options = props.options) !== null && _options !== void 0 ? _options : {}));
-    return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        fCb(({ content  })=>setContent(marked__WEBPACK_IMPORTED_MODULE_1__.marked.parse(content, (_options1 = props.options) !== null && _options1 !== void 0 ? _options1 : {})));
+    } else setContent(marked__WEBPACK_IMPORTED_MODULE_1__.marked.parse(props.content, (_options = props.options) !== null && _options !== void 0 ? _options : {}));
+    return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
         className: props.className,
         dangerouslySetInnerHTML: {
             __html: content
@@ -2315,6 +1482,49 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/contents/index.ts":
+/*!*******************************!*\
+  !*** ./src/contents/index.ts ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getAppLocale": () => (/* binding */ getAppLocale),
+/* harmony export */   "setAppLocale": () => (/* binding */ setAppLocale)
+/* harmony export */ });
+/* harmony import */ var _helpers_ssr_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/helpers/ssr-utils */ "./src/helpers/ssr-utils.ts");
+/* harmony import */ var preact_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact/hooks */ "./node_modules/preact/hooks/dist/hooks.module.js");
+/* harmony import */ var _server_middlewares_express_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/server/middlewares/express-context */ "./src/server/middlewares/express-context.ts");
+
+
+
+//
+function setAppLocale(locale) {
+    document.cookie = `${encodeURIComponent('appCurrentLocale')}=${encodeURIComponent(locale !== null && locale !== void 0 ? locale : 'en')}; SameSite=Lax; secure;`;
+}
+function getAppLocale() {
+    let appLocale;
+    if (_helpers_ssr_utils__WEBPACK_IMPORTED_MODULE_0__.environment.isServer) {
+        var ref;
+        const { req  } = (0,preact_hooks__WEBPACK_IMPORTED_MODULE_1__.useContext)(_server_middlewares_express_context__WEBPACK_IMPORTED_MODULE_2__["default"].getContext());
+        appLocale = (ref = req.cookies) === null || ref === void 0 ? void 0 : ref.appCurrentLocale;
+    } else {
+        const appCurrentLocalePatt = RegExp("appCurrentLocale=(?<appCurrentLocale>[a-z]{2})", "i");
+        // If the appCurrentLocale cookie is happen to be not set, we will
+        // execute `setAppLocale` to set the cookie to its default value.
+        if (!appCurrentLocalePatt.test(document.cookie)) setAppLocale();
+        // @watch
+        const { appCurrentLocale  } = document.cookie.match(appCurrentLocalePatt).groups;
+        appLocale = appCurrentLocale;
+    }
+    return appLocale;
+}
+
+
+/***/ }),
+
 /***/ "./src/helpers/hooks.ts":
 /*!******************************!*\
   !*** ./src/helpers/hooks.ts ***!
@@ -2331,52 +1541,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_hooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/hooks */ "./node_modules/preact/hooks/dist/hooks.module.js");
 /* harmony import */ var _ssr_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ssr-utils */ "./src/helpers/ssr-utils.ts");
-function _arrayLikeToArray(arr, len) {
-    if (len == null || len > arr.length) len = arr.length;
-    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
-    return arr2;
-}
-function _arrayWithHoles(arr) {
-    if (Array.isArray(arr)) return arr;
-}
-function _iterableToArrayLimit(arr, i) {
-    var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
-    if (_i == null) return;
-    var _arr = [];
-    var _n = true;
-    var _d = false;
-    var _s, _e;
-    try {
-        for(_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true){
-            _arr.push(_s.value);
-            if (i && _arr.length === i) break;
-        }
-    } catch (err) {
-        _d = true;
-        _e = err;
-    } finally{
-        try {
-            if (!_n && _i["return"] != null) _i["return"]();
-        } finally{
-            if (_d) throw _e;
-        }
-    }
-    return _arr;
-}
-function _nonIterableRest() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _slicedToArray(arr, i) {
-    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-function _unsupportedIterableToArray(o, minLen) {
-    if (!o) return;
-    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor) n = o.constructor.name;
-    if (n === "Map" || n === "Set") return Array.from(n);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
 
 
 /**
@@ -2391,41 +1555,24 @@ function _unsupportedIterableToArray(o, minLen) {
 /**
  * useDocMetadata
  */ function useDocMetadata() {
-    return Array.from(document.head.querySelectorAll("meta"));
+    return Array.from(document.head.querySelectorAll('meta'));
 }
 /**
  * setDocumentMetadata
  */ function setDocMetadata(Ms) {
-    var _iteratorNormalCompletion = true, _didIteratorError = false, _iteratorError = undefined;
-    if (_ssr_utils__WEBPACK_IMPORTED_MODULE_1__.environment.isFinalRender) try {
-        for(var _iterator = Ms[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true){
-            var metadata = _step.value;
-            var meta = document.createElement("meta");
-            for(var key in metadata)meta.setAttribute(key, metadata[key]);
-            document.head.appendChild(meta);
-        }
-    } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-    } finally{
-        try {
-            if (!_iteratorNormalCompletion && _iterator.return != null) {
-                _iterator.return();
-            }
-        } finally{
-            if (_didIteratorError) {
-                throw _iteratorError;
-            }
-        }
+    if (_ssr_utils__WEBPACK_IMPORTED_MODULE_1__.environment.isFinalRender) for (const metadata of Ms){
+        const meta = document.createElement('meta');
+        for(const key in metadata)meta.setAttribute(key, metadata[key]);
+        document.head.appendChild(meta);
     }
 }
 /**
  * useTheme
  */ function useAppTheme() {
-    var ref = _slicedToArray((0,preact_hooks__WEBPACK_IMPORTED_MODULE_0__.useState)(_ssr_utils__WEBPACK_IMPORTED_MODULE_1__.environment.isBrowser ? localStorage.theme : undefined), 2), theme = ref[0], setTheme = ref[1];
-    (0,preact_hooks__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function() {
-        if (theme === "dark") document.documentElement.classList.add("dark");
-        else document.documentElement.classList.remove("dark");
+    const [theme, setTheme] = (0,preact_hooks__WEBPACK_IMPORTED_MODULE_0__.useState)(_ssr_utils__WEBPACK_IMPORTED_MODULE_1__.environment.isBrowser ? localStorage.theme : undefined);
+    (0,preact_hooks__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{
+        if (theme === 'dark') document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
     }, [
         theme
     ]);
@@ -2447,32 +1594,38 @@ function _unsupportedIterableToArray(o, minLen) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "FetchStateStatus": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_0__.FetchStateStatus),
+/* harmony export */   "FetchStateStatus": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_1__.FetchStateStatus),
 /* harmony export */   "enableDevTools": () => (/* binding */ enableDevTools),
-/* harmony export */   "environment": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_0__.environment),
-/* harmony export */   "getServerSideProps": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_0__.getServerSideProps),
-/* harmony export */   "initAppState": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_0__.initAppState),
-/* harmony export */   "initUniStore": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_0__.initUniStore),
-/* harmony export */   "isDevelopment": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_0__.isDevelopment),
-/* harmony export */   "isProduction": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_0__.isProduction),
-/* harmony export */   "resolvePendingAsyncDataFetches": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_0__.resolvePendingAsyncDataFetches),
-/* harmony export */   "resolvePendingProps": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_0__.resolvePendingProps),
-/* harmony export */   "setDocMetadata": () => (/* reexport safe */ _hooks__WEBPACK_IMPORTED_MODULE_1__.setDocMetadata),
-/* harmony export */   "useAppTheme": () => (/* reexport safe */ _hooks__WEBPACK_IMPORTED_MODULE_1__.useAppTheme),
-/* harmony export */   "useAsyncDataFetch": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_0__.useAsyncDataFetch),
-/* harmony export */   "useDocMetadata": () => (/* reexport safe */ _hooks__WEBPACK_IMPORTED_MODULE_1__.useDocMetadata),
-/* harmony export */   "useRouterChangeEffect": () => (/* reexport safe */ _hooks__WEBPACK_IMPORTED_MODULE_1__.useRouterChangeEffect)
+/* harmony export */   "environment": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_1__.environment),
+/* harmony export */   "getAppContentByLocale": () => (/* binding */ getAppContentByLocale),
+/* harmony export */   "getServerSideProps": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_1__.getServerSideProps),
+/* harmony export */   "initAppState": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_1__.initAppState),
+/* harmony export */   "initUniStore": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_1__.initUniStore),
+/* harmony export */   "isDevelopment": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_1__.isDevelopment),
+/* harmony export */   "isProduction": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_1__.isProduction),
+/* harmony export */   "resolvePendingAsyncDataFetches": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_1__.resolvePendingAsyncDataFetches),
+/* harmony export */   "resolvePendingProps": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_1__.resolvePendingProps),
+/* harmony export */   "setDocMetadata": () => (/* reexport safe */ _hooks__WEBPACK_IMPORTED_MODULE_2__.setDocMetadata),
+/* harmony export */   "useAppTheme": () => (/* reexport safe */ _hooks__WEBPACK_IMPORTED_MODULE_2__.useAppTheme),
+/* harmony export */   "useAsyncDataFetch": () => (/* reexport safe */ _ssr_utils__WEBPACK_IMPORTED_MODULE_1__.useAsyncDataFetch),
+/* harmony export */   "useDocMetadata": () => (/* reexport safe */ _hooks__WEBPACK_IMPORTED_MODULE_2__.useDocMetadata),
+/* harmony export */   "useRouterChangeEffect": () => (/* reexport safe */ _hooks__WEBPACK_IMPORTED_MODULE_2__.useRouterChangeEffect)
 /* harmony export */ });
-/* harmony import */ var _ssr_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ssr-utils */ "./src/helpers/ssr-utils.ts");
-/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hooks */ "./src/helpers/hooks.ts");
+/* harmony import */ var _contents__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/contents */ "./src/contents/index.ts");
+/* harmony import */ var _ssr_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ssr-utils */ "./src/helpers/ssr-utils.ts");
+/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./hooks */ "./src/helpers/hooks.ts");
+
 
 
 
 function enableDevTools() {
-    if (_ssr_utils__WEBPACK_IMPORTED_MODULE_0__.isDevelopment) {
+    if (_ssr_utils__WEBPACK_IMPORTED_MODULE_1__.isDevelopment) {
         __webpack_require__.e(/*! import() */ "node_modules_preact_devtools_dist_devtools_module_js").then(__webpack_require__.bind(__webpack_require__, /*! preact/devtools */ "./node_modules/preact/devtools/dist/devtools.module.js"));
         __webpack_require__.e(/*! import() */ "node_modules_preact_debug_dist_debug_module_js").then(__webpack_require__.bind(__webpack_require__, /*! preact/debug */ "./node_modules/preact/debug/dist/debug.module.js"));
     }
+}
+function getAppContentByLocale(path, forceLocale) {
+    return __webpack_require__("./src/contents sync recursive ^\\.\\/.*\\/.*$")(`./${forceLocale !== null && forceLocale !== void 0 ? forceLocale : (0,_contents__WEBPACK_IMPORTED_MODULE_0__.getAppLocale)()}/${path}`);
 }
 
 
@@ -2498,21 +1651,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "resolvePendingProps": () => (/* binding */ resolvePendingProps),
 /* harmony export */   "useAsyncDataFetch": () => (/* binding */ useAsyncDataFetch)
 /* harmony export */ });
-/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
-/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var unistore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! unistore */ "./node_modules/unistore/dist/unistore.es.js");
-/* harmony import */ var unistore_devtools__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! unistore/devtools */ "./node_modules/unistore/devtools.js");
-/* harmony import */ var unistore_devtools__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(unistore_devtools__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var preact_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! preact/hooks */ "./node_modules/preact/hooks/dist/hooks.module.js");
-/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hooks */ "./src/helpers/hooks.ts");
-function _arrayLikeToArray(arr, len) {
-    if (len == null || len > arr.length) len = arr.length;
-    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
-    return arr2;
-}
-function _arrayWithHoles(arr) {
-    if (Array.isArray(arr)) return arr;
-}
+/* harmony import */ var unistore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! unistore */ "./node_modules/unistore/dist/unistore.es.js");
+/* harmony import */ var unistore_devtools__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! unistore/devtools */ "./node_modules/unistore/devtools.js");
+/* harmony import */ var unistore_devtools__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(unistore_devtools__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var preact_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! preact/hooks */ "./node_modules/preact/hooks/dist/hooks.module.js");
+/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./hooks */ "./src/helpers/hooks.ts");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
     try {
         var info = gen[key](arg);
@@ -2542,93 +1685,30 @@ function _asyncToGenerator(fn) {
         });
     };
 }
-function _defineProperty(obj, key, value) {
-    if (key in obj) {
-        Object.defineProperty(obj, key, {
-            value: value,
-            enumerable: true,
-            configurable: true,
-            writable: true
-        });
-    } else {
-        obj[key] = value;
-    }
-    return obj;
-}
-function _instanceof(left, right) {
-    if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) {
-        return !!right[Symbol.hasInstance](left);
-    } else {
-        return left instanceof right;
-    }
-}
-function _iterableToArrayLimit(arr, i) {
-    var _i = arr == null ? null : (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]);
-    if (_i == null) return;
-    var _arr = [];
-    var _n = true;
-    var _d = false;
-    var _s, _e;
-    try {
-        for(_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true){
-            _arr.push(_s.value);
-            if (i && _arr.length === i) break;
-        }
-    } catch (err) {
-        _d = true;
-        _e = err;
-    } finally{
-        try {
-            if (!_n && _i["return"] != null) _i["return"]();
-        } finally{
-            if (_d) throw _e;
-        }
-    }
-    return _arr;
-}
-function _nonIterableRest() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _slicedToArray(arr, i) {
-    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-var _typeof = function(obj) {
-    "@swc/helpers - typeof";
-    return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj;
-};
-function _unsupportedIterableToArray(o, minLen) {
-    if (!o) return;
-    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor) n = o.constructor.name;
-    if (n === "Map" || n === "Set") return Array.from(n);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
 
 
 
 
-
-var environment = {
+const environment = {
     get isBrowser () {
-        return typeof process === "undefined" && "object" === "undefined" && 0 && 0 || typeof Worker === "function";
+        return typeof process === 'undefined' && "object" === 'undefined' && 0 && 0 || typeof Worker === 'function';
     },
     get isServer () {
-        return !this.isBrowser && "object" !== "undefined";
+        return !this.isBrowser && "object" !== 'undefined';
     },
     get isFinalRender () {
         return __webpack_require__.g.finalRender;
     }
 };
-var isDevelopment = "development" === "development";
-var isProduction = !isDevelopment;
+const isDevelopment = "development" === 'development';
+const isProduction = !isDevelopment;
 function initUniStore(store) {
-    var initStore = window.__UNISTORE_STATE__ ? window.__UNISTORE_STATE__ : window.__UNISTORE_STATE__ = {};
-    var C = unistore__WEBPACK_IMPORTED_MODULE_1__["default"];
-    return isDevelopment && environment.isBrowser ? unistore_devtools__WEBPACK_IMPORTED_MODULE_2___default()(C(initStore)) : C(initStore);
+    const initStore = window.__UNISTORE_STATE__ ? window.__UNISTORE_STATE__ : window.__UNISTORE_STATE__ = {};
+    const C = unistore__WEBPACK_IMPORTED_MODULE_0__["default"];
+    return isDevelopment && environment.isBrowser ? unistore_devtools__WEBPACK_IMPORTED_MODULE_1___default()(C(initStore)) : C(initStore);
 }
 function initAppState() {
-    var initState = window.__APP_STATE__ ? window.__APP_STATE__ : window.__APP_STATE__ = {
+    const initState = window.__APP_STATE__ ? window.__APP_STATE__ : window.__APP_STATE__ = {
         serverSideProps: [],
         serverSideRoutesWhitelist: {},
         clientRuntimeConfig: APP_CONFIG.clientRuntimeConfig,
@@ -2647,90 +1727,49 @@ function initAppState() {
     return _getServerSideProps.apply(this, arguments);
 }
 function _getServerSideProps() {
-    _getServerSideProps = _asyncToGenerator(/*#__PURE__*/ regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(C, aF) {
-        var fName, memoTchecksOldRes, isNotComponent, defaultProps, browserPropsFallback, serverSideProps, index, _defaultProps;
-        return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_ctx) {
-            while(1)switch(_ctx.prev = _ctx.next){
-                case 0:
-                    fName = C.name;
-                    memoTchecksOldRes = memoTchecks[fName];
-                    isNotComponent = false;
-                    // C.toString() and performing checks in regex is an expensive operation, 
-                    // calling it regularly surely will impact the runtime of getServerSideProps.
-                    //
-                    // do: Check if C is a function component, by using regex we check certain keywords
-                    //     that the JSX runtime (and other possible candidate keywords) uses and
-                    //     memoize the result to `memoTchecks` and then update the flag `isNotComponent`
-                    if (!memoTchecksOldRes) memoTchecks[fName] = isNotComponent = !/(_jsxRuntime|children|jsxs?|Fragment)/g.test(C.toString());
-                    if (!isNotComponent) {
-                        _ctx.next = 6;
-                        break;
-                    }
-                    throw new TypeError("".concat(C.name.length ? C.name : "(anonymous)", " is not a valid function component."));
-                case 6:
-                    if (!environment.isServer) {
-                        _ctx.next = 10;
-                        break;
-                    }
-                    pendingServerSideProps.push({
-                        C: C,
-                        aF: aF
+    _getServerSideProps = _asyncToGenerator(function*(C, aF) {
+        const fName = C.name;
+        const memoTchecksOldRes = memoTchecks[fName];
+        let isNotComponent = false;
+        // C.toString() and performing checks in regex is an expensive operation, 
+        // calling it regularly surely will impact the runtime of getServerSideProps.
+        //
+        // do: Check if C is a function component, by using regex we check certain keywords
+        //     that the JSX runtime (and other possible candidate keywords) uses and
+        //     memoize the result to `memoTchecks` and then update the flag `isNotComponent`
+        if (!memoTchecksOldRes) memoTchecks[fName] = isNotComponent = !/(_jsxRuntime|children|jsxs?|Fragment)/g.test(C.toString());
+        if (isNotComponent) throw new TypeError(`${C.name.length ? C.name : '(anonymous)'} is not a valid function component.`);
+        if (environment.isServer) pendingServerSideProps.push({
+            C,
+            aF
+        });
+        else {
+            let defaultProps;
+            const browserPropsFallback = function() {
+                var _ref = _asyncToGenerator(function*(fName, routes) {
+                    yield aF(null).then((props)=>{
+                        const routeUi = routes[fName];
+                        routeUi.props = Object.assign(routeUi.props, props);
+                        defaultProps = props;
                     });
-                    _ctx.next = 26;
-                    break;
-                case 10:
-                    ;
-                    browserPropsFallback = function() {
-                        var _ref = _asyncToGenerator(/*#__PURE__*/ regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(fName, routes) {
-                            return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_ctx) {
-                                while(1)switch(_ctx.prev = _ctx.next){
-                                    case 0:
-                                        _ctx.next = 2;
-                                        return aF(null).then(function(props) {
-                                            var routeUi = routes[fName];
-                                            routeUi.props = Object.assign(routeUi.props, props);
-                                            defaultProps = props;
-                                        });
-                                    case 2:
-                                    case "end":
-                                        return _ctx.stop();
-                                }
-                            }, _callee);
-                        }));
-                        return function browserPropsFallback(fName, routes) {
-                            return _ref.apply(this, arguments);
-                        };
-                    }();
-                    if (!window.__APP_STATE__.serverSideRoutesWhitelist[fName]) {
-                        _ctx.next = 17;
-                        break;
-                    }
-                    _ctx.next = 15;
-                    return browserPropsFallback(fName, window.__whitelistRoutes);
-                case 15:
-                    _ctx.next = 24;
-                    break;
-                case 17:
-                    serverSideProps = window.__APP_STATE__.serverSideProps;
-                    index = window.__APP_STATE__.serverSidePropsIndex--;
-                    // Reset the pointer's value to serverSideProps.
-                    if (index == 0) index = window.__APP_STATE__.serverSidePropsIndex = serverSideProps.length;
-                    defaultProps = serverSideProps[serverSideProps.length - index];
-                    if (!(defaultProps == undefined)) {
-                        _ctx.next = 24;
-                        break;
-                    }
-                    _ctx.next = 24;
-                    return browserPropsFallback(fName, window.__routes);
-                case 24:
-                    ;
-                    C.defaultProps = Object.assign((_defaultProps = C.defaultProps) !== null && _defaultProps !== void 0 ? _defaultProps : {}, defaultProps);
-                case 26:
-                case "end":
-                    return _ctx.stop();
+                });
+                return function browserPropsFallback(fName, routes) {
+                    return _ref.apply(this, arguments);
+                };
+            }();
+            if (window.__APP_STATE__.serverSideRoutesWhitelist[fName]) yield browserPropsFallback(fName, window.__whitelistRoutes);
+            else {
+                const serverSideProps = window.__APP_STATE__.serverSideProps;
+                let index = window.__APP_STATE__.serverSidePropsIndex--;
+                // Reset the pointer's value to serverSideProps.
+                if (index == 0) index = window.__APP_STATE__.serverSidePropsIndex = serverSideProps.length;
+                defaultProps = serverSideProps[serverSideProps.length - index];
+                if (defaultProps == undefined) yield browserPropsFallback(fName, window.__routes);
             }
-        }, _callee);
-    }));
+            var _defaultProps;
+            C.defaultProps = Object.assign((_defaultProps = C.defaultProps) !== null && _defaultProps !== void 0 ? _defaultProps : {}, defaultProps);
+        }
+    });
     return _getServerSideProps.apply(this, arguments);
 }
 var FetchStateStatus;
@@ -2739,7 +1778,7 @@ var FetchStateStatus;
     FetchStateStatus[FetchStateStatus["Error"] = 1] = "Error";
     FetchStateStatus[FetchStateStatus["Pending"] = 2] = "Pending";
 })(FetchStateStatus || (FetchStateStatus = {}));
-var memoTchecks = {};
+const memoTchecks = {};
 /**
  * resolvePendingProps 
  * @param ctx 
@@ -2747,123 +1786,79 @@ var memoTchecks = {};
     return _resolvePendingProps.apply(this, arguments);
 }
 function _resolvePendingProps() {
-    _resolvePendingProps = _asyncToGenerator(/*#__PURE__*/ regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(ctx) {
-        var _loop, routes, routesWhitelist, Ps, serverSideProps, numBadProps, propsResolvers, index;
-        return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_ctx) {
-            while(1)switch(_ctx.prev = _ctx.next){
-                case 0:
-                    _loop = function(index) {
-                        Ps[index].C.defaultProps = {};
-                        var req = ctx.req;
-                        var isExcluded = false;
-                        var _iteratorNormalCompletion = true, _didIteratorError = false, _iteratorError = undefined;
-                        try {
-                            // When component `Ps[index].C` does not match the current request URL path
-                            // we exclude it from the ones that will be data fetched by the server and
-                            // we put it in a `whitelist` that will be data fetched in the client
-                            // once `useRouterChangeEffect` detected a URL change in the browser.
-                            //
-                            // Additionally, if it matches the current request URL path we will capture
-                            // the request url for any url parameters ':[keyword]' and then place it
-                            // into the `defaultProps` of the component.
-                            for(var _iterator = routes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true){
-                                var route = _step.value;
-                                var patt = new RegExp(route.path.replaceAll(/:[^/]+/g, "([^/]+)"));
-                                if (route.component == Ps[index].C && route.path != req.path && !patt.test(req.path)) {
-                                    isExcluded = true;
-                                    routesWhitelist[Ps[index].C.name] = true;
-                                    break;
-                                }
-                                var currIndex = 1;
-                                var params = route.path.matchAll(/:([^/]+)/g);
-                                var _iteratorNormalCompletion1 = true, _didIteratorError1 = false, _iteratorError1 = undefined;
-                                try {
-                                    for(var _iterator1 = params[Symbol.iterator](), _step1; !(_iteratorNormalCompletion1 = (_step1 = _iterator1.next()).done); _iteratorNormalCompletion1 = true){
-                                        var _value = _slicedToArray(_step1.value, 2), param = _value[1];
-                                        var ref;
-                                        var matches = (ref = req.path.match(patt)) !== null && ref !== void 0 ? ref : [];
-                                        var C = Ps[index].C;
-                                        C.defaultProps = Object.assign(C.defaultProps, _defineProperty({}, param, matches[currIndex++]));
-                                    }
-                                } catch (err) {
-                                    _didIteratorError1 = true;
-                                    _iteratorError1 = err;
-                                } finally{
-                                    try {
-                                        if (!_iteratorNormalCompletion1 && _iterator1.return != null) {
-                                            _iterator1.return();
-                                        }
-                                    } finally{
-                                        if (_didIteratorError1) {
-                                            throw _iteratorError1;
-                                        }
-                                    }
-                                }
-                            }
-                        } catch (err) {
-                            _didIteratorError = true;
-                            _iteratorError = err;
-                        } finally{
-                            try {
-                                if (!_iteratorNormalCompletion && _iterator.return != null) {
-                                    _iterator.return();
-                                }
-                            } finally{
-                                if (_didIteratorError) {
-                                    throw _iteratorError;
-                                }
-                            }
-                        }
-                        if (isExcluded) return "continue";
-                        propsResolvers.push((function() {
-                            var _ref = _asyncToGenerator(/*#__PURE__*/ regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(Ps, i) {
-                                var isGoodProps, _i, C, aF, asyncProps;
-                                return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_ctx) {
-                                    while(1)switch(_ctx.prev = _ctx.next){
-                                        case 0:
-                                            isGoodProps = true;
-                                            _i = Ps[i], C = _i.C, aF = _i.aF;
-                                            _ctx.next = 4;
-                                            return aF(ctx);
-                                        case 4:
-                                            asyncProps = _ctx.sent;
-                                            if (typeof asyncProps !== "undefined" && asyncProps != undefined && typeof asyncProps === "object" && typeof asyncProps !== "number" && !_instanceof(asyncProps, Array) && !_instanceof(asyncProps, Map) && typeof asyncProps !== "boolean" && !_instanceof(asyncProps, Set) && typeof asyncProps !== "string" && (typeof asyncProps === "undefined" ? "undefined" : _typeof(asyncProps)) !== "bigint" && typeof asyncProps !== "function" && (typeof asyncProps === "undefined" ? "undefined" : _typeof(asyncProps)) !== "symbol" && !(Symbol.iterator in asyncProps) && !(Symbol.asyncIterator in asyncProps)) serverSideProps[i] = asyncProps;
-                                            else {
-                                                isGoodProps = false;
-                                                numBadProps++;
-                                            }
-                                            if (isGoodProps) C.defaultProps = Object.assign(C.defaultProps, asyncProps);
-                                            Promise.resolve();
-                                        case 8:
-                                        case "end":
-                                            return _ctx.stop();
-                                    }
-                                }, _callee);
-                            }));
-                            return function(Ps, i) {
-                                return _ref.apply(this, arguments);
-                            };
-                        })()(Ps, index));
-                    };
-                    routes = (__webpack_require__(/*! @/views */ "./src/views/index.ts")["default"]);
-                    routesWhitelist = {};
-                    Ps = pendingServerSideProps;
-                    serverSideProps = [];
-                    numBadProps = 0;
-                    propsResolvers = [];
-                    for(index = 0; index < Ps.length; index++)_loop(index);
-                    _ctx.next = 10;
-                    return Promise.all(propsResolvers);
-                case 10:
-                    window.__APP_STATE__.serverSideProps = serverSideProps;
-                    window.__APP_STATE__.serverSidePropsIndex = propsResolvers.length - numBadProps;
-                    window.__APP_STATE__.serverSideRoutesWhitelist = routesWhitelist;
-                case 13:
-                case "end":
-                    return _ctx.stop();
+    _resolvePendingProps = _asyncToGenerator(function*(ctx) {
+        const routes = (__webpack_require__(/*! @/views */ "./src/views/index.ts")["default"]);
+        const routesWhitelist = {};
+        const Ps = pendingServerSideProps;
+        const serverSideProps = [];
+        // numBadProps is a counter for props that are not well defined after
+        // resolving some aF function from the `pendingServerSideProps`. This
+        // counter will be subtracted from the total serverSideProps length.
+        //
+        // A badprops is a resolved value by the async aF function from 
+        // `getServerSideProps` which is not suitable to be merge to the
+        // `defaultProps` of the `C` component.
+        //
+        let numBadProps = 0;
+        // Resolve all async props and assign it to the component's 
+        // static property `defaultProps`, we also store a copy of the resolved
+        // props to the `serverSideProps` for rendering it later on
+        // the browser.
+        const propsResolvers = [];
+        for(let index = 0; index < Ps.length; index++){
+            Ps[index].C.defaultProps = {};
+            const { req  } = ctx;
+            let isExcluded = false;
+            // When component `Ps[index].C` does not match the current request URL path
+            // we exclude it from the ones that will be data fetched by the server and
+            // we put it in a `whitelist` that will be data fetched in the client
+            // once `useRouterChangeEffect` detected a URL change in the browser.
+            //
+            // Additionally, if it matches the current request URL path we will capture
+            // the request url for any url parameters ':[keyword]' and then place it
+            // into the `defaultProps` of the component.
+            for (const route of routes){
+                const patt = new RegExp(route.path.replaceAll(/:[^/]+/g, '([^/]+)'));
+                if (route.component == Ps[index].C && route.path != req.path && !patt.test(req.path)) {
+                    isExcluded = true;
+                    routesWhitelist[Ps[index].C.name] = true;
+                    break;
+                }
+                let currIndex = 1;
+                const params = route.path.matchAll(/:([^/]+)/g);
+                for (const [, param] of params){
+                    var ref;
+                    const matches = (ref = req.path.match(patt)) !== null && ref !== void 0 ? ref : [];
+                    const C = Ps[index].C;
+                    C.defaultProps = Object.assign(C.defaultProps, {
+                        [param]: matches[currIndex++]
+                    });
+                }
             }
-        }, _callee);
-    }));
+            if (isExcluded) continue;
+            propsResolvers.push((function() {
+                var _ref = _asyncToGenerator(function*(Ps, i) {
+                    let isGoodProps = true;
+                    const { C , aF  } = Ps[i];
+                    const asyncProps = yield aF(ctx);
+                    if (typeof asyncProps !== 'undefined' && asyncProps != undefined && typeof asyncProps === 'object' && typeof asyncProps !== 'number' && !(asyncProps instanceof Array) && !(asyncProps instanceof Map) && typeof asyncProps !== 'boolean' && !(asyncProps instanceof Set) && typeof asyncProps !== 'string' && typeof asyncProps !== 'bigint' && typeof asyncProps !== 'function' && typeof asyncProps !== 'symbol' && !(Symbol.iterator in asyncProps) && !(Symbol.asyncIterator in asyncProps)) serverSideProps[i] = asyncProps;
+                    else {
+                        isGoodProps = false;
+                        numBadProps++;
+                    }
+                    if (isGoodProps) C.defaultProps = Object.assign(C.defaultProps, asyncProps);
+                    Promise.resolve();
+                });
+                return function(Ps, i) {
+                    return _ref.apply(this, arguments);
+                };
+            })()(Ps, index));
+        }
+        yield Promise.all(propsResolvers);
+        window.__APP_STATE__.serverSideProps = serverSideProps;
+        window.__APP_STATE__.serverSidePropsIndex = propsResolvers.length - numBadProps;
+        window.__APP_STATE__.serverSideRoutesWhitelist = routesWhitelist;
+    });
     return _resolvePendingProps.apply(this, arguments);
 }
 /**
@@ -2878,23 +1873,22 @@ function _resolvePendingProps() {
  * `aCb` call back is where the data fetched will go after `useAsyncDataFetch` has finished fetching.
  * 
  * @param aCb 
- */ function useAsyncDataFetch() {
-    var options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {
-        onServer: true,
-        reuse: false,
-        forced: false
-    }, aCb = arguments.length > 1 ? arguments[1] : void 0;
-    var isBrowser = environment.isBrowser, isServer = environment.isServer;
-    var ref = _slicedToArray((0,preact_hooks__WEBPACK_IMPORTED_MODULE_3__.useState)({
+ */ function useAsyncDataFetch(options = {
+    onServer: true,
+    reuse: false,
+    forced: false
+}, aCb) {
+    const { isBrowser , isServer  } = environment;
+    const [fState, setState] = (0,preact_hooks__WEBPACK_IMPORTED_MODULE_2__.useState)({
         status: 2
-    }), 2), fState = ref[0], setState = ref[1];
-    var ref1 = _slicedToArray((0,preact_hooks__WEBPACK_IMPORTED_MODULE_3__.useState)(null), 2), fRes = ref1[0], setFRes = ref1[1];
-    var fRCb = function() {};
+    });
+    const [fRes, setFRes] = (0,preact_hooks__WEBPACK_IMPORTED_MODULE_2__.useState)(null);
+    let fRCb = ()=>{};
     if (isBrowser) {
-        (0,_hooks__WEBPACK_IMPORTED_MODULE_4__.useRouterChangeEffect)(function() {
-            var ssrDataCounter = window.__APP_STATE__.asyncDataFetchesIndex;
-            var ssrData = window.__APP_STATE__.asyncDataFetches[ssrDataCounter - 1];
-            var isNotPopulated = true;
+        (0,_hooks__WEBPACK_IMPORTED_MODULE_3__.useRouterChangeEffect)(()=>{
+            const ssrDataCounter = window.__APP_STATE__.asyncDataFetchesIndex;
+            const ssrData = window.__APP_STATE__.asyncDataFetches[ssrDataCounter - 1];
+            let isNotPopulated = true;
             // If the ssrData has not been indexed in the browser, instead of
             // performing an HTTP request, we are gonna used the value of `ssrData.data`
             // then we flag `ssrData.data` as used.
@@ -2916,20 +1910,20 @@ function _resolvePendingProps() {
             if (isNotPopulated || options.forced) aCb([
                 fState,
                 setState
-            ]).then(function(res) {
+            ]).then((res)=>{
                 setState({
                     status: 0
                 });
                 setFRes(res);
-            }).catch(function(err) {
+            }).catch((err)=>{
                 setState({
                     status: 1,
                     message: err
                 });
             });
         });
-        fRCb = function(cb) {
-            (0,preact_hooks__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function() {
+        fRCb = (cb)=>{
+            (0,preact_hooks__WEBPACK_IMPORTED_MODULE_2__.useEffect)(()=>{
                 if (fState.status == 0) cb(fRes);
             }, [
                 fState.status
@@ -2937,18 +1931,18 @@ function _resolvePendingProps() {
         };
     }
     if (options.onServer && isServer) {
-        var asyncDataFetches = window.__APP_STATE__.asyncDataFetches;
+        const asyncDataFetches = window.__APP_STATE__.asyncDataFetches;
         if (!asyncDataFetches) pendingAsyncDataFetches.push({
             fState: [
                 fState,
                 setState
             ],
             C: aCb,
-            options: options
+            options
         });
-        else fRCb = function(cb) {
-            var ssrDataCounter = window.__APP_STATE__.asyncDataFetchesIndex;
-            var ssrData = asyncDataFetches[ssrDataCounter - 1];
+        else fRCb = (cb)=>{
+            const ssrDataCounter = window.__APP_STATE__.asyncDataFetchesIndex;
+            const ssrData = asyncDataFetches[ssrDataCounter - 1];
             if (ssrData) {
                 setState({
                     status: 0
@@ -2972,69 +1966,31 @@ function _resolvePendingProps() {
     return _resolvePendingAsyncDataFetches.apply(this, arguments);
 }
 function _resolvePendingAsyncDataFetches() {
-    _resolvePendingAsyncDataFetches = _asyncToGenerator(/*#__PURE__*/ regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var Pa, asyncDataFetches, resolveFetches, index;
-        return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_ctx) {
-            while(1)switch(_ctx.prev = _ctx.next){
-                case 0:
-                    Pa = pendingAsyncDataFetches;
-                    asyncDataFetches = [];
-                    resolveFetches = [];
-                    index = 0;
-                case 4:
-                    if (!(index < Pa.length)) {
-                        _ctx.next = 11;
-                        break;
-                    }
-                    if (Pa[index].options.onServer) {
-                        _ctx.next = 7;
-                        break;
-                    }
-                    return _ctx.abrupt("continue", 8);
-                case 7:
-                    resolveFetches.push((function() {
-                        var _ref = _asyncToGenerator(/*#__PURE__*/ regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(Pi, index) {
-                            var C, fState;
-                            return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_ctx) {
-                                while(1)switch(_ctx.prev = _ctx.next){
-                                    case 0:
-                                        C = Pi.C, fState = Pi.fState;
-                                        _ctx.next = 3;
-                                        return C(fState);
-                                    case 3:
-                                        _ctx.t0 = _ctx.sent;
-                                        asyncDataFetches[index] = {
-                                            data: _ctx.t0,
-                                            used: false
-                                        };
-                                        Promise.resolve();
-                                    case 6:
-                                    case "end":
-                                        return _ctx.stop();
-                                }
-                            }, _callee);
-                        }));
-                        return function(Pi, index) {
-                            return _ref.apply(this, arguments);
-                        };
-                    })()(Pa[index], index));
-                case 8:
-                    index++;
-                    _ctx.next = 4;
-                    break;
-                case 11:
-                    _ctx.next = 13;
-                    return Promise.all(resolveFetches);
-                case 13:
-                    window.__APP_STATE__.asyncDataFetches = asyncDataFetches;
-                    window.__APP_STATE__.asyncDataFetchesIndex = resolveFetches.length;
-                    pendingAsyncDataFetches = [];
-                case 16:
-                case "end":
-                    return _ctx.stop();
-            }
-        }, _callee);
-    }));
+    _resolvePendingAsyncDataFetches = _asyncToGenerator(function*() {
+        const Pa = pendingAsyncDataFetches;
+        const asyncDataFetches = [];
+        const resolveFetches = [];
+        for(let index = 0; index < Pa.length; index++){
+            if (!Pa[index].options.onServer) continue;
+            resolveFetches.push((function() {
+                var _ref = _asyncToGenerator(function*(Pi, index) {
+                    const { C , fState  } = Pi;
+                    asyncDataFetches[index] = {
+                        data: yield C(fState),
+                        used: false
+                    };
+                    Promise.resolve();
+                });
+                return function(Pi, index) {
+                    return _ref.apply(this, arguments);
+                };
+            })()(Pa[index], index));
+        }
+        yield Promise.all(resolveFetches);
+        window.__APP_STATE__.asyncDataFetches = asyncDataFetches;
+        window.__APP_STATE__.asyncDataFetchesIndex = resolveFetches.length;
+        pendingAsyncDataFetches = [];
+    });
     return _resolvePendingAsyncDataFetches.apply(this, arguments);
 }
 
@@ -3049,13 +2005,11 @@ function _resolvePendingAsyncDataFetches() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
-/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
-/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/App */ "./src/App.tsx");
-/* harmony import */ var _server_SSRContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/server/SSRContext */ "./src/server/SSRContext.tsx");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/helpers */ "./src/helpers/index.ts");
+/* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
+/* harmony import */ var preact__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.module.js");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/App */ "./src/App.tsx");
+/* harmony import */ var _server_SSRContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/server/SSRContext */ "./src/server/SSRContext.tsx");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/helpers */ "./src/helpers/index.ts");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
     try {
         var info = gen[key](arg);
@@ -3090,44 +2044,33 @@ function _asyncToGenerator(fn) {
 
 
 
-
-(0,_helpers__WEBPACK_IMPORTED_MODULE_5__.enableDevTools)();
+(0,_helpers__WEBPACK_IMPORTED_MODULE_4__.enableDevTools)();
 function renderApp(App) {
     return _renderApp.apply(this, arguments);
 }
 function _renderApp() {
-    _renderApp = _asyncToGenerator(/*#__PURE__*/ regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(App) {
-        var appRootEl, renderFunc;
-        return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_ctx) {
-            while(1)switch(_ctx.prev = _ctx.next){
-                case 0:
-                    appRootEl = document.querySelector(".app-root");
-                    renderFunc = _helpers__WEBPACK_IMPORTED_MODULE_5__.isDevelopment ? preact__WEBPACK_IMPORTED_MODULE_2__.render : preact__WEBPACK_IMPORTED_MODULE_2__.hydrate;
-                    if (_helpers__WEBPACK_IMPORTED_MODULE_5__.environment.isBrowser) {
-                        if (localStorage.theme === "dark") document.documentElement.classList.add("dark");
-                        else document.documentElement.classList.remove("dark");
-                    }
-                    renderFunc(/*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_server_SSRContext__WEBPACK_IMPORTED_MODULE_4__.ServerContext, {
-                        value: (0,_helpers__WEBPACK_IMPORTED_MODULE_5__.initAppState)(),
-                        store: (0,_helpers__WEBPACK_IMPORTED_MODULE_5__.initUniStore)(),
-                        children: /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(App, {})
-                    }), appRootEl);
-                case 4:
-                case "end":
-                    return _ctx.stop();
-            }
-        }, _callee);
-    }));
+    _renderApp = _asyncToGenerator(function*(App) {
+        const appRootEl = document.querySelector('.app-root');
+        const renderFunc = _helpers__WEBPACK_IMPORTED_MODULE_4__.isDevelopment ? preact__WEBPACK_IMPORTED_MODULE_1__.render : preact__WEBPACK_IMPORTED_MODULE_1__.hydrate;
+        if (_helpers__WEBPACK_IMPORTED_MODULE_4__.environment.isBrowser) {
+            if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
+            else document.documentElement.classList.remove('dark');
+        }
+        renderFunc(/*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_server_SSRContext__WEBPACK_IMPORTED_MODULE_3__.ServerContext, {
+            value: (0,_helpers__WEBPACK_IMPORTED_MODULE_4__.initAppState)(),
+            store: (0,_helpers__WEBPACK_IMPORTED_MODULE_4__.initUniStore)(),
+            children: /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(App, {})
+        }), appRootEl);
+    });
     return _renderApp.apply(this, arguments);
 }
-renderApp(_App__WEBPACK_IMPORTED_MODULE_3__.App);
-if (true) module.hot.accept(/*! ./App */ "./src/App.tsx", __WEBPACK_OUTDATED_DEPENDENCIES__ => { /* harmony import */ _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.tsx");
-(function() {
-    requestAnimationFrame(function() {
-        var _$App = (__webpack_require__(/*! @/App */ "./src/App.tsx").App);
-        renderApp(_$App);
+renderApp(_App__WEBPACK_IMPORTED_MODULE_2__.App);
+if (true) module.hot.accept(()=>{
+    requestAnimationFrame(()=>{
+        const App = (__webpack_require__(/*! @/App */ "./src/App.tsx").App);
+        renderApp(App);
     });
-})(__WEBPACK_OUTDATED_DEPENDENCIES__); });
+});
 
 
 /***/ }),
@@ -3150,8 +2093,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var SSRContext = (0,preact__WEBPACK_IMPORTED_MODULE_1__.createContext)(null);
-var ServerContext = function(props) {
+const SSRContext = (0,preact__WEBPACK_IMPORTED_MODULE_1__.createContext)(null);
+const ServerContext = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(SSRContext.Provider, {
         value: props.value,
         children: /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_preact_hooks_unistore__WEBPACK_IMPORTED_MODULE_2__.StoreProvider, {
@@ -3173,25 +2116,58 @@ var ServerContext = function(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "getRouteByName": () => (/* binding */ getRouteByName),
+/* harmony export */   "handleInitialRouteRequest": () => (/* binding */ handleInitialRouteRequest)
 /* harmony export */ });
+/* harmony import */ var _views__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/views */ "./src/views/index.ts");
+/* harmony import */ var preact_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact-router */ "./node_modules/preact-router/dist/preact-router.mjs");
+/* harmony import */ var _helpers_ssr_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/helpers/ssr-utils */ "./src/helpers/ssr-utils.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/preact/compat/dist/compat.module.js");
 // express-context.ts
 //
 // This utility can be used for managing the context of the express request and response lifecycle.
 // There are many use cases this utility can fit. 
+
+
+
+
 // This utility is following the facade pattern. hence it is not convenient to use it,
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+const context = {
     _context: null,
-    setContext: function setContext(ctx) {
+    setContext (ctx) {
         this._context = ctx;
     },
     // Accessing the _context prop directly in this facade is considered an anti-pattern,
     // instead use this getter to access it from this object.
-    getContext: function getContext() {
+    getContext () {
         return this._context;
     }
-});
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (context);
+function getRouteByName(name) {
+    for (const route of Object.values(_views__WEBPACK_IMPORTED_MODULE_0__["default"])){
+        if (route.name === name) return route;
+    }
+    throw new TypeError('route was not found');
+}
+function handleInitialRouteRequest(route) {
+    const [_route, setRoute] = (0,preact_router__WEBPACK_IMPORTED_MODULE_1__.useRouter)();
+    let wasNotFound = false;
+    // If `route.current` is undefined, it is considered that such path does not exist.
+    if (route.current === undefined) wasNotFound = true;
+    if (wasNotFound) {
+        if (_helpers_ssr_utils__WEBPACK_IMPORTED_MODULE_2__.environment.isServer) {
+            const ctx = (0,react__WEBPACK_IMPORTED_MODULE_3__.useContext)(context.getContext());
+            ctx.routeFound = false;
+            ctx.statusCode = 404;
+        } else setTimeout(()=>setRoute({
+                url: getRouteByName('not-found').path,
+                replace: true
+            }), 0);
+    }
+}
 
 
 /***/ }),
@@ -3209,7 +2185,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var thank_you_route = function(props) {
+const thank_you_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "Thank you works!"
     });
@@ -3231,7 +2207,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var not_found_route = function(props) {
+const not_found_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "Not found works!"
     });
@@ -3254,12 +2230,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var offline_route = function(props) {
+const offline_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "Offline works!"
     });
 };
-var maintenance_route = function(props) {
+const maintenance_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "Maintenance works!"
     });
@@ -3281,7 +2257,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var careers_route = function(props) {
+const careers_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "Careers works!"
     });
@@ -3303,7 +2279,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var contacts_route = function(props) {
+const contacts_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "Contacts works!"
     });
@@ -3325,7 +2301,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var faqs_route = function(props) {
+const faqs_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "FAQs works!"
     });
@@ -3347,7 +2323,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var how_it_works_route = function(props) {
+const how_it_works_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "How it works, works!"
     });
@@ -3380,6 +2356,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_how_it_works__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/views/how-it-works */ "./src/views/how-it-works/index.tsx");
 /* harmony import */ var _views_lang_courses__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/views/lang-courses */ "./src/views/lang-courses/index.tsx");
 /* harmony import */ var _views_login__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/views/login */ "./src/views/login/index.tsx");
+/* harmony import */ var _views_services_coworking_space__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/views/services/coworking-space */ "./src/views/services/coworking-space/index.tsx");
+/* harmony import */ var _views_services_visa_counselling__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @/views/services/visa-counselling */ "./src/views/services/visa-counselling/index.tsx");
+/* harmony import */ var _views_services_workshops__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @/views/services/workshops */ "./src/views/services/workshops/index.tsx");
 
 
 
@@ -3393,68 +2372,99 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var routes = [
+
+
+
+const routes = [
     // Login pages
     {
-        path: "/login",
+        path: '/login',
         component: _views_login__WEBPACK_IMPORTED_MODULE_12__.login_route
     },
     // Static pages
     {
-        path: "/",
+        path: '/',
         component: _views_landing__WEBPACK_IMPORTED_MODULE_4__.landing_route
     },
     {
-        path: "/careers",
+        path: '/careers',
         component: _views_careers__WEBPACK_IMPORTED_MODULE_5__.careers_route
     },
     {
-        path: "/contacts",
+        path: '/contacts',
         component: _views_contacts__WEBPACK_IMPORTED_MODULE_6__.contacts_route
     },
     {
-        path: "/faqs",
+        path: '/faqs',
         component: _views_faqs__WEBPACK_IMPORTED_MODULE_3__.faqs_route
     },
     {
-        path: "/how-it-works",
+        path: '/how-it-works',
         component: _views_how_it_works__WEBPACK_IMPORTED_MODULE_10__.how_it_works_route
     },
     {
-        path: "/more-about-us",
+        path: '/more-about-us',
         component: _views_more_about_us__WEBPACK_IMPORTED_MODULE_8__.more_about_us_route
     },
     {
-        path: "/professionals",
+        path: '/professionals',
         component: _views_professionals__WEBPACK_IMPORTED_MODULE_9__.professionals_route
     },
     {
-        path: "/lang-courses/:lang",
+        path: '/lang-courses/:lang',
         component: _views_lang_courses__WEBPACK_IMPORTED_MODULE_11__.lang_courses_route
+    },
+    {
+        path: '/shared-workspace',
+        component: _views_services_coworking_space__WEBPACK_IMPORTED_MODULE_13__.services_coworking_space_route
+    },
+    {
+        path: '/visa-counselling',
+        component: _views_services_visa_counselling__WEBPACK_IMPORTED_MODULE_14__.services_visa_counselling_route
+    },
+    {
+        path: '/workshops/:workshop',
+        component: _views_services_workshops__WEBPACK_IMPORTED_MODULE_15__.services_workshops_route
     },
     // Pricing pages
     {
-        path: "/pricings",
+        path: '/pricings',
+        component: _views_pricings__WEBPACK_IMPORTED_MODULE_7__.pricings_route
+    },
+    {
+        path: '/lang-courses/:lang/pricings',
+        component: _views_pricings__WEBPACK_IMPORTED_MODULE_7__.pricings_route
+    },
+    {
+        path: '/visa-counselling/pricings',
+        component: _views_pricings__WEBPACK_IMPORTED_MODULE_7__.pricings_route
+    },
+    {
+        path: '/shared-workspace/pricings',
         component: _views_pricings__WEBPACK_IMPORTED_MODULE_7__.pricings_route
     },
     // Status pages
     {
-        path: "/greetings/thank-you/:page",
+        name: 'thank-you',
+        path: '/greetings/thank-you/:page',
         component: _views_status_200s__WEBPACK_IMPORTED_MODULE_0__.thank_you_route,
         statusCode: 202
     },
     {
-        path: "/error/page-not-found",
+        name: 'not-found',
+        path: '/error/page-not-found',
         component: _views_status_404__WEBPACK_IMPORTED_MODULE_1__.not_found_route,
         statusCode: 404
     },
     {
-        path: "/error/offline",
+        name: 'off',
+        path: '/error/offline',
         component: _views_status_503__WEBPACK_IMPORTED_MODULE_2__.offline_route,
         statusCode: 503
     },
     {
-        path: "/error/maintenance",
+        name: 'maintenance',
+        path: '/error/maintenance',
         component: _views_status_503__WEBPACK_IMPORTED_MODULE_2__.maintenance_route,
         statusCode: 503
     }
@@ -3477,58 +2487,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 /* harmony import */ var _components_elements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/elements */ "./src/components/elements/index.ts");
-/* harmony import */ var _contents_fruits_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/contents/fruits.json */ "./src/contents/fruits.json");
-/* harmony import */ var _contents_md_message_md__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/contents/md/message.md */ "./src/contents/md/message.md");
+/* harmony import */ var _helpers_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/helpers/index */ "./src/helpers/index.ts");
 
 
 
-
-var landing_route = function(props) {
-    var fruits = _contents_fruits_json__WEBPACK_IMPORTED_MODULE_2__.fruits;
-    return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-        children: [
-            /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("table", {
-                children: [
-                    /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("thead", {
-                        children: /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", {
-                            children: [
-                                /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
-                                    children: "Id"
-                                }),
-                                /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
-                                    children: "Name (Quantity)"
-                                }),
-                                /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
-                                    children: "Price"
-                                })
-                            ]
-                        })
-                    }),
-                    /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("tbody", {
-                        children: fruits.map(function(fruit) {
-                            return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-                                children: /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", {
-                                    children: [
-                                        /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
-                                            children: fruit.id
-                                        }),
-                                        /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
-                                            children: fruit.name
-                                        }),
-                                        /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
-                                            children: fruit.price
-                                        })
-                                    ]
-                                })
-                            });
-                        })
-                    })
-                ]
-            }),
-            /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_elements__WEBPACK_IMPORTED_MODULE_1__.Markdown, {
-                content: _contents_md_message_md__WEBPACK_IMPORTED_MODULE_3__
-            })
-        ]
+const landing_route = (props)=>{
+    return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_elements__WEBPACK_IMPORTED_MODULE_1__.Markdown, {
+            content: (0,_helpers_index__WEBPACK_IMPORTED_MODULE_2__.getAppContentByLocale)('message.md')
+        })
     });
 };
 
@@ -3548,7 +2515,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var lang_courses_route = function(props) {
+const lang_courses_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "Lang courses works!"
     });
@@ -3570,7 +2537,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var login_route = function(props) {
+const login_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "Login works!"
     });
@@ -3592,7 +2559,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var more_about_us_route = function(props) {
+const more_about_us_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "More about us works!"
     });
@@ -3614,7 +2581,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var pricings_route = function(props) {
+const pricings_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "Pricings works!"
     });
@@ -3636,9 +2603,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
 
-var professionals_route = function(props) {
+const professionals_route = (props)=>{
     return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: "Professionals works!"
+    });
+};
+
+
+/***/ }),
+
+/***/ "./src/views/services/coworking-space/index.tsx":
+/*!******************************************************!*\
+  !*** ./src/views/services/coworking-space/index.tsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "services_coworking_space_route": () => (/* binding */ services_coworking_space_route)
+/* harmony export */ });
+/* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
+
+const services_coworking_space_route = (props)=>{
+    return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: "Services coworking space works!"
+    });
+};
+
+
+/***/ }),
+
+/***/ "./src/views/services/visa-counselling/index.tsx":
+/*!*******************************************************!*\
+  !*** ./src/views/services/visa-counselling/index.tsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "services_visa_counselling_route": () => (/* binding */ services_visa_counselling_route)
+/* harmony export */ });
+/* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
+
+const services_visa_counselling_route = (props)=>{
+    return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: "Services visa counselling works!"
+    });
+};
+
+
+/***/ }),
+
+/***/ "./src/views/services/workshops/index.tsx":
+/*!************************************************!*\
+  !*** ./src/views/services/workshops/index.tsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "services_workshops_route": () => (/* binding */ services_workshops_route)
+/* harmony export */ });
+/* harmony import */ var preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! preact/jsx-runtime */ "./node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js");
+
+const services_workshops_route = (props)=>{
+    return /*#__PURE__*/ (0,preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(preact_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: "Services workshops works!"
     });
 };
 
@@ -4297,14 +3330,62 @@ module.exports = function (hash, moduleMap, options) {
 
 /***/ }),
 
-/***/ "./src/contents/md/message.md":
+/***/ "./src/contents sync recursive ^\\.\\/.*\\/.*$":
+/*!*****************************************!*\
+  !*** ./src/contents/ sync ^\.\/.*\/.*$ ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var map = {
+	"./en/empty": "./src/contents/en/empty.json",
+	"./en/empty.json": "./src/contents/en/empty.json",
+	"./en/message": "./src/contents/en/message.md",
+	"./en/message.md": "./src/contents/en/message.md",
+	"./jp/message": "./src/contents/jp/message.md",
+	"./jp/message.md": "./src/contents/jp/message.md"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./src/contents sync recursive ^\\.\\/.*\\/.*$";
+
+/***/ }),
+
+/***/ "./src/contents/en/message.md":
 /*!************************************!*\
-  !*** ./src/contents/md/message.md ***!
+  !*** ./src/contents/en/message.md ***!
   \************************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = "#### The quick brown fox jumps over the lazy dog.\n---\nOkay now that we are done writing all of these, we will now commit these to our data.\n\n- Firstly";
+module.exports = "#### The quick brown fox jumps over the lazy dog.\n---\nOkay now that we are done <span class='bg-gray-300'>writing</span> all of these, we will now commit these to our data.\n\n- 1\n- 2\n- 3\n- 4\n- 5\n- 6\n- 7\n- 8\n- 9\n- 10";
+
+/***/ }),
+
+/***/ "./src/contents/jp/message.md":
+/*!************************************!*\
+  !*** ./src/contents/jp/message.md ***!
+  \************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = "#### 速い茶色のキツネが怠け者の犬を飛び越えます。\n---\nこれらすべての<span class='bg-gray-300'>書き込み</span>が完了したので、これらをデータにコミットします。\n\n- 1\n- 2\n- 3\n- 4\n- 5\n- 6\n- 7\n- 8\n- 9";
 
 /***/ }),
 
@@ -7189,14 +6270,14 @@ var a={};function c(n,t){for(var r in t)n[r]=t[r];return n}function s(n,t,r){var
 
 /***/ }),
 
-/***/ "./src/contents/fruits.json":
-/*!**********************************!*\
-  !*** ./src/contents/fruits.json ***!
-  \**********************************/
+/***/ "./src/contents/en/empty.json":
+/*!************************************!*\
+  !*** ./src/contents/en/empty.json ***!
+  \************************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"updated_at":"","fruits":[{"id":1,"name":"Apple (x17)","price":"₱1,550"},{"id":2,"name":"Mangosteen (x13)","price":"₱2,310"},{"id":3,"name":"Pineapple (x11)","price":"₱1,341"},{"id":4,"name":"Watermelon (x13)","price":"₱2,651"},{"id":5,"name":"Kiwi (x84)","price":"₱9,761"},{"id":6,"name":"Papaya (x12)","price":"₱5,321"}]}');
+module.exports = {};
 
 /***/ })
 
@@ -7290,7 +6371,7 @@ module.exports = JSON.parse('{"updated_at":"","fruits":[{"id":1,"name":"Apple (x
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".js";
+/******/ 			return "" + chunkId + ".chunk.js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -7310,7 +6391,7 @@ module.exports = JSON.parse('{"updated_at":"","fruits":[{"id":1,"name":"Apple (x
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("0859fcb3b6e49a49f696")
+/******/ 		__webpack_require__.h = () => ("dcd8a65bf93039f85f17")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

@@ -27,3 +27,4 @@ server.use(express.static(path.resolve('dist'), { index: false }))
 server.use(ssrRouter)
 
 server.listen(APP_CONFIG.serverPort, APP_CONFIG.serverHost, () => {})
+

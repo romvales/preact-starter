@@ -33,7 +33,7 @@ async function renderApp(App: FunctionComponent) {
 renderApp(App)
 
 if (module.hot)
-  module.hot.accept('./App', () => {
+  module.hot.accept(() => {
     requestAnimationFrame(() => {
       const App = require('@/App').App
       renderApp(App)
