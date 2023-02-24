@@ -26,7 +26,9 @@ export const isProduction = !isDevelopment
 export function initUniStore(store?: Store<any>) {
   const initStore = window.__UNISTORE_STATE__ ?
     window.__UNISTORE_STATE__ :
-    (window.__UNISTORE_STATE__ = {})
+    (window.__UNISTORE_STATE__ = {
+      locales: { json: {}, md: {}, txt: {}, toml: {} },
+    } as { locales: CachedAppLocaleContents } & { [key: string]: any })
   const C = createStore
 
   return isDevelopment && environment.isBrowser ? devtools(C(initStore)) : C(initStore)

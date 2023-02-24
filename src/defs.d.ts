@@ -64,5 +64,13 @@ declare global {
     C: ([]: any) => Promise<any>,
     options: FetchOptions,
   }[]
-  
+
+  type CachedAppLocaleContents = {
+    md: { [key: string]: string },
+    json: { [key: string]: any },
+    txt: { [key: string]: string },
+
+    // unimplemented
+    toml: { [key: string]: any },
+  }
 }

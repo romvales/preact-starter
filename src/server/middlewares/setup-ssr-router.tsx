@@ -28,7 +28,6 @@ const ssrHandler = async (req: Request, res: Response) => {
 ssrRouter.get('*', ssrHandler)
 
 async function renderDoc(req: Request, res: Response) {
-
   const currentUrl = `${req.protocol}://${req.headers.host}${req.originalUrl}`
   const doc = await JSDOM.fromFile(path.resolve('dist', 'index.html'), {
     url: currentUrl,
@@ -59,7 +58,7 @@ async function renderDoc(req: Request, res: Response) {
 
   // Setup the index.html here that will be send to the browser
   document.body.innerHTML += `
-  <script>
+  <script crossorigin='use-credentials'>
     window.__APP_STATE__ = ${devalue(initState)}
     window.__UNISTORE_STATE__ = ${devalue(initStore.getState())}
     window.__whitelistRoutes = {}

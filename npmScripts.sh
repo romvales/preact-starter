@@ -15,7 +15,7 @@ function main {
   dev)
     NODE_ENV=development \
     $NODE_RUNTIME node_modules/.bin/webpack --config ./webpack/ssr.ts && \
-    $NODE_RUNTIME node_modules/.bin/nodemon --watch './dist/server*.js' --ignore '*.js.map' dist/server.js
+    $NODE_RUNTIME node_modules/.bin/nodemon --watch './dist/server*.js' --ignore '*.js.map' .dist/server.js
 
     ;;
   build)

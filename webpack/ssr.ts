@@ -20,7 +20,7 @@ const ssrConfig: Configuration = {
   },
 
   output: {
-    path: path.resolve('dist'),
+    path: isDevelopment ? path.resolve('.dist') : path.resolve('dist'),
     publicPath: '/', 
     globalObject: 'this',
     filename: isDevelopment ? '[name].js' : '[name].[contenthash].js',
@@ -35,10 +35,24 @@ const ssrConfig: Configuration = {
         use: 'swc-loader',
       },
       {
-        test: /\.(gif|png|jpe?g|webp|mp[3-4]|ogg|mpeg|m4a|flac|ico|3gp|toff)$/i,
+        test: /\.(gif|png|jpe?g|webp|ico)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/[hash][ext][query]',
+          filename: 'assets/images/[hash][ext][query]',
+        },
+      },
+      {
+        test: /\.(mp[3-4]|ogg|mpeg|m4a|flac|3gp)/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/avs/[hash][ext][query]',
+        },
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|otf)?$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[hash][ext][query]',
         },
       },
       {
@@ -49,7 +63,7 @@ const ssrConfig: Configuration = {
         test: /\.(svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/[hash][ext][query]',
+          filename: 'assets/images/[hash][ext][query]',
         },
       },
       {

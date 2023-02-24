@@ -2,25 +2,35 @@
 import { thank_you_route } from '@/views/_status/200s'
 import { not_found_route } from '@/views/_status/404'
 import { offline_route, maintenance_route } from '@/views/_status/503'
+import { internal_server_error_route } from '@/views/_status/500'
 
-import { faqs_route } from '@/views/faqs'
-import { landing_route } from '@/views/landing'
-import { careers_route } from '@/views/careers'
-import { contacts_route } from '@/views/contacts'
-import { pricings_route } from '@/views/pricings'
-import { more_about_us_route } from '@/views/more-about-us'
-import { professionals_route } from '@/views/professionals'
-import { how_it_works_route } from '@/views/how-it-works'
-import { lang_courses_route } from '@/views/lang-courses'
+import { faqs_route } from '@/views/@company/faqs'
+import { landing_route } from '@/views/@company/landing'
+import { careers_route } from '@/views/@company/careers/index'
+import { contacts_route } from '@/views/@company/contacts'
+import { pricings_route } from '@/views/@company/pricings'
+import { more_about_us_route } from '@/views/@company/more-about-us'
+import { professionals_route } from '@/views/@company/professionals'
+import { how_it_works_route } from '@/views/@company/how-it-works'
+import { lang_courses_route } from '@/views/@company/lang-courses'
 import { login_route } from '@/views/login'
 
-import { services_coworking_space_route } from '@/views/services/coworking-space'
-import { services_visa_counselling_route } from '@/views/services/visa-counselling'
-import { services_workshops_route } from '@/views/services/workshops'
+import { services_coworking_space_route } from '@/views/@company/services/coworking-space'
+import { services_visa_counselling_route } from '@/views/@company/services/visa-counselling'
+import { services_workshops_route } from '@/views/@company/services/workshops'
 
-const routes: Routes = [
+const ___globalRoutes: Routes = [
     // Login pages
     { path: '/login', component: login_route },
+    
+    // Status pages
+    { name: 'not-found', path: '/error/page-not-found', component: not_found_route, statusCode: 404 },
+    { name: 'off', path: '/error/offline', component: offline_route, statusCode: 503 },
+    { name: 'maintenance', path: '/error/maintenance', component: maintenance_route, statusCode: 503 },
+    { name: 'internal-server-error', path: '/error/internal-server-failure', component: internal_server_error_route, statusCode: 500 },
+]
+
+const companyRoutes: Routes = [
 
     // Static pages
     { path: '/', component: landing_route },
@@ -41,13 +51,25 @@ const routes: Routes = [
     { path: '/visa-counselling/pricings', component: pricings_route },
     { path: '/shared-workspace/pricings', component: pricings_route },
 
-    // Status pages
+    // Greetings pages
     { name: 'thank-you', path: '/greetings/thank-you/:page', component: thank_you_route, statusCode: 202 },
-    { name: 'not-found', path: '/error/page-not-found', component: not_found_route, statusCode: 404 },
-    { name: 'off', path: '/error/offline', component: offline_route, statusCode: 503 },
-    { name: 'maintenance', path: '/error/maintenance', component: maintenance_route, statusCode: 503 },
 
-    // Blog pages
+    ...___globalRoutes,
 ]
 
-export default routes
+const blogRoutes: Routes = [
+    
+    ...___globalRoutes,
+]
+
+const policiesRoutes: Routes = [
+
+    ...___globalRoutes,
+]
+
+const monolithRoutes: Routes = [
+    
+    ...___globalRoutes,
+]
+
+export default companyRoutes

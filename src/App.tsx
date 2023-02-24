@@ -1,4 +1,5 @@
-import '@/assets/styles/main.pcss'
+import '@/assets/main.pcss'
+
 import { FunctionComponent } from 'preact'
 import Router, { RouterOnChangeArgs } from 'preact-router'
 import AsyncRoute from 'preact-async-route'

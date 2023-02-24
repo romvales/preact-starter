@@ -77,7 +77,7 @@ const buildConfig: Configuration = {
   
     new MiniCssExtractPlugin({
       linkType: 'text/css',
-      filename: 'assets/styles/[name].[contenthash].css', 
+      filename: 'assets/[name].[contenthash].css', 
       attributes: {
         media: 'all',
         onload: 'this.media = \'all\'',
