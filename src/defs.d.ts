@@ -37,6 +37,7 @@ declare global {
     mode?: 'ssr' | 'spa',
     serverHost?: string
     serverPort?: number
+    serverRoutes?: string,
     secretPhrase?: string
     helmetOptions?: HelmetOptions | boolean
     cookieParserOptions?: CookieParseOptions

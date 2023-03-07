@@ -42,6 +42,7 @@ export function useAppTheme() {
     } else {
       document.documentElement.classList.remove('dark')
     }
+    
   }, [ theme ])
 
   return [ theme, setTheme ]

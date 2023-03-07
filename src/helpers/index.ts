@@ -48,7 +48,7 @@ export function useAppContentByLocale<T>(path: string, fallbackValue?: T, cached
       const localePath = `${forceLocale ?? locale}/${path}`
       const isDefaultCached = __cacheExt__.test(__extension__)
 
-      const requireContent = () => contents.set(localePath, require(`@/contents/${localePath}`))
+      const requireContent = () => contents.set(localePath, require_content(localePath))
       const refContentFromStore = () => contents.set(localePath, S.locales[__extension__][localePath])
 
       const possiblyHasCache = isDefaultCached && !cached
@@ -57,6 +57,7 @@ export function useAppContentByLocale<T>(path: string, fallbackValue?: T, cached
       // ??????
       if ((possiblyHasCache || possiblyDontHaveACache) && environment.isServer) {
         requireContent()
+      } else if ((possiblyHasCache || possiblyDontHaveACache) && contents.get(localePath)) {
       } else if ((possiblyHasCache || possiblyDontHaveACache) && S.locales[__extension__][localePath] === undefined) {
         requireContent()
       } else if (possiblyHasCache || possiblyDontHaveACache) {
@@ -84,9 +85,7 @@ export function useAppContentByLocale<T>(path: string, fallbackValue?: T, cached
     }
 
     useEffect(() => { updateContent(appLocale) }, [ appLocale ])
-  })
-
-  
+  }) 
 
   return content
 }
@@ -109,5 +108,18 @@ function __get_default_value<T>(defVal: T, locale: string, path: string, ext: st
 // getContentExt is a simple utility function for determining the file extension of a path.
 function getContentExt(path: string) {
   const rexp = /\.(?<extension>[a-z]+)$/i
-  return path.match(rexp).groups.extension
+  return path.match(rexp).groups.extension ?? 'md'
+}
+
+function require_content(path: string): any {
+  let mod: any
+  try {
+    mod = require(`@/contents/${path}`)
+  } catch(err) {
+    if (environment.isBrowser) {
+      throw err
+    }
+  }
+
+  return mod
 }

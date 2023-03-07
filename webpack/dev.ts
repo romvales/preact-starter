@@ -87,7 +87,7 @@ const devConfig: Configuration = {
       '~Image': path.resolve('src', 'assets', '_images'),
     },
     cache: false,
-    extensions: ['.ts', '.tsx', '.json', '.pcss', '.js', '.md', '.ttf', '.css'],
+    extensions: ['.ts', '.tsx', '.json', '.pcss', '.js', '.md', '.ttf', '.css', '.html', '.woff2'],
     modules: ['node_modules'],
   },
 
@@ -122,7 +122,9 @@ const devConfig: Configuration = {
   externalsPresets: { web: true, webAsync: true },
   experiments: { topLevelAwait: true },
 
-  stats: 'normal',
+  stats: {
+    errorDetails: true
+  },
 
   // @ts-ignore
   devServer: {

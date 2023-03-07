@@ -32,7 +32,7 @@ export function getRouteByName(name: string): Route {
     if (route.name === name) return route
   }
 
-  throw new TypeError('route was not found')
+  throw new TypeError(`"${name}" named route was not found.`)
 }
 
 export function handleInitialRouteRequest(route: RouterOnChangeArgs) {

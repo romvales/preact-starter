@@ -57,8 +57,8 @@ async function renderDoc(req: Request, res: Response) {
   }
 
   // Setup the index.html here that will be send to the browser
-  document.body.innerHTML += `
-  <script crossorigin='use-credentials'>
+  document.head.innerHTML += `
+  <script crossorigin='${isDevelopment ? 'anonymous' : 'use-credentials' }' type='module'>
     window.__APP_STATE__ = ${devalue(initState)}
     window.__UNISTORE_STATE__ = ${devalue(initStore.getState())}
     window.__whitelistRoutes = {}

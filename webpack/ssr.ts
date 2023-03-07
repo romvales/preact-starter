@@ -83,7 +83,9 @@ const ssrConfig: Configuration = {
   resolve: buildConfig.resolve,
   optimization: isDevelopment ? {} : buildConfig.optimization,
 
-  stats: 'normal',
+  stats: {
+    errorDetails: true,
+  },
 
   externalsPresets: { node: true },
   experiments: { topLevelAwait: true },

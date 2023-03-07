@@ -1,3 +1,4 @@
+import './index.pcss'
 
 import { FunctionComponent } from 'preact'
 

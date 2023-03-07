@@ -36,7 +36,7 @@ process.on('uncaughtException', (err: any) => {
 
   switch (ECODE) {
   case 'ECONNREFUSED':
-
+    
   default:
     console.error(err)
   }
