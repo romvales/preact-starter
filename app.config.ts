@@ -12,7 +12,7 @@ global.APP_CONFIG = {
   ],
 
   // --- Server options
-  serverHost: 'localhost',
+  serverHost: '0.0.0.0',
   serverPort: parseInt(process.env.PORT) || 3000,
   secretPhrase: process.env.SECRET_PHRASE,
 

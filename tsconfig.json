@@ -20,7 +20,7 @@
       "react-dom": ["./node_modules/preact/compat"],
       "react/jsx-runtime": ["./node_modules/preact/jsx-runtime"],
       "preact-router": ["./node_modules/preact-router"],
-    },
+    }
   },
   "include": [
     "./src/**/*",

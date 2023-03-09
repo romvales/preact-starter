@@ -9,7 +9,7 @@ function main {
 
   case $verb in
   install)
-    npm i --force --legacy-peer-deps
+    npm i 
 
     ;;
   dev)

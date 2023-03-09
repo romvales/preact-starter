@@ -36,7 +36,7 @@ export function enableDevTools() {
 }
 
 export function useAppContentByLocale<T>(path: string, fallbackValue?: T, cached?: boolean, forceLocale?: VALID_LOCALES): T {
-  const __cacheExt__ = /json|toml/i
+  const __cacheExt__ = /jsonp?|toml/i
   const __extension__ = getContentExt(path)
   const { appLocale } = useAppLocale()
   const [content, setContent] = useState<T>(__get_default_value(fallbackValue, appLocale, path, __extension__))

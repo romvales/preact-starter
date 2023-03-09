@@ -1,0 +1,167 @@
+{
+  "htmlId": "sitemap-footer",
+  "smapCat": [
+    {
+      "name": "Company",
+      "updatedAt": "2023-03-08T01:25:55.966Z",
+      "type": "links",
+      "contents": [
+        {
+          "name": "About",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "url": "/more-about-us"
+        },
+        {
+          "name": "Careers",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "url": "/careers"
+        },
+        {
+          "name": "Blog",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "url": "/blog"
+        },
+        {
+          "name": "Research & Studies",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "url": "@implement"
+        },
+        {
+          "name": "Partners",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "url": "@implement"
+        }
+      ]
+    },
+    {
+      "name": "Courses",
+      "updatedAt": "2023-03-08T01:25:55.966Z",
+      "type": "dropdown",
+      "contents": [
+        {
+          "name": "Languages",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "links": [
+            {
+              "name": "English (EN)",
+              "updatedAt": "2023-03-08T01:25:55.966Z",
+              "url": "/lang-courses/en"
+            },
+            {
+              "name": "German (DE)",
+              "updatedAt": "2023-03-08T01:25:55.966Z",
+              "url": "/lang-courses/de"
+            },
+            {
+              "name": "Japanese (JP)",
+              "updatedAt": "2023-03-08T01:25:55.966Z",
+              "url": "/lang-courses/jp"
+            },
+            {
+              "name": "Korean (KR)",
+              "updatedAt": "2023-03-08T01:25:55.966Z",
+              "url": "/lang-courses/kr"
+            },
+            {
+              "name": "Chinese (ZH)",
+              "updatedAt": "2023-03-08T01:25:55.966Z",
+              "url": "/lang-courses/zh"
+            },
+            {
+              "name": "Tagalog (TL)",
+              "updatedAt": "2023-03-08T01:25:55.966Z",
+              "url": "/lang-courses/tl"
+            },
+            {
+              "name": "Bikolano (BCL)",
+              "updatedAt": "2023-03-08T01:25:55.966Z",
+              "url": "/lang-courses/bcl"
+            }
+          ]
+        },
+        {
+          "name": "Visual Arts",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "links": []
+        },
+        {
+          "name": "Music theory",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "links": []
+        }
+      ]
+    },
+    {
+      "name": "Brands",
+      "updatedAt": "2023-03-08T01:25:55.966Z",
+      "type": "links",
+      "contents": [
+        {
+          "name": "Coworking Space",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "url": "/shared-workspace"
+        },
+        {
+          "name": "Visa Consultancy",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "url": "/visa"
+        },
+        {
+          "name": "Travel Booking",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "url": "@implement"
+        }
+      ]
+    },
+    {
+      "name": "Support",
+      "updatedAt": "2023-03-08T01:25:55.966Z",
+      "type": "links",
+      "contents": [
+        {
+          "name": "Contact",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "url": "/contacts"
+        },
+        {
+          "name": "Feedback",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "url": "@implement"
+        },
+        {
+          "name": "Affiliate",
+          "updatedAt": "2023-03-08T01:25:55.966Z",
+          "url": "@implement"
+        }
+      ]
+    }
+  ],
+  
+  "socialLinks": [
+    {
+      "platform": "facebook",
+      "updatedAt": "2023-03-08T01:25:55.966Z",
+      "url": "https://fb.com/"
+    },
+    {
+      "platform": "twitter",
+      "updatedAt": "2023-03-08T01:25:55.966Z",
+      "url": "https://twitter.com/"
+    },
+    {
+      "platform": "reddit",
+      "updatedAt": "2023-03-08T01:25:55.966Z",
+      "url": "https://reddit.com/"
+    },
+    {
+      "platform": "linkedin",
+      "updatedAt": "2023-03-08T01:25:55.966Z",
+      "url": "https://linkedin.com/"
+    },
+    {
+      "platform": "pinterest",
+      "updatedAt": "2023-03-08T01:25:55.966Z",
+      "url": "https://pinterest.com"
+    }
+  ]
+}

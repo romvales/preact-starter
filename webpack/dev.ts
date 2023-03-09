@@ -87,7 +87,7 @@ const devConfig: Configuration = {
       '~Image': path.resolve('src', 'assets', '_images'),
     },
     cache: false,
-    extensions: ['.ts', '.tsx', '.json', '.pcss', '.js', '.md', '.ttf', '.css', '.html', '.woff2'],
+    extensions: ['.ts', '.tsx', '.json', '.pcss', '.js', '.md', '.ttf', '.css', '.woff2'],
     modules: ['node_modules'],
   },
 
