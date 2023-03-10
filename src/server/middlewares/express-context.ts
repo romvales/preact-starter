@@ -4,10 +4,11 @@
 // There are many use cases this utility can fit. 
 import { Context } from 'preact'
 
-import routes from '@/views'
-import { RouteProps, RouterOnChangeArgs, useRouter } from 'preact-router'
+
+import { RouterOnChangeArgs, useRouter } from 'preact-router'
 import { environment } from '@/helpers/ssr-utils'
 import { useContext } from 'react'
+import { useViewBySubdomain } from '@/views'
 
 // This utility is following the facade pattern. hence it is not convenient to use it,
 //
@@ -28,6 +29,8 @@ const context = {
 export default context
 
 export function getRouteByName(name: string): Route {
+  const routes = useViewBySubdomain()
+
   for (const route of Object.values(routes)) {
     if (route.name === name) return route
   }

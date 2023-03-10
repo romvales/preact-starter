@@ -1,4 +1,4 @@
-import webpack, { Configuration } from 'webpack'
+import { Configuration } from 'webpack'
 import path from 'path'
 import devConfig from './dev'
 
@@ -16,13 +16,13 @@ const buildConfig: Configuration = {
   },
 
   output: {
+    path: path.resolve('dist'),
     publicPath: '/',
     filename: '[name].[contenthash].js',
-    chunkFilename: 'chunk-[id].[contenthash].js',
+    chunkFilename: 'chunks/chunk.[contenthash].js',
   },
 
   module: {
-    noParse: /gun\.js$/,
     rules: [
       ...devConfig.module.rules.slice(0, -1),
       {
@@ -42,7 +42,7 @@ const buildConfig: Configuration = {
   resolve: devConfig.resolve,
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      chunks: 'async',
       cacheGroups: {
         defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
@@ -50,7 +50,7 @@ const buildConfig: Configuration = {
           reuseExistingChunk: true,
         },
         default: {
-          minChunks: 2,
+          minChunks: 3,
           priority: -10,
           reuseExistingChunk: true,
         },

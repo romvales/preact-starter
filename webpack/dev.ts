@@ -24,7 +24,7 @@ const devConfig: Configuration = {
     path: path.resolve('.dist'),
     publicPath: '/',
     filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
+    chunkFilename: 'chunks/chunk.[contenthash].js',
     clean: true,
   },
 
@@ -49,22 +49,15 @@ const devConfig: Configuration = {
         },
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/fonts/[hash][ext][query]',
         },
       },
       {
-        test: /\.(md)$/i,
+        test: /\.(md|svg)$/i,
         type: 'asset/source'
-      },
-      {
-        test: /\.(svg)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'assets/images/[hash][ext][query]',
-        },
       },
       {
         test: /\.(p?css)$/i,
@@ -85,6 +78,7 @@ const devConfig: Configuration = {
       'react-dom': 'preact/compat',
       'react/jsx-runtime': 'preact/jsx-runtime',
       '~Image': path.resolve('src', 'assets', '_images'),
+      '@Service': path.resolve('src', 'services'),
     },
     cache: false,
     extensions: ['.ts', '.tsx', '.json', '.pcss', '.js', '.md', '.ttf', '.css', '.woff2'],
@@ -126,12 +120,6 @@ const devConfig: Configuration = {
     errorDetails: true
   },
 
-  // @ts-ignore
-  devServer: {
-    hot: true,
-    compress: true,
-    historyApiFallback: true,
-  },
 }
 
 export default devConfig

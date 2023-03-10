@@ -53,8 +53,14 @@ declare global {
   }
 
   var APP_CONFIG: AppConfig
-  var clientRuntimeConfig: { [key: string]: any }
+  
+  var clientRuntimeConfig: { 
+    [key: string]: any,
+    validDomains: string[],
+  }
+
   var serverRuntimeConfig: { [key: string]: any }
+
   var pendingServerSideProps: {
     C: FunctionComponent<any>,
     aF: (ctx: ServerContextRef) => Promise<any>,

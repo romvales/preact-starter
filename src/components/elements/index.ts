@@ -1,3 +1,2 @@
-
-export { Logo } from './Logo'
+export { Markdown } from './Markdown'
 export { Footer } from './Footer'

@@ -3,6 +3,7 @@ import devtools from 'unistore/devtools'
 import { FunctionComponent } from 'preact'
 import { StateUpdater, useEffect, useState } from 'preact/hooks'
 import { useRouterChangeEffect } from './hooks'
+import { useViewBySubdomain } from '@/views/index'
 
 export const environment = {
   get isBrowser() {
@@ -128,7 +129,8 @@ const memoTchecks: { [componentName: string]: boolean } = {}
  * @param ctx 
  */
 export async function resolvePendingProps(ctx: ServerContextRef) {
-  const routes: Routes = require('@/views').default
+  // const routes: Routes = require('@/views').default
+  const routes: Routes = useViewBySubdomain()
   const routesWhitelist: { [routeName: string]: boolean } = {}
   const Ps = pendingServerSideProps
   const serverSideProps = []

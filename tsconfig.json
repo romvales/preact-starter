@@ -16,6 +16,7 @@
       "webpackConfig/*": ["./webpack/*"],
       "@/*": ["./src/*"],
       "~Image/*": ["./src/assets/_images/*"],
+      "@Service/*": ["./src/services/*"],
       "react": ["./node_modules/preact/compat"],
       "react-dom": ["./node_modules/preact/compat"],
       "react/jsx-runtime": ["./node_modules/preact/jsx-runtime"],

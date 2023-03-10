@@ -25,7 +25,7 @@ const ssrHandler = async (req: Request, res: Response) => {
     .end()
 }
 
-ssrRouter.get('*', ssrHandler)
+ssrRouter.get('/*', ssrHandler)
 
 async function renderDoc(req: Request, res: Response) {
   const currentUrl = `${req.protocol}://${req.headers.host}${req.originalUrl}`

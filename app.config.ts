@@ -33,9 +33,13 @@ global.APP_CONFIG = {
   // --- Heroku options
 
   // --- Environmental options
-  clientRuntimeConfig: {},
+  clientRuntimeConfig: {
+    
+  },
 
-  serverRuntimeConfig: {},
+  serverRuntimeConfig: {
+
+  },
 
 }
 

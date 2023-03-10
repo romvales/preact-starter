@@ -3,11 +3,11 @@ import '@/assets/main.pcss'
 import { FunctionComponent } from 'preact'
 import Router, { RouterOnChangeArgs } from 'preact-router'
 import AsyncRoute from 'preact-async-route'
-import routes from '@/views'
 import { environment } from '@/helpers'
 import { Request, Response } from 'express'
 import { useContext } from 'react'
 import expressCtx, { handleInitialRouteRequest } from '@/server/middlewares/express-context'
+import { useViewBySubdomain } from '@/views'
 
 export const App: FunctionComponent<{}> = props => {
   const docUrl = new URL(document.URL)
@@ -16,7 +16,7 @@ export const App: FunctionComponent<{}> = props => {
     <div className='dark:bg-slate-900 dark:text-white'>
       <Router url={docUrl.pathname} onChange={handleRouteChange}>
         {
-          routes.map(route => {
+          useViewBySubdomain().map(route => {
             const routeUi = route.lazy ?
               <AsyncRoute getComponent={() => Promise.resolve(route.component)} loading={route.loading} path={route.path} default={route.default}></AsyncRoute>
               :

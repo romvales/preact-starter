@@ -2,7 +2,6 @@ import { isDevelopment } from '@/helpers/ssr-utils'
 import { Configuration } from 'webpack'
 import webpackNodeExts from 'webpack-node-externals'
 import path from 'path'
-
 import buildConfig from './build'
 
 const ssrConfig: Configuration = {
@@ -24,50 +23,43 @@ const ssrConfig: Configuration = {
     publicPath: '/', 
     globalObject: 'this',
     filename: isDevelopment ? '[name].js' : '[name].[contenthash].js',
-    chunkFilename: '[name].chunk.js',
+    chunkFilename: 'chunks/chunk.[contenthash].js',
     clean: true,
   },
 
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/i,
+        test: /\.(ts|tsx)$/,
         use: 'swc-loader',
       },
       {
-        test: /\.(gif|png|jpe?g|webp|ico)$/i,
+        test: /\.(gif|png|jpe?g|webp|ico)$/,
         type: 'asset/resource',
         generator: {
           filename: 'assets/images/[hash][ext][query]',
         },
       },
       {
-        test: /\.(mp[3-4]|ogg|mpeg|m4a|flac|3gp)/i,
+        test: /\.(mp[3-4]|ogg|mpeg|m4a|flac|3gp)/,
         type: 'asset/resource',
         generator: {
           filename: 'assets/avs/[hash][ext][query]',
         },
       },
       {
-        test: /\.(woff(2)?|ttf|eot|otf)?$/i,
+        test: /\.(woff(2)?|ttf|eot|otf)?$/,
         type: 'asset/resource',
         generator: {
           filename: 'assets/fonts/[hash][ext][query]',
         },
       },
       {
-        test: /\.(md)$/i,
+        test: /\.(md|svg)$/,
         type: 'asset/source',
       },
       {
-        test: /\.(svg)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'assets/images/[hash][ext][query]',
-        },
-      },
-      {
-        test: /\.(p?css)$/i,
+        test: /\.(p?css)$/,
         use: [
           'css-loader',
           'postcss-loader',

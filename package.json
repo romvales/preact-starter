@@ -1,5 +1,5 @@
 {
-  "name": "spec0-subsystem",
+  "name": "spec0",
   "main": "src/index.ts",
   "version": "v0.0.0",
   "scripts": {
@@ -23,7 +23,7 @@
     "@types/morgan": "^1.9.3",
     "autoprefixer": "^10.4.8",
     "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.7.1",
+    "css-loader": "^6.7.3",
     "cssnano": "^5.1.13",
     "eslint": "^8.34.0",
     "eslint-config-postcss": "^4.0.0",

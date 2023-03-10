@@ -7,10 +7,11 @@ import {
   initUniStore,
   initAppState,
   isDevelopment,
+  environment,
 } from '@/helpers'
+import { attachGlobalEvents } from '@/events'
 
-
-enableDevTools()
+if (isDevelopment) enableDevTools()
 
 async function renderApp(App: FunctionComponent) {
   const appRootEl = document.querySelector('.app-root')
@@ -32,12 +33,7 @@ async function renderApp(App: FunctionComponent) {
 
 renderApp(App)
 
-if (module.hot)
-  module.hot.accept(() => {
-    requestAnimationFrame(() => {
-      const App = require('@/App').App
-      renderApp(App)
-    })
-  })
+if (module.hot && isDevelopment)
+  module.hot.accept()
 
-
+attachGlobalEvents()

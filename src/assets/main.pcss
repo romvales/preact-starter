@@ -1,7 +1,14 @@
 @import url(./pcss/tailwind.pcss);
 @import url(./pcss/defl.pcss);
+@import url(../components/_chunks.pcss);
+@import url(../components/_elements.pcss);
+@import url(../components/_forms.pcss);
 
 @layer base {
   @import url(./fonts/Playfair_Display.pcss);
+  @import url(./fonts/Inter.pcss);
 }
 
+html {
+  font-family: Inter, system-ui, sans-serif;
+}

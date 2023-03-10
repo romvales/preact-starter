@@ -10,9 +10,9 @@ export const DefaultLayout: FunctionComponent = props => {
         <header className=''>
           Header
         </header>
-        <main className='defl-content'>
+        <div className='defl-content'>
           {props.children}
-        </main>
+        </div>
       </div>
       <Footer className='defl-footer'></Footer>
     </div>

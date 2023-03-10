@@ -29,10 +29,8 @@ export {
 } from './hooks'
 
 export function enableDevTools() {
-  if (isDevelopment) {
-    import('preact/devtools')
-    import('preact/debug')
-  }
+  import('preact/devtools')
+  import('preact/debug')
 }
 
 export function useAppContentByLocale<T>(path: string, fallbackValue?: T, cached?: boolean, forceLocale?: VALID_LOCALES): T {
