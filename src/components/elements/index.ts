@@ -1,2 +1,1 @@
-export { Markdown } from './Markdown'
-export { Footer } from './Footer'
+export { CustFooter } from './Footer'

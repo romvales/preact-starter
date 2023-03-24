@@ -1,4 +1,4 @@
-import { environment } from '@/helpers/ssr-utils'
+import { environment } from '@/helpers'
 
 /**
  * switchEnvironment

@@ -1,0 +1,51 @@
+
+
+.ccButton--popup {
+  .ccButtonPop {
+    @apply h-[0.5rem];
+  }
+
+  &.ccButtonRounded-sm {
+    @apply rounded-md;
+
+    .ccButtonText {
+      @apply rounded-[0.425rem];
+    }
+
+    .ccButtonPop {
+      @apply h-[0.4rem];
+    }
+  }
+
+  &.ccButtonRounded-md {
+    @apply rounded-lg;
+    
+    .ccButtonText {
+      @apply rounded-[0.525rem];
+    }
+
+    .ccButtonPop {
+      @apply h-[0.482rem];
+    }
+  }
+
+  &.ccButtonRounded-lg {
+    @apply rounded-[0.625rem];
+    
+    .ccButtonText {
+      @apply rounded-[0.700rem];
+    }
+
+    .ccButtonPop {
+      @apply h-[0.525rem];
+    }
+  }
+  
+  &.ccButtonRounded-full {
+    @apply rounded-full;
+
+    .ccButtonText { @apply rounded-full; }
+    .ccButtonPop { @apply h-[0.625rem]; }
+  }
+
+}

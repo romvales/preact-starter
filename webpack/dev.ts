@@ -1,12 +1,11 @@
-import '../app.config'
+import '../app.config.ts'
 
 import webpack, { Configuration } from 'webpack'
-import { isDevelopment } from '@/helpers/ssr-utils'
+import { isDevelopment } from '@/helpers/constants'
 import path from 'path'
 
 import HtmlPlugin from 'html-webpack-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
-
 
 const devConfig: Configuration = {
   mode: 'development',
@@ -29,9 +28,11 @@ const devConfig: Configuration = {
   },
 
   module: {
+    exprContextCritical: false,
     rules: [
       {
         test: /\.(ts|tsx)$/i,
+        exclude: /node_modules/,
         use: 'swc-loader',
       },
       {
@@ -73,6 +74,7 @@ const devConfig: Configuration = {
   resolve: {
     alias: {
       '@': path.resolve('src'),
+      "tests": path.resolve('tests'),
       'webpackConfig': path.resolve('webpack'),
       'react': 'preact/compat',
       'react-dom': 'preact/compat',
@@ -83,6 +85,14 @@ const devConfig: Configuration = {
     cache: false,
     extensions: ['.ts', '.tsx', '.json', '.pcss', '.js', '.md', '.ttf', '.css', '.woff2'],
     modules: ['node_modules'],
+    fallback: {
+      os: false,
+      url: false,
+      crypto: false,
+      assert: false,
+      path: false,
+      fs: false,
+    },
   },
 
   plugins: [

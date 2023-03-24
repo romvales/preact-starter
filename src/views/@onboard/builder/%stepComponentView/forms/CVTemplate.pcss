@@ -1,0 +1,251 @@
+
+:root {
+  --cv-primary-color: #2e3d4a;
+  --cv-secondary-color: #f4f4f4;
+}
+
+body {
+  color: var(--cv-primary-color);
+  font-size: 13.5px;
+}
+
+@media print {
+
+  h2 { 
+    page-break-before: avoid;
+  }
+  h3, h4 {
+    page-break-after: avoid;
+  }
+  pre, blockquote {
+    page-break-inside: avoid;
+  }
+
+}
+
+hr {
+  @apply my-2;
+}
+
+.cvTemplate {
+  @apply flex mx-7;
+
+  font-family: 'Trebuchet MS', sans-serif;
+
+  .page2 {
+    @apply mt-[-1rem];
+  }
+
+  > aside {
+    background-color: var(--cv-secondary-color);
+    @apply max-w-[260px] w-[260px] min-h-full;
+
+    > .cvTemplateProfilePicture {
+      > .profile {
+        @apply mx-auto w-56 h-56 rounded-full;
+
+        transform: translateY(-7rem);
+      }
+    }
+
+    .cvTemplateContentTitle {
+      font-size: 15px; 
+      @apply block;
+    }
+
+    .cvTemplateUpperMargin {
+      background-color: var(--cv-primary-color);
+
+      @apply h-24;
+    }
+
+    .cvTemplateUpperLowerMargin {
+      background-color: white;
+
+      @apply h-[2.5rem];
+    }
+
+    .cvTemplateAsideMainContent {
+      @apply p-6 pb-[5rem] min-h-full;
+
+      &.page1 {
+        transform: translateY(-6rem);
+      }
+
+      .basicInfo1 {
+        @apply text-center mb-4;
+      }
+
+      .basicInfo2 {
+        @apply flex mb-1;
+
+        .icon {
+          @apply mr-2;
+
+          & > .ccIcon {
+            @apply w-[1.7rem];
+          }
+        }
+      }
+
+      .basicInfo3 {
+        @apply flex;
+
+        .icon {
+          @apply mr-2;
+
+          & > .ccIcon {
+            @apply w-[1.7rem];
+          }
+        }
+      }
+
+      .cvTemplateAsideEducation {
+        min-height: 224.5px;
+
+        .cvTemplateEduItem {
+          @apply my-2;
+          
+          h4 {
+            @apply uppercase font-bold mb-1;
+
+            letter-spacing: 0.05rem;
+            font-size: 14px;
+          }
+
+        }
+
+      }
+
+      .cvTemplateAsideSkills {
+        @apply list-disc ml-3 font-light;
+
+        min-height: 158px;
+
+        li {
+          @apply pb-[0.15rem];
+        }
+      }
+
+      .cvTemplateAsideItemList {
+        @apply uppercase font-semibold flex flex-col items-center;
+
+        font-size: 13.3px;
+        letter-spacing: 0.1rem;
+      }
+
+    }
+  }
+
+  > section {
+    @apply px-6;
+
+    font-size: 14px;
+
+    .flag {
+      @apply w-10 mb-1 mt-9;
+    }
+
+    .divider {
+      .dividerLine {
+        @apply w-1/2;
+      }
+    }
+
+    .fname {
+      @apply uppercase;
+
+      line-height: 3.4rem;
+      font-size: 50px;
+      min-height: 108.8px;
+
+      .lname {
+        @apply block font-bold;
+      }
+    }
+
+    .main-title {
+      @apply uppercase font-bold text-gray-600 my-2;
+
+      letter-spacing: 0.5rem;
+      font-size: 20px;
+      min-height: 30px;
+    }
+
+    .cvTemplateContentTitle {
+      @apply px-14;
+    }
+
+    .title {
+      @apply uppercase font-bold;
+
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+
+    .cvTemplateExperience {
+      min-height: 830px;
+      
+      & > li {
+        @apply pb-2;
+
+        h4 {
+          @apply uppercase font-bold text-gray-700 mb-2;
+        }
+
+        .resp, .cases {
+          @apply list-disc ml-3 my-2;
+
+          > li {
+            @apply mb-[0.35rem];
+          }
+        }
+      }
+    }
+  }
+
+  .cvTemplateContentTitle {
+    @apply text-center uppercase inline-block font-normal my-[0.325rem] py-[0.1rem] rounded-sm;
+    
+    letter-spacing: 0.2rem;
+    background-color: var(--cv-primary-color);
+    color: var(--cv-secondary-color); 
+    font-size: 15px;
+  }
+
+  
+}
+
+
+.cvTemplate.a4 {  
+  width: 21cm;
+  min-height: 29.7cm;
+}
+
+.cvTemplate.a3 {
+  width: 29.7cm;
+  min-height: 42cm;
+}
+
+.cvTemplate.letter {
+  width: 22cm;
+  min-height: 28cm;
+}
+
+.cvTemplate.a5 {
+  width: 14.8cm;
+  min-height: 21cm;
+}
+
+.divider {
+  @apply flex items-center py-3;
+
+  .dividerCircle {
+    @apply grow-0 mr-[2px] w-[1rem] h-[1rem] border rounded-full border-gray-600;
+  }
+
+  .dividerLine {
+    @apply border w-full bg-gray-400 h-[0.25rem];
+  }
+
+}

@@ -1,0 +1,65 @@
+
+.ccButton--outline {
+  @apply bg-transparent border-2;
+
+  .ccButtonText { @apply bg-transparent; }
+
+  &.ccButton {
+    &Primary {
+      @apply border-primary-c06;
+
+      .ccButtonText {
+        @apply text-primary-c02;
+      }
+    }
+
+    &Secondary {
+      @apply border-secondary-c06 bg-secondary-c06 bg-opacity-5;
+
+      .ccButtonText {
+        @apply text-secondary-c02;
+      }
+    }
+
+    &Accent {
+      @apply border-accent-c06 bg-accent-c06 bg-opacity-5;
+
+      .ccButtonText {
+        @apply text-accent-c02;
+      }
+    }
+
+    &Ok {
+      @apply border-ok-c06 bg-ok-c06 bg-opacity-5;
+
+      .ccButtonText {
+        @apply text-ok-c02;
+      }
+    }
+
+    &Info {
+      @apply border-info-c06 bg-info-c06 bg-opacity-5;
+
+      .ccButtonText {
+        @apply text-info-c02;
+      }
+    }
+
+    &Warn {
+      @apply border-warn-c06 bg-warn-c06 bg-opacity-5;
+
+      .ccButtonText {
+        @apply text-warn-c02;
+      }
+    }
+
+    &Error {
+      @apply border-error-c06 bg-error-c06 bg-opacity-5;
+
+      .ccButtonText {
+        @apply text-error-c02;
+      }
+    }
+  }
+
+}

@@ -6,13 +6,14 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "lib": ["ESNext"],
-    "moduleResolution": "NodeNext",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "Node",
     "module": "ESNext",
     "target": "ESNext",  
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
     "paths": {
+      "tests/*": ["./tests/*"],
       "webpackConfig/*": ["./webpack/*"],
       "@/*": ["./src/*"],
       "~Image/*": ["./src/assets/_images/*"],
@@ -21,9 +22,11 @@
       "react-dom": ["./node_modules/preact/compat"],
       "react/jsx-runtime": ["./node_modules/preact/jsx-runtime"],
       "preact-router": ["./node_modules/preact-router"],
+      "preact-portal": ["./node_modules/preact-portal"]
     }
   },
   "include": [
+    "./app.config.ts",
     "./src/**/*",
     "./tests/**/*",
     "./webpack/**/*"

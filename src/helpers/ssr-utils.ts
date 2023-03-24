@@ -3,26 +3,9 @@ import devtools from 'unistore/devtools'
 import { FunctionComponent } from 'preact'
 import { StateUpdater, useEffect, useState } from 'preact/hooks'
 import { useRouterChangeEffect } from './hooks'
-import { useViewBySubdomain } from '@/views/index'
-
-export const environment = {
-  get isBrowser() {
-    return (typeof process === 'undefined' && typeof module === 'undefined' &&
-      (typeof Window === 'function' && typeof Document === 'function')) ||
-      typeof Worker === 'function'
-  },
-
-  get isServer() {
-    return !this.isBrowser && typeof module !== 'undefined'
-  },
-
-  get isFinalRender() {
-    return global.finalRender
-  }
-}
-
-export const isDevelopment = process.env.NODE_ENV === 'development'
-export const isProduction = !isDevelopment
+// import { useViewBySubdomain } from '@/views'
+import { isDevelopment, environment } from './constants'
+import { collapse_routes_metadata_to_components, __cache_subdomain, __mapViewRoutes } from '.'
 
 export function initUniStore(store?: Store<any>) {
   const initStore = window.__UNISTORE_STATE__ ?
@@ -129,8 +112,7 @@ const memoTchecks: { [componentName: string]: boolean } = {}
  * @param ctx 
  */
 export async function resolvePendingProps(ctx: ServerContextRef) {
-  // const routes: Routes = require('@/views').default
-  const routes: Routes = useViewBySubdomain()
+  const routes = collapse_routes_metadata_to_components(__cache_subdomain.get(window.location.hostname), __mapViewRoutes())
   const routesWhitelist: { [routeName: string]: boolean } = {}
   const Ps = pendingServerSideProps
   const serverSideProps = []
@@ -166,16 +148,17 @@ export async function resolvePendingProps(ctx: ServerContextRef) {
     // the request url for any url parameters ':[keyword]' and then place it
     // into the `defaultProps` of the component.
     for (const route of routes) {
-      const patt = new RegExp(route.path.replaceAll(/:[^/]+/g, '([^/]+)'))
+      const urlPath = (route.options.altUrl ?? route.url)
+      const patt = new RegExp(urlPath.replaceAll(/:[^/]+/g, '([^/]+)'))
 
-      if (route.component == Ps[index].C && route.path != req.path && !patt.test(req.path)) {
+      if (route.component == Ps[index].C && urlPath != req.path && !patt.test(req.path)) {
         isExcluded = true
         routesWhitelist[Ps[index].C.name] = true
         break
       }
 
       let currIndex = 1
-      const params = route.path.matchAll(/:([^/]+)/g)
+      const params = urlPath.matchAll(/:([^/]+)/g)
       for (const [, param] of params) {
         const matches = req.path.match(patt) ?? []
         const C = Ps[index].C
@@ -283,6 +266,7 @@ export function useAsyncDataFetch<T = any, S = string>(
     fRCb = (cb) => {
       useEffect(() => {
         if (fState.status == FetchStateStatus.Success) cb(fRes)
+        return () => setFRes(undefined)
       }, [ fState.status ])
     }
   }

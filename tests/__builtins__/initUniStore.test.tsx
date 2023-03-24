@@ -1,4 +1,4 @@
-import { initAppState, initUniStore } from '@/helpers/ssr-utils'
+import { initAppState, initUniStore } from '@/helpers'
 import { ServerContext } from '@/server/SSRContext'
 import { render } from '@testing-library/preact'
 import { FunctionComponent } from 'preact'
@@ -22,6 +22,7 @@ describe('initUniStore', () => {
 
   beforeEach(() => {
     initializeGlobalMocksState()
+
     window.clientRuntimeConfig = {
       BASE_URL: 'http://localhost:3000',
     }

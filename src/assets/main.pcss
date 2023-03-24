@@ -1,14 +1,18 @@
-@import url(./pcss/tailwind.pcss);
-@import url(./pcss/defl.pcss);
-@import url(../components/_chunks.pcss);
-@import url(../components/_elements.pcss);
-@import url(../components/_forms.pcss);
+@import url(styles/tailwind.pcss);
 
 @layer base {
-  @import url(./fonts/Playfair_Display.pcss);
-  @import url(./fonts/Inter.pcss);
-}
+  @import url(fonts/Playfair_Display.pcss);
+  @import url(fonts/Inter.pcss);
 
-html {
-  font-family: Inter, system-ui, sans-serif;
+  html {
+    font-family: Inter, Arial, Helvetica, system-ui;
+  }
+
+  .appRouter {
+    @apply dark:bg-slate-800 dark:text-white;
+  }
+
+  .appWrapper {
+    @apply container mx-auto;
+  }
 }

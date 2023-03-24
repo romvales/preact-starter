@@ -1,20 +1,23 @@
+import './default.pcss'
+
 import { FunctionComponent } from 'preact'
+import { CustFooter } from '@/components/elements'
 
-import { Footer } from '@/components/elements'
-
-export const DefaultLayout: FunctionComponent = props => {
-
+const DefaultLayout: FunctionComponent = props => {
   return (
-    <div className='defl'>
-      <div className='defl-container'>
-        <header className=''>
-          Header
-        </header>
-        <div className='defl-content'>
-          {props.children}
+    <>
+      <div className='appDefLayout'>
+        <div className='appContent'>
+          <header></header>
+          <main>
+            {props.children}
+          </main>
         </div>
+        <CustFooter>
+        </CustFooter>
       </div>
-      <Footer className='defl-footer'></Footer>
-    </div>
+    </>
   )
 }
+
+export default DefaultLayout

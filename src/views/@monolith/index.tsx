@@ -1,8 +1,14 @@
 
 import { FunctionComponent } from 'preact'
 
-export const monolith_index_route: FunctionComponent = props => {
+import { RemoteConfigService } from '@/services'
+
+const monolith_index_route: FunctionComponent = props => {
+  const config = (new RemoteConfigService).useConfig()
+
   return (
-    <>Monolith route works!</>
+    <>{config.security.validHostnames}</>
   )
 }
+
+export default monolith_index_route

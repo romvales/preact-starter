@@ -26,12 +26,15 @@ const jestConf = {
   moduleNameMapper: {
     '^@/(.*)\\.(png|jpe?g|gif|mp[3-4]|mpeg|mkv|ico|webp|3gp|ogg|m4a|flac|svg)$': '<rootDir>/tests/__mocks__/fileMocks.js',
     '^@/(.*)\\.(p?css)$': 'identity-obj-proxy',
-    '^\./(.*)\\.(p?css)$': 'identity-obj-proxy', 
+    '^\./(.*)\\.(p?css)$': 'identity-obj-proxy',
+    '^~Image/(.*)$': '<rootDir>/tests/__mocks__/fileMocks.js', 
     '^react$': '<rootDir>/node_modules/preact/compat',
     '^react-dom$': '<rootDir>/node_modules/preact/compat',
     '^react/jsx-runtime$': '<rootDir>/node_modules/preact/jsx-runtime',
     '^preact-router$': '<rootDir>/node_modules/preact-router',
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^tests/(.*)$': '<rootDir>/tests/$1',
+    '^@Service/(.*)$': '<rootDir>/src/services/$1',
   },
 }
 

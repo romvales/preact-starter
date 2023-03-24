@@ -1,3 +1,6 @@
+
+const appTheme = require('./src/components/themes.json')
+
 /** @type {import('tailwindcss').Config} */ 
 module.exports = {
   content: [
@@ -6,83 +9,11 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        primary: {
-          '100': '#FFFFFF',
-          '200': '#FFFADF',
-          '300': '#FFF1AC',
-          '400': '#FFEA7D',
-          '500': '#FCDD40',
-          '600': '#E7CB3C',
-          '700': '#C7AF33',
-          '800': '#B49D2B',
-          '900': '#988422',
-          'x00': '#665917',
-        },
-        secondary: {
-          '100': '#FFFEFD',
-          '200': '#D5E0FF',
-          '300': '#B8CCFF',
-          '400': '#8CACFF',
-          '500': '#6A94FF',
-          '600': '#4D7EFF',
-          '700': '#2E68FF',
-          '800': '#0F52FF',
-          '900': '#1747C3',
-          'x00': '#002EA4',
-        },
-        error: {
-          '100': '#FFC5C7',
-          '200': '#FFABAF',
-          '300': '#FF979C',
-          '400': '#FF7E84',
-          '500': '#EA787D',
-          '600': '#D4696E',
-          '700': '#B95D61',
-          '800': '#A64E52',
-          '900': '#8F4347',
-          'x00': '#793336',
-        },
-        info: {
-          '100': '#5CE3FF',
-          '200': '#44D9F8',
-          '300': '#40CCE9',
-          '400': '#38B9D3',
-          '500': '#34A7BF',
-          '600': '#2E9AB0',
-          '700': '#288FA5',
-          '800': '#237B8E',
-          '900': '#195E6C',
-          'x00': '#114550',
-        },
-        warn: {
-          '100': '#FFEECF',
-          '200': '#FFE5B7',
-          '300': '#FFE0A7',
-          '400': '#FFD487',
-          '500': '#FFC864',
-          '600': '#E8B65B',
-          '700': '#DAAA53',
-          '800': '#BD9346',
-          '900': '#A5803C',
-          'x00': '#80622C',
-        },
-        ok: {
-          '100': '#85FFE0',
-          '200': '#4FFFD3',
-          '300': '#00FFBF',
-          '400': '#00F2B5',
-          '500': '#00DCA4',
-          '600': '#00CA96',
-          '700': '#00AE82',
-          '800': '#009972',
-          '900': '#008865',
-          'x00': '#006F52',
-        },
-      }
+      colors: appTheme.colorPalette,
     },
   },
   plugins: [
+    require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
   ],
 }

@@ -1,7 +1,9 @@
 import { FunctionComponent } from 'preact'
 
-export const lang_courses_route: FunctionComponent = props => {
+const lang_courses_route: FunctionComponent = props => {
   return (
     <>Lang courses works!</>
   )
 }
+
+export default lang_courses_route

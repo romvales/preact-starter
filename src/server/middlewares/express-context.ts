@@ -6,9 +6,9 @@ import { Context } from 'preact'
 
 
 import { RouterOnChangeArgs, useRouter } from 'preact-router'
-import { environment } from '@/helpers/ssr-utils'
+import { environment, getRouteUrlByName, __mapViewRoutes } from '@/helpers'
 import { useContext } from 'react'
-import { useViewBySubdomain } from '@/views'
+// import { useViewBySubdomain } from '@/views'
 
 // This utility is following the facade pattern. hence it is not convenient to use it,
 //
@@ -28,32 +28,21 @@ const context = {
 
 export default context
 
-export function getRouteByName(name: string): Route {
-  const routes = useViewBySubdomain()
-
-  for (const route of Object.values(routes)) {
-    if (route.name === name) return route
-  }
-
-  throw new TypeError(`"${name}" named route was not found.`)
-}
-
 export function handleInitialRouteRequest(route: RouterOnChangeArgs) {
   const [_route, setRoute] = useRouter()
   let wasNotFound = false
 
   // If `route.current` is undefined, it is considered that such path does not exist.
-  if (route.current === undefined) {
-    wasNotFound = true
-  }
+  if (route.current === undefined) wasNotFound = true
 
-  if (wasNotFound) {
+  if (wasNotFound)
     if (environment.isServer) {
       const ctx = useContext(context.getContext<{ routeFound: boolean, statusCode: number }>())
       ctx.routeFound = false
       ctx.statusCode = 404
+
     } else {
-      setTimeout(() => setRoute({ url: getRouteByName('not-found').path, replace: true }), 0)
+      setTimeout(() => setRoute({ url: getRouteUrlByName('not-found'), replace: true }), 0)
     }
-  }
+
 }

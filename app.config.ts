@@ -1,4 +1,10 @@
+import { CorsOptions } from 'cors'
+import { HelmetOptions } from 'helmet'
 
+const apiEndpoints = [
+      'https://api.idreamnode0.tailnet-cdc9.ts.net',
+      'http://api.localhost:3000',
+    ]
 
 global.APP_CONFIG = {
   title: '',
@@ -12,7 +18,7 @@ global.APP_CONFIG = {
   ],
 
   // --- Server options
-  serverHost: '0.0.0.0',
+  serverHost: '100.84.244.8',
   serverPort: parseInt(process.env.PORT) || 3000,
   secretPhrase: process.env.SECRET_PHRASE,
 
@@ -20,7 +26,8 @@ global.APP_CONFIG = {
   helmetOptions: {
     contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false,
-  },
+    
+  } as HelmetOptions,
 
   cookieParserOptions: {
 
@@ -38,7 +45,26 @@ global.APP_CONFIG = {
   },
 
   serverRuntimeConfig: {
+    
+  },
 
+  apiOptions: {
+    validApiSubdomains: [ 'api', 'endpoint', 'api-endpoint' ],
+
+    endpoints: [
+      // 'https://api.idreamnode0.tailnet-cdc9.ts.net',
+      // 'http://api.localhost:3000',
+      'http://endpoint.fly.dev',
+    ],
+
+    cors: {
+      credentials: true,
+      origin: '*',
+      optionsSuccessStatus: 204,
+      preflightContinue: false,
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+    } as CorsOptions,
   },
 
 }
@@ -55,3 +81,7 @@ global.pendingServerSideProps = []
 // if the `useAsyncDataFetch` options contains `fetchOnServer: false`
 //
 global.pendingAsyncDataFetches = []
+
+// portalPendingRender is a set of async functions that will be executed sequentially
+// during the final render of the app.
+global.portalPendingRender = []

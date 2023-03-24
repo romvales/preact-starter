@@ -1,7 +1,9 @@
 import { FunctionComponent } from 'preact'
 
-export const contacts_route: FunctionComponent = props => {
+const contacts_route: FunctionComponent = props => {
   return (
     <>Contacts works!</>
   )
 }
+
+export default contacts_route

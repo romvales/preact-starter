@@ -1,5 +1,5 @@
 import { EffectCallback, useEffect, useState, useContext } from 'preact/hooks'
-import { environment } from './ssr-utils'
+import { environment } from '@/helpers'
 import { Request } from 'express'
 import expressContext from '@/server/middlewares/express-context'
 
@@ -8,7 +8,7 @@ import expressContext from '@/server/middlewares/express-context'
  * is updated via history API or in other sorts of way.
  */
 export function useRouterChangeEffect(efCb: EffectCallback) {
-  useEffect(efCb, [location.pathname])
+  useEffect(efCb, [ location.pathname ])
 }
 
 // ---- html doc metadata related functions
@@ -49,6 +49,7 @@ export function useAppTheme() {
     } else {
       document.documentElement.classList.remove('dark')
     }
+    
   }, [ theme ])
 
   return { theme, setTheme }

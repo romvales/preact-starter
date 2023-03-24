@@ -1,4 +1,4 @@
-import { isProduction } from '@/helpers/ssr-utils'
+import { isProduction } from '@/helpers'
 import { Express } from 'express'
 import devConfig from 'webpackConfig/dev'
 import webpack from 'webpack'

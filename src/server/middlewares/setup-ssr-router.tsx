@@ -1,15 +1,17 @@
 import { Request, Response, Router } from 'express'
 import { JSDOM } from 'jsdom'
 import { render } from 'preact-render-to-string'
+
 import path from 'path'
 import devalue from 'devalue'
 
 import { initAppState, initUniStore, resolvePendingProps } from '@/helpers'
 import { ServerContext } from '@/server/SSRContext'
 import { App } from '@/App'
-import { isDevelopment, resolvePendingAsyncDataFetches } from '@/helpers/ssr-utils'
+import { resolvePendingAsyncDataFetches, isDevelopment } from '@/helpers'
 import expressCtx from './express-context'
 import { createContext } from 'preact'
+import renderToString from 'preact-render-to-string'
 
 const ssrRouter = Router({ strict: true, caseSensitive: true })
 
@@ -69,8 +71,14 @@ async function renderDoc(req: Request, res: Response) {
 
   if (APP_CONFIG.mode == 'ssr') {
     global.finalRender = true
-    document.querySelector('.app-root').innerHTML = renderApp()
+    document.querySelector('.app').innerHTML = renderApp()
+    
+    global.portalPendingRender.map((renderToComponent, i) => {
+      document.querySelector(`.pholder-${i+1}`).outerHTML = renderToString(renderToComponent())
+    })
+
     delete global.finalRender
+    global.portalPendingRender = []
   }
 
   return doc.serialize()

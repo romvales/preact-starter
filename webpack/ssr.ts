@@ -1,4 +1,4 @@
-import { isDevelopment } from '@/helpers/ssr-utils'
+import { isDevelopment } from '@/helpers/constants'
 import { Configuration } from 'webpack'
 import webpackNodeExts from 'webpack-node-externals'
 import path from 'path'
@@ -31,6 +31,7 @@ const ssrConfig: Configuration = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
         use: 'swc-loader',
       },
       {
@@ -62,7 +63,6 @@ const ssrConfig: Configuration = {
         test: /\.(p?css)$/,
         use: [
           'css-loader',
-          'postcss-loader',
         ],
       },
     ]

@@ -1,4 +1,4 @@
-import { environment, getServerSideProps } from '@/helpers/ssr-utils'
+import { environment, getServerSideProps } from '@/helpers'
 import { render } from '@testing-library/preact'
 import { FunctionComponent } from 'preact'
 import { switchEnvironment } from '../utils'
@@ -29,7 +29,7 @@ describe('getServerSideProps', () => {
   afterEach(() => {
     teardownGlobalMocksState(TC)
   })
-
+  
   test('should define the necessary variable and objects...', () => {
     expect(window).toBeDefined()
     expect(window.__APP_STATE__).toBeDefined()

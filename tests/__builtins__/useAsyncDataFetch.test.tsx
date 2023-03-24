@@ -1,6 +1,7 @@
 import { Fragment, FunctionComponent } from 'preact'
-import { render, renderHook } from '@testing-library/preact'
-import { StateUpdater, useState } from 'preact/hooks'
+
+import { renderHook } from '@testing-library/preact-hooks'
+
 import { useAsyncDataFetch, FetchStateStatus } from '@/helpers'
 import {
 
@@ -9,7 +10,6 @@ import {
 
 } from '../__mocks__/initializeMockState'
 import { switchEnvironment } from '../utils'
-import { JSXInternal } from 'node_modules/preact/src/jsx'
 
 const enum FetchTestType {
   TestSuccessState = 0,
@@ -18,113 +18,58 @@ const enum FetchTestType {
 }
 
 describe('useAsyncDataFetch', () => {
-  let container: Element
-  let testData: any
-  let testFetchState: FetchState
-  let testNum = FetchTestType.TestSuccessState
-
-  const TC: FunctionComponent<{ testFunc: ([]: any) => Promise<any>, result: { current: [any, StateUpdater<any>] }, fetchOptions: FetchOptions }> = (props) => {
-    const result = props.result
-    const [fetchState, fetchCallback] = useAsyncDataFetch(props.fetchOptions, props.testFunc)
-    testFetchState = fetchState
-
-    // fetchCallback's parameter is invoked when fetchState.status change -> FetchStateStatus.Success
-    fetchCallback(res => {
-
-    })
-
-    return (
-      <>
-        {
-          (() => {
-            let ui: JSXInternal.Element
-
-            switch (fetchState.status) {
-              case FetchStateStatus.Error:
-                ui = <Fragment>
-                  <h4>Something went wrong!!</h4>
-                  <p>{JSON.stringify(fetchState.message)}</p>
-                </Fragment>
-                break
-              case FetchStateStatus.Pending:
-                ui = <p>Waiting to be resolved...</p>
-                break
-              case FetchStateStatus.Success:
-                ui = <p>{JSON.stringify(result.current[0])}</p>
-            }
-
-            return ui
-          })()
-        }
-      </>
-    )
-  } 
 
   beforeEach(() => {
-    initializeGlobalMocksState(TC)
+    initializeGlobalMocksState()
     switchEnvironment() // browser mode
-
-    if (testNum != FetchTestType.TestErrorState) {
-      window.__APP_STATE__.asyncDataFetchesIndex = 1
-      window.__APP_STATE__.asyncDataFetches.push({
-        data: { message: 'The quick brown fox jumps over the lazy dog.' },
-        used: false,
-      })
-    } else {
-      window.__APP_STATE__.asyncDataFetchesIndex = 0
-      window.__APP_STATE__.asyncDataFetches = []
-    }
-
-    const { result } = renderHook(() => useState({}))
-    const testFetchOptions = { onServer: true, reuse: true }
-    const testAsyncDataFetcher = async ([ fState, setState ]) => {
-      switch (testNum) {
-      case FetchTestType.TestPendingState:
-        setState({ status: FetchStateStatus.Pending })
-        return 
-      case FetchTestType.TestErrorState:
-        setState({ status: FetchStateStatus.Error, message: 'There was an error while requesting resource..' })
-        return 
-      }
-
-      return { message: 'The quick brown fox jumps over the lazy dog.' }
-    }
-
-    const { container: C } = render(
-      <TC testFunc={testAsyncDataFetcher}
-        result={result}
-        fetchOptions={testFetchOptions} />)
-
-    container = C
-    testData = result.current.at(0)
-    testNum++
   })
 
   afterEach(() => {
     switchEnvironment() // server mode
-    teardownGlobalMocksState(TC)
+    teardownGlobalMocksState()
   })
 
-  test('should render the pending message when `useAsyncDataFetch` data is still not available.', () => {
-    testFetchState = { status: FetchStateStatus.Pending }
+  test('should render the pending message when `useAsyncDataFetch` data is still not yet available.', async () => {
+    const { waitFor, result } = renderHook(() => useAsyncDataFetch({}, async () => {
+      
+      return {}
+    }))
 
-    expect(testFetchState.status).toBe(FetchStateStatus.Pending)
-    expect(container.textContent).toBe('{}')
+    await waitFor(() => {
+      const [fetchState, fCb] = result.current
+      expect(fetchState.status).toBe(FetchStateStatus.Pending)
+    })
   })
 
-  test('should render an error message when `useAsyncDataFetch` results into an error.', () => {
-    const h4 = container.querySelector('h4')
-    const p = container.querySelector('p')
+  test('should render an error message when `useAsyncDataFetch` results into an error.', async () => {
+    const errMsg = 'Something went wrong while fetching the data source...'
+    const { waitFor, result } = renderHook(() => useAsyncDataFetch({}, async ([,setState]) => {
+      setState({
+        status: FetchStateStatus.Error,
+        message: errMsg,
+      })
 
-    expect(h4).toBeDefined()
-    expect(p).toBeDefined()
-    expect(h4.textContent).toBe('Something went wrong!!')
-    expect(p.textContent).toBe(JSON.stringify(testFetchState.message))
+      return
+    }))
+
+    await waitFor(() => {
+      const [fetchState, _] = result.current
+
+      expect(fetchState.message).toBe(errMsg)
+      expect(fetchState.status).toBe(FetchStateStatus.Error)
+    })
   })
 
-  test('should render the state\'s data when everything goes well inside of `useAsyncDataFetch`.', () => {
-    expect(testFetchState.status).toBe(FetchStateStatus.Success)
-    expect(container.textContent).toBe(JSON.stringify(testData))
+  test('should render the state\'s data when everything goes well inside of `useAsyncDataFetch`.', async () => {
+    const { waitFor, result } = renderHook(() => useAsyncDataFetch({ onServer: true }, async ([,setState]) => {
+      setState({ status: FetchStateStatus.Success })
+      return { message: 'The quick brown fox jumps over the lazy dog.' }
+    }))
+    
+    await waitFor(async () => {
+      const [fetchState, _] = result.current
+      expect(fetchState.status).toBe(FetchStateStatus.Success)
+    })
   })
 
 

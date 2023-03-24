@@ -1,0 +1,456 @@
+[
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 1",
+      "desc": "What's your name?"
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "fname",
+          "label": "First Name",
+          "placeholder": "First Name"
+        },
+        "control2": {
+          "validate": true,
+          "name": "lname",
+          "label": "Last Name",
+          "placeholder": "Last Name"
+        },
+        "control3": {
+          "optional": true,
+          "name": "mname",
+          "label": "Middle Name",
+          "placeholder": "Middle Name"
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 2",
+      "desc": "When were you born?"
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "bdate",
+          "label": "Birthdate",
+          "placeholder": "Birthdate"
+        },
+        "control2": {
+          "validate": true,
+          "name": "bplace",
+          "label": "Birthplace",
+          "placeholder": "Birthplace"
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 3",
+      "desc": "Tell us more about yourself."
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "religion",
+          "label": "Religion",
+          "placeholder": "Religion"
+        },
+        "control2": {
+          "validate": true,
+          "name": "cship",
+          "label": "Citizenship",
+          "placeholder": "Citizenship"
+        },
+        "control3": {
+          "validate": true,
+          "name": "rstatus",
+          "label": "Civil Status",
+          "placeholder": "Civil Status"
+        },
+        "control4": {
+          "validate": true,
+          "name": "children",
+          "label": "No. of Children",
+          "placeholder": "No. of Children"
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 4",
+      "desc": "Where do you live?"
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "country",
+          "label": "Country",
+          "placeholder": "Country"
+        },
+        "control2": {
+          "validate": true,
+          "name": "city",
+          "label": "City",
+          "placeholder": "City"
+        },
+        "control3": {
+          "validate": true,
+          "name": "street",
+          "label": "Street",
+          "placeholder": "Street"
+        },
+        "control4": {
+          "validate": true,
+          "name": "houseAptId",
+          "label": "House/Apartment No.",
+          "placeholder": "House/Apartment No."
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 5",
+      "desc": "Education (Primary)"
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "name",
+          "label": "School Name",
+          "placeholder": "School Name"
+        },
+        "control2": {
+          "validate": true,
+          "name": "addrln",
+          "label": "Location",
+          "placeholder": "Location"
+        },
+        "control3": {
+          "validate": true,
+          "name": "from",
+          "label": "From"
+        },
+        "control4": {
+          "validate": true,
+          "name": "to",
+          "label": "To"
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 6",
+      "desc": "Education (Secondary)"
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "name",
+          "label": "School Name",
+          "placeholder": "School Name"
+        },
+        "control2": {
+          "validate": true,
+          "name": "addrln",
+          "label": "Location",
+          "placeholder": "Location"
+        },
+        "control3": {
+          "validate": true,
+          "name": "from",
+          "label": "From"
+        },
+        "control4": {
+          "validate": true,
+          "name": "to",
+          "label": "To"
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 7",
+      "desc": "Education (College)"
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "name",
+          "label": "School Name",
+          "placeholder": "School Name"
+        },
+        "control2": {
+          "validate": true,
+          "name": "addrln",
+          "label": "Location",
+          "placeholder": "Location"
+        },
+        "control3": {
+          "validate": true,
+          "name": "degree",
+          "label": "Degree",
+          "placeholder": "Degree"
+        },
+        "control4": {
+          "validate": true,
+          "name": "fstudy",
+          "label": "Field of Study",
+          "placeholder": "Field of Study"
+        },
+        "control5": {
+          "validate": true,
+          "name": "from",
+          "label": "From"
+        },
+        "control6": {
+          "validate": true,
+          "name": "to",
+          "label": "To"
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 8",
+      "desc": "Seminars you attended."
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "seminar",
+          "label": "Seminar",
+          "placeholder": "Seminar"
+        },
+        "control2": {
+          "validate": true,
+          "name": "year",
+          "label": "Year",
+          "placeholder": "Year"
+        },
+        "control3": {
+          "label": "Remove"
+        },
+        "control4": {
+          "label": "Add a new seminar"
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 9",
+      "desc": "List your job experience."
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "title",
+          "label": "Title",
+          "placeholder": "Title"
+        },
+        "control2": {
+          "validate": true,
+          "name": "company",
+          "label": "Company",
+          "placeholder": "Company"
+        },
+        "control3": {
+          "validate": true,
+          "name": "addrln",
+          "label": "Location",
+          "placeholder": "Location"
+        },
+        "control4": {
+          "label": "Responsibilities",
+          "placeholder": "Responsibilities"
+        },
+        "control5": {
+          "label": "Add"
+        },
+        "control6": {
+          "validate": true,
+          "name": "hcase",
+          "label": "Handled Cases",
+          "placeholder": "Handled Cases"
+        },
+        "control7": {
+          "validate": true,
+          "name": "from",
+          "label": "From"
+        },
+        "control8": {
+          "validate": true,
+          "name": "to",
+          "label": "To"
+        },
+        "control9": {
+          "label": "I am current working here"
+        },
+        "control10": {
+          "label": "Remove"
+        },
+        "control11": {
+          "label": "Add a new job experience"
+        },
+        "control12": {
+          "label": "Add a handled case"
+        },
+        "control13": {
+          "label": "I am currently working here"
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 10",
+      "desc": "What are your skills?"
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "skill",
+          "label": "Skill",
+          "placeholder": "Skill"
+        },
+        "control2": {
+          "validate": true,
+          "name": "rating",
+          "label": "Rating",
+          "placeholder": "Rating"
+        },
+        "control3": {
+          "label": "Remove"
+        },
+        "control4": {
+          "label": "Add a new skill"
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 11",
+      "desc": "Got any certificates?"
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "cert",
+          "label": "Certificate",
+          "placeholder": "Certificate"
+        },
+        "control2": {
+          "validate": true,
+          "name": "year",
+          "label": "Year",
+          "placeholder": "Year"
+        },
+        "control3": {
+          "label": "Remove"
+        },
+        "control4": {
+          "label": "Expiration",
+          "placeholder": "Expiration"
+        },
+        "control5": {
+          "label": "Add a new certificate"
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 12",
+      "desc": "Have employment gaps?"
+    },
+    "forms": {
+      "submitText": "Next",
+      "fields": {
+        "control1": {
+          "validate": true,
+          "name": "egaps",
+          "label": "Employment Gap",
+          "placeholder": "Employment Gap"
+        },
+        "control2": {
+          "validate": true,
+          "name": "from",
+          "label": "From",
+          "placeholder": "From"
+        },
+        "control3": {
+          "validate": true,
+          "name": "to",
+          "label": "To",
+          "placeholder": "To"
+        },
+        "control4": {
+          "label": "Remove"
+        },
+        "control5": {
+          "label": "Add an employment gap"
+        },
+        "control6": {
+          "label": "I am currently working here"
+        }
+      }
+    }
+  },
+  {
+    "headline": "",
+    "builderHeaderContent": {
+      "current": "Step 13",
+      "desc": ""
+    },
+    "forms": {
+      "submitText": "Next",
+      "control1": {
+        "label": "Summary"
+      }
+    }
+  }
+]

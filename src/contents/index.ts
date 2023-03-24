@@ -1,19 +1,27 @@
 
 import { Request } from 'express'
-import { environment } from '@/helpers/ssr-utils'
-import { useContext, useState, useCallback } from 'preact/hooks'
+import { environment } from '@/helpers'
+import { useContext, useState } from 'preact/hooks'
 import expressContext from '@/server/middlewares/express-context'
-
 
 export type VALID_LOCALES = 'en' | 'de' | 'kr' | 'jp' | 'zh' | 'tl' | 'fr' | 'es'
 
-//
+/**
+ * setAppLocale
+ * 
+ * @param locale 
+ * @returns 
+ */
 export function setAppLocale(locale?: VALID_LOCALES): VALID_LOCALES {
   document.cookie = `${encodeURIComponent('appCurrentLocale')}=${encodeURIComponent(locale ?? 'en')}; SameSite=Lax; secure;`
   return locale
 }
 
-//
+/**
+ * useAppLocale
+ * 
+ * @returns 
+ */
 export function useAppLocale() {
   const [appLocale, _setAppLocale] = useState<VALID_LOCALES>()
 

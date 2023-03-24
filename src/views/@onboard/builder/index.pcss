@@ -1,0 +1,183 @@
+
+.logo {
+  @apply text-secondary-c06 text-2xl font-semibold;
+}
+
+.appBuilderLayout {
+  @apply lg:px-0 px-[24px] min-h-screen flex flex-col;
+}
+
+.appBuilderHeader {
+
+  .abhWrapper > :first-child {
+    @apply flex h-20 items-center justify-between my-3;
+  }
+
+}
+
+.appContent {
+  @apply grow flex flex-col mt-6;
+}
+
+/* @split */
+.builderHeader {
+
+  &Initial {
+
+  }
+
+  &Progress {
+
+    .bhpStatus {
+      @apply flex flex-col items-end;
+
+      .bhpStatusCurrent {
+        @apply font-semibold text-[1.1rem] text-slate-700;
+      }
+
+      .bhpStatusText {
+        @apply text-base font-light text-slate-700 pt-1;
+      }
+    }
+  }
+
+}
+
+.onboardBuilderForm {
+  @apply flex flex-col my-10;
+
+  label > * {
+    @apply block w-full mb-3;
+  }
+
+  label {
+    @apply text-[1rem] font-medium text-secondary-c04;
+  }
+
+  input, select, [role="textbox"] {
+    @apply bg-gray-100 border-0 px-3 py-4 rounded-xl text-gray-700 mt-1;
+  }
+
+  input[type="checkbox"] {
+    @apply p-0 text-secondary-c06;
+  }
+
+  & > .uploadPictureArea {
+    @apply mx-auto py-8;
+
+    .pictureArea {
+      @apply rounded-full object-fill w-60 h-60;
+    }
+  }
+
+  .ccButtonTextWrapper {
+    @apply flex p-2 justify-center items-center;
+
+    > .cbtwLabel {
+      @apply text-lg font-normal ml-2;
+    }
+  }
+
+  & > button[type="submit"] {
+    @apply mt-8;
+  }
+}
+
+
+[class*='onboardBuilderFormItem'] {
+  @apply flex flex-col;
+}
+
+.onboardBuilderForm .onboardRemoveButton {
+  @apply bg-transparent;
+
+  .ccButtonText {
+    @apply bg-opacity-40 text-lg text-error-c06 bg-error-c09 p-4
+      flex justify-center items-center;
+  }
+}
+
+.onboardBuilderForm .onboardAddButton {
+  @apply mt-5 bg-transparent;
+
+  .ccButtonText {
+    @apply text-secondary-c04 bg-transparent flex items-center font-medium;
+  }
+}
+
+.onboardBuilderForm .onboardAddButton.onboardAddMiniAddButton {
+  @apply mt-0;
+
+  .ccIcon {
+    @apply w-7;
+  }
+
+  .ccButtonText {
+    @apply text-sm text-secondary-c04 bg-transparent flex justify-end items-center font-medium;
+  }
+}
+
+
+.onboardBuilderForm .onboardBuilderRespWrapper {
+  @apply flex flex-col;
+  
+  .onboardBuilderResp {
+    @apply min-h-[9rem] border-0;
+
+    .obrTextarea {
+      @apply min-h-[9rem] px-1;
+
+      &:focus {
+        outline: 0px solid transparent;
+      }
+    }
+  }
+}
+
+.onboardBuilderHandledCases {
+  
+  > li[class*='obhcItem-'] {
+    @apply text-[1.05rem] py-3 font-light flex justify-between items-center;
+
+    .ccIcon {
+      @apply w-8 text-error-c05;
+    }
+
+    &:nth-child(even) {
+      @apply border-y;
+    }
+
+    &:last-child {
+      @apply border-b-0;
+    }
+  }
+
+}
+
+.onboardBuilderRespItems {
+  @apply mb-4;
+
+  & > [class*='obrItem'] {
+    @apply text-[1.05rem] font-light px-0 py-2 flex justify-between;
+
+    .ccIcon {
+      @apply w-9 text-error-c06;
+    }
+
+    &:nth-child(even) {
+      @apply border-y;
+    }
+
+    &:last-child {
+      @apply border-b-0;
+    }
+  }
+}
+
+.onboardBuilderForm .onboardBuilderFormExpCheckbox {
+  @apply flex items-center mb-3 text-sm font-light;
+
+  > input {
+    @apply w-5 h-5 mr-3 mb-0;
+  }
+}

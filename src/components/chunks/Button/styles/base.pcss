@@ -1,0 +1,249 @@
+
+.ccButton {
+  @apply block relative;
+
+  /* Button size variants */
+  &-sm {
+    @apply text-xs;
+
+    .ccButtonText {
+      @apply px-3 py-2;
+    }
+  }
+
+  &-md {
+    @apply text-base;
+
+    .ccButtonText {
+      @apply px-4 py-2;
+    }
+  }
+
+  &-lg {
+    @apply text-lg;
+
+    .ccButtonText {
+      @apply px-5 py-2;
+    }
+  }
+
+  &-xl {
+    @apply text-xl ;
+
+    .ccButtonText {
+      @apply px-6 py-3;
+    }
+  }
+
+  &-2xl {
+    @apply text-2xl;
+
+    .ccButtonText {
+      @apply px-7 py-4;
+    }
+  }
+
+  &-3xl {
+    @apply text-3xl;
+
+    .ccButtonText {
+      @apply px-8 py-4;
+    }
+  }
+
+
+  /* Border radius variants */
+  &Rounded-sm {
+    @apply rounded-md;
+
+    .ccButtonText {
+      @apply rounded-md;
+    }
+  }
+
+  &Rounded-md {
+    @apply rounded-lg;
+    
+    .ccButtonText {
+      @apply rounded-lg;
+    }
+  }
+
+  &Rounded-lg {
+    @apply rounded-[0.625rem];
+    
+    .ccButtonText {
+      @apply rounded-[0.625rem];
+    }
+  }
+  
+  &Rounded-full {
+    @apply rounded-full;
+    
+    .ccButtonText {
+      @apply rounded-full;
+    }
+  }
+
+
+  &Primary {
+
+    .ccButtonText {
+      @apply bg-primary-c05 text-slate-700;
+    }
+
+    @apply bg-primary-c02;
+  }
+
+  &Secondary {
+
+    .ccButtonText {
+      @apply bg-secondary-c03 text-white;
+    }
+
+    @apply bg-secondary-c02;
+  }
+
+  &Accent {
+    
+    .ccButtonText {
+      @apply bg-accent-c05 text-white;
+    }
+
+    @apply bg-accent-c02;
+  }
+
+  &Ok {
+
+    .ccButtonText {
+      @apply bg-ok-c05 text-slate-700;
+    }
+
+    @apply bg-ok-c02;
+  }
+
+  &Info {
+
+    .ccButtonText {
+      @apply bg-info-c05 text-white;
+    }
+
+    @apply bg-info-c02;
+  }
+
+  &Warn {
+
+    .ccButtonText {
+      @apply bg-warn-c05;
+    }
+
+    @apply bg-warn-c02;
+  }
+
+  &Error {
+
+    .ccButtonText {
+      @apply bg-error-c05;
+    }
+
+    @apply bg-error-c02;
+  }
+
+  /* bordered rulesets */
+
+  &Bordered.ccButtonBorderedFlat {
+
+    &Primary {
+
+    }
+
+    &Secondary {
+
+    }
+
+    &Accent {
+
+    }
+
+    &Ok {
+
+    }
+
+    &Info {
+
+    }
+
+    &Warn {
+
+    }
+
+    &Error {
+
+    }
+
+  }
+
+  &.ccButtonBordered {
+    @apply border-x-2 border-t-2;
+
+    &.ccButtonBorderedPopup {
+      &Primary { 
+        .ccButtonText {
+          @apply border-b-2 border-primary-c06;
+        }
+
+        @apply border-primary-c03; 
+      }
+
+      &Secondary { 
+        .ccButtonText {
+          @apply border-b-2 border-secondary-c04;
+        }
+
+        @apply border-secondary-c03; 
+      }
+
+      &Accent { 
+        .ccButtonText {
+          @apply border-b-2 border-accent-c06;
+        }
+
+        @apply border-accent-c03; 
+      }
+
+      &Ok { 
+        .ccButtonText {
+          @apply border-b-2 border-ok-c06;
+        }
+
+        @apply border-ok-c03; 
+      }
+
+      &Info { 
+        .ccButtonText {
+          @apply border-b-2 border-info-c06;
+        }
+
+        @apply border-info-c03; 
+      }
+
+      &Error { 
+        .ccButtonText {
+          @apply border-b-2 border-error-c06;
+        }
+
+        @apply border-error-c03; 
+      }
+
+      &Warn { 
+        .ccButtonText {
+          @apply border-b-2 border-warn-c05;
+        }
+
+        @apply border-warn-c03; 
+      }
+    }
+
+  }
+
+}
