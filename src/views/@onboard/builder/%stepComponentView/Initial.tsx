@@ -34,7 +34,10 @@ export const Initial: FunctionComponent<InitialProps> = props => {
 
   return (
     <div className='onboardBuilderInitial' role='article'>
-      
+      <div className='onboardBuilderMessage'>
+        
+      </div>
+
       <form className='onboardBuilderForm' onSubmit={onStartCreate}>
         <CCButton
           rounded='md'

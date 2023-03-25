@@ -77,7 +77,10 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
 
   return (
     <div className='onboard onboardBuilderSkills' role='article'>
-
+      <div className='onboardBuilderMessage'>
+      
+      </div>
+      
       <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
         {
           content?.forms ?

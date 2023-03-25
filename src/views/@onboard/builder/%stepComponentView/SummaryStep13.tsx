@@ -20,17 +20,29 @@ export const SummaryStep13: FunctionComponent<SummaryStep10Props> = props => {
   const apiEndpoint = initApiAxios()
 
   const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
-    const a = document.createElement('a')
-    const location = window.location
-    a.href = `/builder/preview/${ctx.state.uuid}`
-    a.target = '_blank'
-    a.click()
+    const uuid = ctx.state.uuid
+    const pageUrl = `${window.location.origin}/builder/preview/${uuid}`
+
+    apiEndpoint.put('/print', { pageUrl, uuid }, { responseType: 'blob' })
+      .then(res => {
+        const fileUrl = URL.createObjectURL(res.data)
+        const a = document.createElement('a')
+
+        a.href = fileUrl
+        a.target = '_blank'
+        a.click()
+        a.remove()
+      })
+
     ev.preventDefault()
-    ctx.next()
   }
 
   return (
     <div className='onboard onboardBuilderSummary' role='article'>
+      <div className='onboardBuilderMessage'>
+      
+      </div>
+      
       <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
         <CCButton
           rounded='md'

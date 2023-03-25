@@ -6,7 +6,6 @@ import { CCButton } from '@/components/chunks'
 
 import {
   BuilderContext,
-  BuilderService,
 } from '@/services'
 import { JSXInternal } from 'preact/src/jsx'
 
@@ -18,6 +17,7 @@ export const RenderButton: FunctionComponent<RenderButtonProps> = props => {
   const ctx = useContext(BuilderContext)
 
   const onRenderClick = (ev: JSXInternal.TargetedEvent<HTMLButtonElement>) => {
+    
 
     ev.preventDefault()
   }

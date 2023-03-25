@@ -34,8 +34,6 @@ export const route_options: RouteOptions = {
   altUrl: '/builder/:step*',
 }
 
-
-
 const onboard_builder_route: FunctionComponent = props => {
   useLayout('@onboard/builder')
   

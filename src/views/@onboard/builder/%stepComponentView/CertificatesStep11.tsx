@@ -76,7 +76,10 @@ export const CertificatesStep11: FunctionComponent<CertificatesStep11Props> = pr
   
   return (
     <div className='onboard onboardBuilderCertificate'>
-
+      <div className='onboardBuilderMessage'>
+      
+      </div>
+      
       <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
         {
           content?.forms ?

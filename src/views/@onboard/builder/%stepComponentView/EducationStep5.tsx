@@ -47,7 +47,10 @@ export const EducationStep5: FunctionComponent<EducationStep5Props> = props => {
 
   return (
     <div className='onboard onboardBuilderEducation step5' role='article'>
-
+      <div className='onboardBuilderMessage'>
+      
+      </div>
+      
       <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
         Primary
         {

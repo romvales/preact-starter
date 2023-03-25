@@ -68,7 +68,10 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
         {
           content?.forms ?
           <>
-          Current Address
+          <div className='obf-addressLabel'>
+            Current Address
+            <div className='addressLabelSeparator'></div>
+          </div>
           <CCLabel>
             {content.forms.fields.control1.label}
             <select
@@ -115,7 +118,10 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
               type='text'></CCTextfield>
           </CCLabel>
 
-          Permanent Address
+          <div className='obf-addressLabel'>
+            Permanent Address
+            <div className='addressLabelSeparator'></div>
+          </div>
           <CCLabel>
             {content.forms.fields.control1.label}
             <select

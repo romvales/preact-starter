@@ -74,35 +74,9 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
 
   return (
     <div className='onboard onboardBuilderBasicInfo step1' role='article'>
-      <>
-        <CCSkeleton 
-          className='mb-2'
-          height='2.7rem' 
-          width='85%' 
-          rounded='md'></CCSkeleton>
-
-        <br />
-
-        <CCSkeleton 
-          className='mb-2'
-          height='1.8rem' 
-          animated 
-          animationClass='animate-pulse' 
-          rounded='md'></CCSkeleton>
-        <CCSkeleton 
-          className='mb-2'
-          height='1.8rem' 
-          animated 
-          animationClass='animate-pulse' 
-          rounded='md'></CCSkeleton>
-        <CCSkeleton 
-          className='mb-2'
-          height='1.8rem'
-          width='80%'
-          animated 
-          animationClass='animate-pulse' 
-          rounded='md'></CCSkeleton>
-      </>
+      <div className='onboardBuilderMessage'>
+      
+      </div>
 
       <form 
         className='onboardBuilderForm'

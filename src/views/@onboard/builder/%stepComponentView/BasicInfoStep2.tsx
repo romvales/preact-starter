@@ -46,8 +46,11 @@ export const BasicInfoStep2: FunctionComponent<BasicInfoStep2Props> = props => {
 
   return (
     <div className='onboard onboardBuilderBasicInfo step2' role='article'>
+      <div className='onboardBuilderMessage'>
+      
+      </div>
+      
       <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
-
         {
           content?.forms ? 
             <>

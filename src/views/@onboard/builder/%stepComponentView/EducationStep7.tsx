@@ -53,6 +53,9 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
 
   return (
     <div className='onboard onboardBuilderEducation step7' role='article'>
+      <div className='onboardBuilderMessage'>
+      
+      </div>
       
       <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
         College

@@ -1,6 +1,6 @@
 
 import { FunctionComponent } from 'preact'
-import { useContext } from 'preact/hooks'
+import { useContext, useEffect } from 'preact/hooks'
 import { useSignal } from '@preact/signals'
 
 import {
@@ -92,9 +92,13 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
       return item
     })
   }
-
+  
   return (
     <div className='onboard onboardBuilderSkills' role='article'>
+      <div className='onboardBuilderMessage'>
+      
+      </div>
+
       <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
         {
           content?.forms ?

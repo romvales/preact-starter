@@ -71,6 +71,10 @@ export const SeminarsStep8: FunctionComponent<SeminarsStep8Props> = props => {
 
   return (
     <div className='onboard onboardBuilderSeminars' role='article'>
+      <div className='onboardBuilderMessage'>
+      
+      </div>
+      
       <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
         {
           content?.forms ?

@@ -1,11 +1,6 @@
 import { CorsOptions } from 'cors'
 import { HelmetOptions } from 'helmet'
 
-const apiEndpoints = [
-      'https://api.idreamnode0.tailnet-cdc9.ts.net',
-      'http://api.localhost:3000',
-    ]
-
 global.APP_CONFIG = {
   title: '',
   
@@ -18,7 +13,7 @@ global.APP_CONFIG = {
   ],
 
   // --- Server options
-  serverHost: '100.84.244.8',
+  serverHost: 'localhost',
   serverPort: parseInt(process.env.PORT) || 3000,
   secretPhrase: process.env.SECRET_PHRASE,
 
@@ -53,8 +48,8 @@ global.APP_CONFIG = {
 
     endpoints: [
       // 'https://api.idreamnode0.tailnet-cdc9.ts.net',
-      // 'http://api.localhost:3000',
-      'http://endpoint.fly.dev',
+      'http://api.localhost:3000',
+      // 'https://endpoint.fly.dev',
     ],
 
     cors: {

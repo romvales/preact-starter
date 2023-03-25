@@ -42,7 +42,10 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
 
   return (
     <div className='onboard onboardBuilderBasicInfo step3' role='article'>
-
+      <div className='onboardBuilderMessage'>
+      
+      </div>
+      
       <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
         {
           content?.forms ?

@@ -175,7 +175,10 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
 
   return (
     <div className='onboard onboardBuilderExperience' role='article'>
-
+      <div className='onboardBuilderMessage'>
+      
+      </div>
+      
       <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
         {
           content?.forms ?
