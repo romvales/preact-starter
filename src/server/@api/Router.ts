@@ -25,7 +25,7 @@ apiRouter.put('/print', async (req: Request, res: Response) => {
   const { docpath } = BuilderService.getCreatedPath(uuid)
   const pdfPath = path.resolve(docpath, `${uuid}.pdf`)
 
-  const browser = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', ignoreHTTPSErrors: true })
+  const browser = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome-stable', ignoreHTTPSErrors: true })
   const window = await browser.newPage()
 
   await window.emulateMediaType('screen')
