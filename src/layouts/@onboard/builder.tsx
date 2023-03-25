@@ -11,6 +11,9 @@ const BuilderLayout: FunctionComponent<BuilderLayoutProps> = props => {
       <main className='appContent'>
         {props.children}
       </main>
+      <footer className='appNotificationArea'>
+        
+      </footer>
     </div>
   )
 }

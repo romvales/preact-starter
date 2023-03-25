@@ -11,7 +11,7 @@ import {
 import {
   BuilderContext,
   BuilderService } from '@/services'
-import { contentProps } from '@/services/Builder'
+import { contentProps, OnboardBuilder } from '@/services/Builder'
 
 import { JSXInternal } from 'preact/src/jsx'
 import { gatherNamedFormfields } from '.'
@@ -61,7 +61,8 @@ export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
           <CCLabel>
             {content.forms.fields.control1.label}
             <CCTextfield 
-              required
+              pattern={content.forms.fields.control1.pattern}
+              required={content.forms.fields.control1.required}
               validate={content.forms.fields.control1.validate}
               name={content.forms.fields.control1.name}
               placeholder={content.forms.fields.control1.placeholder}
@@ -70,7 +71,8 @@ export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
           <CCLabel>
             {content.forms.fields.control2.label}
             <CCTextfield 
-              required
+              pattern={content.forms.fields.control2.pattern}
+              required={content.forms.fields.control2.required}
               validate={content.forms.fields.control2.validate}
               name={content.forms.fields.control2.name}
               placeholder={content.forms.fields.control2.placeholder}
@@ -79,7 +81,7 @@ export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
           <CCLabel>
             {content.forms.fields.control3.label}
             <CCDatefield 
-              required
+              required={content.forms.fields.control3.required}
               validate={content.forms.fields.control3.validate}
               name={content.forms.fields.control3.name}
               placeholder={content.forms.fields.control3.placeholder}></CCDatefield>
@@ -87,7 +89,7 @@ export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
           <CCLabel>
             {content.forms.fields.control4.label}
             <CCDatefield 
-              required
+              required={content.forms.fields.control4.required}
               validate={content.forms.fields.control4.validate}
               name={content.forms.fields.control4.name}
               placeholder={content.forms.fields.control4.placeholder}></CCDatefield>

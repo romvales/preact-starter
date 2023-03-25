@@ -6,7 +6,7 @@ import { CCLabel, CCTextfield, CCButton, CCIcon } from '@/components/chunks'
 import {
   BuilderContext,
   BuilderService } from '@/services'
-import { contentProps } from '@/services/Builder'
+import { contentProps, OnboardBuilder } from '@/services/Builder'
 
 
 import { JSXInternal } from 'preact/src/jsx'
@@ -53,7 +53,8 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
             <CCLabel>
               {content.forms.fields.control1.label}
               <CCTextfield 
-                required
+                pattern={content.forms.fields.control1.pattern}
+                required={content.forms.fields.control1.required}
                 validate={content.forms.fields.control1.validate}
                 name={content.forms.fields.control1.name}
                 placeholder={content.forms.fields.control1.placeholder}
@@ -62,8 +63,8 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
             <CCLabel>
               {content.forms.fields.control2.label}
               <select
-                required
                 defaultValue={'4'}
+                required={content.forms.fields.control2.required}
                 noValidate={content.forms.fields.control2.validate}
                 name={content.forms.fields.control2.name}
                 placeholder={content.forms.fields.control2.placeholder}>
@@ -81,7 +82,7 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
             <CCLabel>
               {content.forms.fields.control3.label}
               <select
-                required
+                required={content.forms.fields.control3.required}
                 noValidate={content.forms.fields.control3.validate}
                 name={content.forms.fields.control3.name}
                 placeholder={content.forms.fields.control3.placeholder}>
@@ -100,7 +101,10 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
               {content.forms.fields.control4.label}
               <CCTextfield 
                 type='number'
-                required
+                value={0}
+                min={0}
+                max={6}
+                required={content.forms.fields.control4.required}
                 validate={content.forms.fields.control4.validate}
                 name={content.forms.fields.control4.name}
                 placeholder={content.forms.fields.control4.placeholder}></CCTextfield>

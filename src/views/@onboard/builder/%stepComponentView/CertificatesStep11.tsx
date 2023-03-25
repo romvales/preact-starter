@@ -6,7 +6,7 @@ import { useSignal } from '@preact/signals'
 import {
   BuilderContext,
   BuilderService } from '@/services'
-import { contentProps } from '@/services/Builder'
+import { contentProps, OnboardBuilder } from '@/services/Builder'
 import { JSXInternal } from 'preact/src/jsx'
 import { gatherNamedFormfields } from '.'
 

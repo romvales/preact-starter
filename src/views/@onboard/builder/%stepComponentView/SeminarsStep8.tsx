@@ -7,7 +7,7 @@ import { CCLabel, CCTextfield, CCButton, CCIcon } from '@/components/chunks'
 import {
   BuilderContext,
   BuilderService } from '@/services'
-import { contentProps } from '@/services/Builder'
+import { contentProps, OnboardBuilder } from '@/services/Builder'
 import { JSXInternal } from 'preact/src/jsx'
 import { gatherNamedFormfields } from '.'
 
@@ -88,6 +88,7 @@ export const SeminarsStep8: FunctionComponent<SeminarsStep8Props> = props => {
                       <CCTextfield 
                         value={name}
                         onInput={e => { fcount.value[i].name = (e.target as any).value; }}
+                        required={content.forms.fields.control1.required}
                         validate={content.forms.fields.control1.validate}
                         name={content.forms.fields.control1.name}
                         placeholder={content.forms.fields.control1.placeholder}
@@ -98,6 +99,7 @@ export const SeminarsStep8: FunctionComponent<SeminarsStep8Props> = props => {
                       <CCTextfield 
                         value={year}
                         onInput={e => { fcount.value[i].year = (e.target as any).value; }}
+                        required={content.forms.fields.control2.required}
                         validate={content.forms.fields.control2.validate}
                         name={content.forms.fields.control2.name}
                         placeholder={content.forms.fields.control2.placeholder}

@@ -1,11 +1,10 @@
 import { FunctionComponent } from 'preact'
 import { useContext } from 'preact/hooks'
-import { useSignal } from '@preact/signals'
 import { 
   BuilderContext, 
   BuilderService, 
   ImageKitService } from '@/services'
-import { contentProps } from '@/services/Builder'
+import { contentProps, OnboardBuilder } from '@/services/Builder'
 
 import { 
   CCButton, 
@@ -31,9 +30,10 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
   const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
     ev.preventDefault()
     
-    const form = (ev.target as HTMLFormElement).elements
+    const form = ev.target as HTMLFormElement
+    const elements = form.elements
 
-    gatherNamedFormfields(form, content.forms.fields)
+    gatherNamedFormfields(elements, content.forms.fields)
       .then((fset) => {
         const fname = fset.fname.value        
         const lname = fset.lname.value
@@ -101,7 +101,8 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
               <CCLabel>
                 {content.forms.fields.control1.label}
                 <CCTextfield
-                  required
+                  pattern={content.forms.fields.control1.pattern}
+                  required={content.forms.fields.control1.required}
                   validate={content.forms.fields.control1.validate}
                   name={content.forms.fields.control1.name}
                   placeholder={content.forms.fields.control1.placeholder}
@@ -110,7 +111,8 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
               <CCLabel>
                 {content.forms.fields.control2.label}
                 <CCTextfield 
-                  required
+                  pattern={content.forms.fields.control2.pattern}
+                  required={content.forms.fields.control2.required}
                   validate={content.forms.fields.control2.validate}
                   name={content.forms.fields.control2.name}
                   placeholder={content.forms.fields.control2.placeholder}
@@ -119,7 +121,8 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
               <CCLabel>
                 {content.forms.fields.control3.label}
                 <CCTextfield 
-                  required
+                  pattern={content.forms.fields.control3.pattern}
+                  required={content.forms.fields.control3.required}
                   validate={content.forms.fields.control3.validate}
                   name={content.forms.fields.control3.name}
                   placeholder={content.forms.fields.control3.placeholder}

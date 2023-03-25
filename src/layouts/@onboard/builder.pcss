@@ -8,6 +8,21 @@
 
   .appContent {
 
+    & > [role="article"] {
+      @apply grow flex flex-col;
+
+      form {
+        @apply grow;
+
+        .submitBtnSeparator {
+          
+        }
+      }
+    }
+  }
+
+  .appNotificationArea {
+    @apply isolate;
   }
 
 }

@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'preact'
 import { CCButton, CCIcon } from '@/components/chunks'
-import { useContext, useEffect } from 'preact/hooks'
-import { BuilderContext, BuilderService } from '@/services'
+import { useContext } from 'preact/hooks'
+import { BuilderContext } from '@/services'
 import { JSXInternal } from 'preact/src/jsx'
 import { UserResumeProp } from '@/types/props/user'
 
@@ -17,6 +17,7 @@ export const Initial: FunctionComponent<InitialProps> = props => {
     ev.preventDefault()
     
     ctx.start<UserResumeProp<any>>({
+      title: new URL(location.href).searchParams.get('cvResumeTitle') ?? '',
       profileUrl: '',
       fname: '',
       bdate: -1,
@@ -30,6 +31,8 @@ export const Initial: FunctionComponent<InitialProps> = props => {
       edu: [],
       mprops: {},
     })
+
+    console.log(ctx.state)
   }
 
   return (

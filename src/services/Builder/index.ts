@@ -23,7 +23,9 @@ export type contentProps = {
     submitText: string
     fields: {
       [key: string]: {
+        required?: boolean
         validate?: boolean
+        pattern?: string
         name?: string
         label: string
         placeholder: string
@@ -142,11 +144,14 @@ export class BuilderService<T = any> {
       // error handling
     } else {
       const newState = { ...this.state, current: OnboardBuilder[`Step${this.state.current+1}`]+1 }
+      this.redirect(OnboardBuilderUrl[`Step${newState.current+1}`], newState)
       
-      apiEndpoint.put(`/@onboard_builder/update/${newState.uuid}`, { data: newState.data })
-        .then(() => {
-          this.redirect(OnboardBuilderUrl[`Step${newState.current+1}`], newState)
-        })
+      // We must only do this we want to render the state
+      //
+      // apiEndpoint.put(`/@onboard_builder/update/${newState.uuid}`, { data: newState.data })
+      //   .then(() => {
+      //     this.redirect(OnboardBuilderUrl[`Step${newState.current+1}`], newState)
+      //   })
     }
   }
 

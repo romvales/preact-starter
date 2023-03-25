@@ -24,6 +24,9 @@ export type CVTemplateProps = {
   }>,
 }
 
+
+export const cvTemplateConstraint = Object.create({})
+
 export const CVTemplate: FunctionComponent<CVTemplateProps> = props => {
   const { appLocale } = useAppLocale()
 
@@ -235,7 +238,7 @@ export const CVTemplate: FunctionComponent<CVTemplateProps> = props => {
                 :
                 <>
                   <CCSkeleton height='4rem' width='10rem' />
-                  <span ></span>
+                  <span></span>
                 </>
             }
           </h2>
@@ -244,7 +247,7 @@ export const CVTemplate: FunctionComponent<CVTemplateProps> = props => {
             {
               props.uprops.mprops?.exps?.length ?
                 <>
-                  {props.uprops.mprops.exps[0].title}
+                  {props.uprops.title.length ? props.uprops.title : props.uprops.mprops.exps[0].title}
                 </>
                 :
                 <>

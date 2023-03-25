@@ -6,13 +6,11 @@ import { CCButton, CCIcon } from '@/components/chunks'
 import {
   BuilderContext,
   BuilderService } from '@/services'
-import { contentProps } from '@/services/Builder'
+import { contentProps, OnboardBuilder } from '@/services/Builder'
 import { JSXInternal } from 'preact/src/jsx'
 import { initApiAxios } from '@/helpers/axios'
 
-export type SummaryStep10Props = {
-
-}
+export type SummaryStep10Props = {}
 
 export const SummaryStep13: FunctionComponent<SummaryStep10Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
@@ -22,8 +20,9 @@ export const SummaryStep13: FunctionComponent<SummaryStep10Props> = props => {
   const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
     const uuid = ctx.state.uuid
     const pageUrl = `${window.location.origin}/builder/preview/${uuid}`
+    const title = new URL(window.location.href).searchParams.get('cvResumeTitle') ?? ctx.state.data.mprops.exps[0].title
 
-    apiEndpoint.put('/print', { pageUrl, uuid }, { responseType: 'blob' })
+    apiEndpoint.put('/print', { pageUrl, uuid, fname: ctx.state.data.fname, title }, { responseType: 'blob' })
       .then(res => {
         const fileUrl = URL.createObjectURL(res.data)
         const a = document.createElement('a')
@@ -33,7 +32,7 @@ export const SummaryStep13: FunctionComponent<SummaryStep10Props> = props => {
         a.click()
         a.remove()
       })
-
+      
     ev.preventDefault()
   }
 

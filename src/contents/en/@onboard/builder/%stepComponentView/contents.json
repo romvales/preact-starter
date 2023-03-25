@@ -10,18 +10,21 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "fname",
           "label": "First Name",
           "placeholder": "First Name"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "lname",
           "label": "Last Name",
           "placeholder": "Last Name"
         },
         "control3": {
-          "optional": true,
+          "validate": true,
+          "required": false,
           "name": "mname",
           "label": "Middle Name",
           "placeholder": "Middle Name"
@@ -40,12 +43,14 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "bdate",
           "label": "Birthdate",
           "placeholder": "Birthdate"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "bplace",
           "label": "Birthplace",
           "placeholder": "Birthplace"
@@ -64,24 +69,28 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "religion",
           "label": "Religion",
           "placeholder": "Religion"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "cship",
           "label": "Citizenship",
           "placeholder": "Citizenship"
         },
         "control3": {
           "validate": true,
+          "required": true,
           "name": "rstatus",
           "label": "Civil Status",
           "placeholder": "Civil Status"
         },
         "control4": {
           "validate": true,
+          "required": true,
           "name": "children",
           "label": "No. of Children",
           "placeholder": "No. of Children"
@@ -100,24 +109,28 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "country",
           "label": "Country",
           "placeholder": "Country"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "city",
           "label": "City",
           "placeholder": "City"
         },
         "control3": {
           "validate": true,
+          "required": true,
           "name": "street",
           "label": "Street",
           "placeholder": "Street"
         },
         "control4": {
           "validate": true,
+          "required": true,
           "name": "houseAptId",
           "label": "House/Apartment No.",
           "placeholder": "House/Apartment No."
@@ -136,23 +149,27 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "name",
           "label": "School Name",
           "placeholder": "School Name"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "addrln",
           "label": "Location",
           "placeholder": "Location"
         },
         "control3": {
           "validate": true,
+          "required": true,
           "name": "from",
           "label": "From"
         },
         "control4": {
           "validate": true,
+          "required": true,
           "name": "to",
           "label": "To"
         }
@@ -170,23 +187,27 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "name",
           "label": "School Name",
           "placeholder": "School Name"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "addrln",
           "label": "Location",
           "placeholder": "Location"
         },
         "control3": {
           "validate": true,
+          "required": true,
           "name": "from",
           "label": "From"
         },
         "control4": {
           "validate": true,
+          "required": true,
           "name": "to",
           "label": "To"
         }
@@ -204,35 +225,41 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "name",
           "label": "School Name",
           "placeholder": "School Name"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "addrln",
           "label": "Location",
           "placeholder": "Location"
         },
         "control3": {
           "validate": true,
+          "required": true,
           "name": "degree",
           "label": "Degree",
           "placeholder": "Degree"
         },
         "control4": {
           "validate": true,
+          "required": true,
           "name": "fstudy",
           "label": "Field of Study",
           "placeholder": "Field of Study"
         },
         "control5": {
           "validate": true,
+          "required": true,
           "name": "from",
           "label": "From"
         },
         "control6": {
           "validate": true,
+          "required": true,
           "name": "to",
           "label": "To"
         }
@@ -250,12 +277,14 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "seminar",
           "label": "Seminar",
           "placeholder": "Seminar"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "year",
           "label": "Year",
           "placeholder": "Year"
@@ -280,18 +309,21 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "title",
           "label": "Title",
           "placeholder": "Title"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "company",
           "label": "Company",
           "placeholder": "Company"
         },
         "control3": {
           "validate": true,
+          "required": true,
           "name": "addrln",
           "label": "Location",
           "placeholder": "Location"
@@ -348,12 +380,14 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "skill",
           "label": "Skill",
           "placeholder": "Skill"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "rating",
           "label": "Rating",
           "placeholder": "Rating"
@@ -378,12 +412,14 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "cert",
           "label": "Certificate",
           "placeholder": "Certificate"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "year",
           "label": "Year",
           "placeholder": "Year"
@@ -412,18 +448,21 @@
       "fields": {
         "control1": {
           "validate": true,
+          "required": true,
           "name": "egaps",
           "label": "Employment Gap",
           "placeholder": "Employment Gap"
         },
         "control2": {
           "validate": true,
+          "required": true,
           "name": "from",
           "label": "From",
           "placeholder": "From"
         },
         "control3": {
           "validate": true,
+          "required": true,
           "name": "to",
           "label": "To",
           "placeholder": "To"

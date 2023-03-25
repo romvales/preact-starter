@@ -44,14 +44,14 @@ const onboard_builder_route: FunctionComponent = props => {
   const isInProgress = progressPathRegex.test(path)
 
   useEffect(() => {
+
     // When a user accidentally navigated to a page without getting the
-    // builderService started, we redirect them to the initial page of the builder route.
-    if ((isInProgress && !builderService.state.started) || (isInProgress && !builderService.state.prevState.length))
+    // builderService started or there is no saved session, we redirect 
+    // them to the initial page of the builder route.
+    if ((isInProgress && !builderService.state.started) || (isInProgress && !builderService.state.prevState.length)) {
       setTimeout(() => route({ url: '/builder/', replace: true }))
+    }
 
-    console.log(builderService.state)
-
-    // builderService.setState(builderService.state.prevState.pop())
   }, [window.location.pathname])
 
   return (

@@ -4,6 +4,9 @@ import { Request, Response, Router } from 'express'
 import { setupConfigRoute } from './config'
 import puppeteer  from 'puppeteer'
 import path from 'path'
+import fs from 'fs'
+import os from 'os'
+
 import { BuilderService } from '@/services'
 import { ImageKitService } from '@/services'
 
@@ -17,8 +20,8 @@ apiRouter.get('/', (req: Request, res: Response) => {
 })
 
 apiRouter.put('/print', async (req: Request, res: Response) => {
-  const pageUrl = req.body.pageUrl
-  const uuid = req.body.uuid
+  const [ pageUrl, uuid, fname, title ] = [ req.body.pageUrl, req.body.uuid, req.body.fname, req.body.title ]
+
   const { docpath } = BuilderService.getCreatedPath(uuid)
   const pdfPath = path.resolve(docpath, `${uuid}.pdf`)
 
@@ -43,6 +46,9 @@ apiRouter.put('/print', async (req: Request, res: Response) => {
 
   await browser.close()
   
+  // @dup
+  fs.copyFile(pdfPath, path.resolve(os.homedir(), `Documents/Candidates/${fname} (${title}).pdf`), null)
+
   res.status(200).download(pdfPath)
 })
 

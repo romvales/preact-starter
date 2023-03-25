@@ -14,7 +14,7 @@ import {
 import { 
   BuilderService,
   BuilderContext } from '@/services'
-import { contentProps } from '@/services/Builder'
+import { contentProps, OnboardBuilder } from '@/services/Builder'
 import { JSXInternal } from 'preact/src/jsx'
 import { gatherNamedFormfields } from '.'
 
@@ -111,7 +111,7 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
                 <CCTextfield
                   value={item.egaps}
                   onInput={(ev: any) => fcount.value[i].egaps = ev.target.value}
-                  required
+                  required={content.forms.fields.control1.required}
                   validate={content.forms.fields.control1.validate}
                   name={content.forms.fields.control1.name}
                   placeholder={content.forms.fields.control1.placeholder}
@@ -121,7 +121,7 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
               <CCLabel>
                 {content.forms.fields.control2.label}
                 <CCDatefield 
-                  required
+                  required={content.forms.fields.control2.required}
                   validate={content.forms.fields.control2.validate}
                   name={content.forms.fields.control2.name}
                   placeholder={content.forms.fields.control2.placeholder}></CCDatefield>

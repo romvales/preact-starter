@@ -14,7 +14,7 @@ import {
 import {
   BuilderContext,
   BuilderService } from '@/services'
-import { contentProps } from '@/services/Builder'
+import { contentProps, OnboardBuilder } from '@/services/Builder'
 import { gatherNamedFormfields } from '.'
 
 export type ExperienceStep9Props = {
@@ -191,7 +191,8 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                     <CCTextfield 
                       value={item.title}
                       onInput={e => { fcount.value[i].title = (e.target as any).value; }}
-                      required
+                      pattern={content.forms.fields.control1.pattern}
+                      required={content.forms.fields.control1.required}
                       validate={content.forms.fields.control1.validate}
                       name={content.forms.fields.control1.name}
                       placeholder={content.forms.fields.control1.placeholder}
@@ -202,7 +203,8 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                     <CCTextfield 
                       value={item.company}
                       onInput={e => { fcount.value[i].company = (e.target as any).value; }}
-                      required
+                      pattern={content.forms.fields.control2.pattern}
+                      required={content.forms.fields.control2.required}
                       validate={content.forms.fields.control2.validate}
                       name={content.forms.fields.control2.name}
                       placeholder={content.forms.fields.control2.placeholder}
@@ -213,7 +215,8 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                     <CCTextfield 
                       value={item.addrln}
                       onInput={e => { fcount.value[i].addrln = (e.target as any).value; }}
-                      required
+                      pattern={content.forms.fields.control3.pattern}
+                      required={content.forms.fields.control3.required}
                       validate={content.forms.fields.control3.validate}
                       name={content.forms.fields.control3.name}
                       placeholder={content.forms.fields.control3.placeholder}
@@ -260,6 +263,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                     {content.forms.fields.control6.label}
                     <CCTextfield 
                       className='obhcaseInput'
+                      pattern={content.forms.fields.control6.pattern}
                       validate={content.forms.fields.control6.validate}
                       name={content.forms.fields.control6.name}
                       placeholder={content.forms.fields.control6.placeholder}
