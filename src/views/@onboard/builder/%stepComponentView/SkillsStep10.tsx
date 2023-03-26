@@ -91,6 +91,7 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
                     <CCLabel>
                       {content.forms.fields.control1.label}
                       <CCTextfield 
+                        value={skill ?? ''}
                         pattern={content.forms.fields.control1.pattern}
                         required={content.forms.fields.control1.required}
                         validate={content.forms.fields.control1.validate}
@@ -101,7 +102,7 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
                     <CCLabel>
                       {content.forms.fields.control2.label}
                       <CCTextfield 
-                        value={1}
+                        value={rating ?? 1}
                         min={1}
                         max={5}
                         required={content.forms.fields.control2.required}
