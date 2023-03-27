@@ -23,7 +23,7 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
     fcount.value = [ ...fcount.value, {
       uuid: crypto.randomUUID(),
       skill: null,
-      rating: null,
+      rating: 1,
     } ]
   }
 
@@ -91,7 +91,8 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
                     <CCLabel>
                       {content.forms.fields.control1.label}
                       <CCTextfield 
-                        value={skill ?? ''}
+                        value={skill}
+                        onInput={ev => fcount.value[i].skill = (ev.target as HTMLInputElement).value }
                         pattern={content.forms.fields.control1.pattern}
                         required={content.forms.fields.control1.required}
                         validate={content.forms.fields.control1.validate}
@@ -102,9 +103,10 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
                     <CCLabel>
                       {content.forms.fields.control2.label}
                       <CCTextfield 
-                        value={rating ?? 1}
+                        value={rating}
                         min={1}
                         max={5}
+                        onInput={ev => fcount.value[i].rating = (ev.target as HTMLInputElement).valueAsNumber }
                         required={content.forms.fields.control2.required}
                         validate={content.forms.fields.control2.validate}
                         name={content.forms.fields.control2.name}

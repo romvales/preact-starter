@@ -75,6 +75,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control1.label}
             <select
+              value={136}
               required={content.forms.fields.control1.required}
               noValidate={content.forms.fields.control1.validate}
               name={content.forms.fields.control1.name}
@@ -128,6 +129,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control1.label}
             <select
+              value={136}
               required={content.forms.fields.control1.required}
               noValidate={content.forms.fields.control1.validate}
               name={content.forms.fields.control1.name}

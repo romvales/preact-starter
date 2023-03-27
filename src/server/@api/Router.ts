@@ -19,11 +19,14 @@ apiRouter.get('/', (req: Request, res: Response) => {
   res.json({ server_timestamp: Date.now() })
 })
 
+// @system-specific
 apiRouter.put('/print', async (req: Request, res: Response) => {
   const [ pageUrl, uuid, fname, title ] = [ req.body.pageUrl, req.body.uuid, req.body.fname, req.body.title ]
 
   const { docpath } = BuilderService.getCreatedPath(uuid)
   const pdfPath = path.resolve(docpath, `${uuid}.pdf`)
+  const homepath = path.resolve(os.homedir(), 'Documents/Candidates')
+  const userpath = path.resolve(homepath, `${fname} (${title})`)
 
   const browser = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome-stable', ignoreHTTPSErrors: true })
   const window = await browser.newPage()
@@ -45,9 +48,12 @@ apiRouter.put('/print', async (req: Request, res: Response) => {
   })
 
   await browser.close()
+
+  if (!fs.existsSync(homepath)) fs.mkdirSync(homepath)
+  if (!fs.existsSync(userpath)) fs.mkdirSync(userpath)
   
-  // @dup
-  fs.copyFile(pdfPath, path.resolve(os.homedir(), `Documents/Candidates/${fname} (${title}).pdf`), null)
+  fs.copyFile(pdfPath, `${userpath}/cv.pdf`, () => {})
+  fs.copyFile(`${docpath}/data.json`, `${userpath}/data.json`, () => {})
 
   res.status(200).download(pdfPath)
 })
