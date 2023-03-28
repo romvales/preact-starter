@@ -16,18 +16,17 @@ export type SeminarsStep8Props = {}
 export const SeminarsStep8: FunctionComponent<SeminarsStep8Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
-  const fcount = useSignal<{ uuid: string, name: string, year: number }[]>([])
+  const fcount = useSignal<{ seminar: string, year: number }[]>(undefined)
 
   const onIncrementFcount = () => {
     fcount.value = [ ...fcount.value, {
-      uuid: crypto.randomUUID(),
-      name: null,
-      year: null
+      seminar: null,
+      year: null,
     } ]
   }
 
-  const onRemove = (uuid: string) => {
-    fcount.value = fcount.value.filter(({ uuid: _uuid }) => _uuid != uuid)
+  const onRemove = (_i: number) => {
+    fcount.value = fcount.value.filter((_, i) => _i != i)
   }
 
   const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
@@ -57,17 +56,16 @@ export const SeminarsStep8: FunctionComponent<SeminarsStep8Props> = props => {
         }
 
         ctx.setDataForm({
-          mprops: { seminars },
+          mprops: { ...ctx.state.data.mprops, seminars },
         })
         ctx.next()
       })
   }
 
   useEffect(() => {
-    onIncrementFcount()
-
-
-  }, [])
+    fcount.value = ctx.state.data?.mprops.seminars ?? []
+    if (fcount.value.length == 0) onIncrementFcount()
+  }, [ctx.state.data?.mprops.seminars])
 
   return (
     <div className='onboard onboardBuilderSeminars' role='article'>
@@ -80,14 +78,14 @@ export const SeminarsStep8: FunctionComponent<SeminarsStep8Props> = props => {
           content?.forms ?
             <>
             {
-              fcount.value.map(({ uuid, name, year }, i) => {
+              fcount.value?.map(({ seminar, year }, i) => {
                 return (
-                  <div className={`onboardBuilderFormItem-${i}`} key={uuid}>
+                  <div className={`onboardBuilderFormItem-${i}`} key={i}>
                     <CCLabel>
                       {content.forms.fields.control1.label}
                       <CCTextfield 
-                        value={name}
-                        onInput={e => { fcount.value[i].name = (e.target as any).value; }}
+                        value={seminar}
+                        onInput={e => { fcount.value[i].seminar = (e.target as any).value; }}
                         required={content.forms.fields.control1.required}
                         validate={content.forms.fields.control1.validate}
                         name={content.forms.fields.control1.name}
@@ -111,7 +109,7 @@ export const SeminarsStep8: FunctionComponent<SeminarsStep8Props> = props => {
                       rounded='md'
                       isBordered
                       colorVariant='error'
-                      onClick={() => onRemove(uuid)}>
+                      onClick={() => onRemove(i)}>
                       <CCIcon
                         className='mr-2'
                         iconSet='heroicons/outline'

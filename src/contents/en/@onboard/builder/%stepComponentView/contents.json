@@ -3,7 +3,7 @@
     "headline": "",
     "builderHeaderContent": {
       "current": "Step 1",
-      "desc": "What's your name?"
+      "desc": "Who are you?"
     },
     "forms": {
       "submitText": "Next",
@@ -62,7 +62,7 @@
     "headline": "",
     "builderHeaderContent": {
       "current": "Step 3",
-      "desc": "Tell us more about yourself."
+      "desc": "Tell us more about yourself"
     },
     "forms": {
       "submitText": "Next",
@@ -483,7 +483,7 @@
     "headline": "",
     "builderHeaderContent": {
       "current": "Step 13",
-      "desc": ""
+      "desc": "Summary"
     },
     "forms": {
       "submitText": "Next",

@@ -24,6 +24,7 @@ export const Datefield: FunctionComponent<DatefieldProps> = props => {
   return (
     <>
     <input 
+      onInput={props.onInput}
       disabled={props.disabled}
       required={props.required}
       value={props.value}

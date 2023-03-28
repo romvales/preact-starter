@@ -66,6 +66,7 @@ export type StepState<T> = {
   uuid?: string
   prevState?: StepState<T>[]
   started?: boolean
+  completed?: boolean
   current?: OnboardBuilder
   data?: UserResumeProp<T>
 }
@@ -90,6 +91,10 @@ export class BuilderService<T = any> {
         if (window.location.pathname == url) this.setState({ ...this.state, started: true, current: OnboardBuilder[key] })
       })
     }
+  }
+
+  get contents() {
+    return this._contents
   }
 
   get state(): StepState<T> {
@@ -133,35 +138,59 @@ export class BuilderService<T = any> {
       .catch(() => this.start(initialData))
   }
 
+  resume() {
+    if (localStorage.saveStateUuid === undefined) return
+
+    const saveStateUuid = JSON.parse(localStorage.saveStateUuid)
+    const saveStateCurrent = Number(JSON.parse(localStorage.saveStateCurrent))
+    const saveState = JSON.parse(localStorage.saveState)
+    const stepPropName = `Step${saveStateCurrent+1}`
+    
+    const resumeState = {
+      ...this.state,
+      started: true,
+      current: OnboardBuilder[stepPropName],
+      uuid: saveStateUuid,
+      data: saveState,
+    }
+
+    this.redirect(OnboardBuilderUrl[stepPropName], resumeState, true)
+  }
+
+  seek() {
+    this.redirect(OnboardBuilderUrl[`Step${this.state.current+1}`], this.state, true)
+  }
+
   setDataForm(data: UserResumeProp<T>) {
     this.setState({ ...this.state, data: { ...this.state.data, ...data } })
+    setTimeout(() => this.saveStateToLocalStorage(this.state))
   }
 
   next() {
-    const apiEndpoint = initApiAxios()
-
     if (!this.state.started) {
       // error handling
     } else {
       const newState = { ...this.state, current: OnboardBuilder[`Step${this.state.current+1}`]+1 }
-      this.redirect(OnboardBuilderUrl[`Step${newState.current+1}`], newState)
-      
-      // We must only do this we want to render the state
-      //
-      // apiEndpoint.put(`/@onboard_builder/update/${newState.uuid}`, { data: newState.data })
-      //   .then(() => {
-      //     this.redirect(OnboardBuilderUrl[`Step${newState.current+1}`], newState)
-      //   })
+      this.redirect(OnboardBuilderUrl[`Step${newState.current+1}`], newState, true)
     }
   }
 
   private redirect(url: string, newState: StepState<T>, replace?: boolean) {
     this.state.prevState.push(newState)
-    this.setState(newState)
 
     setTimeout(() => {
+      this.setState(newState)
+      this.saveStateToLocalStorage(newState)
       route({ url, replace })
     })
+  }
+
+  private saveStateToLocalStorage(newState: StepState<T>) {
+    if (environment.isBrowser) {
+      localStorage.saveStateUuid = JSON.stringify(newState.uuid)
+      localStorage.saveStateCurrent = newState.current as number
+      localStorage.saveState = JSON.stringify(newState.data)
+    }
   }
 
   /* server-side functions */
@@ -215,7 +244,7 @@ export class BuilderService<T = any> {
 
   static writeDocJSON(uuid: string, data: any) {
     const { file: fPath } = BuilderService.getCreatedPath(uuid)
-    fs.writeFileSync(fPath, data ? JSON.stringify(data) : '{}')
+    fs.writeFileSync(fPath, data ? JSON.stringify(data, null, 2) : '{}')
   }
 }
 

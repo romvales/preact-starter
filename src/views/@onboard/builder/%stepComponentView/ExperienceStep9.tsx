@@ -15,14 +15,13 @@ import {
   BuilderContext,
   BuilderService } from '@/services'
 import { contentProps, OnboardBuilder } from '@/services/Builder'
-import { gatherNamedFormfields } from '.'
+import { formatDate, gatherNamedFormfields } from '.'
 
 export type ExperienceStep9Props = {
 
 }
 
 type experienceFormFieldType = {
-  uuid?: string
   title?: string
   company?: string
   addrln?: string
@@ -31,32 +30,32 @@ type experienceFormFieldType = {
     hcases?: string[]
   }
   from?: string
-  current?: boolean
+  rng?: number[]
+  isRequired?: boolean
   to?: string
 }
 
 export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
-  const fcount = useSignal<experienceFormFieldType[]>([])
+  const fcount = useSignal<experienceFormFieldType[]>(undefined)
 
   const onJobExpCreate = () => {
     fcount.value = [ ...fcount.value, {
-      uuid: crypto.randomUUID(),
       title: null,
       company: null,
       mprops: {
         resp: [],
         hcases: [],
       },
+      rng: [],
       from: null,
-      current: false,
       to: null,
     } ]
   }
 
-  const onJobExpRemove = (uuid: string) => {
-    fcount.value = fcount.value.filter(({ uuid: _uuid }) => _uuid !== uuid)
+  const onJobExpRemove = (_i: number) => {
+    fcount.value = fcount.value.filter((_, i) => i != _i)
   }
 
   const onFormSubmit = (ev: JSXInternal.TargetedEvent) => {
@@ -93,14 +92,17 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
           const company = _company[i].value
           const addrln = _addrln[i].value
           const from = _from[i]?.valueAsDate?.getTime()
-          const to = !fcount.value[i].current ? _to[i]?.valueAsDate?.getTime() : -1
           const mprops = fcount.value[i]?.mprops
+          const to = fcount.value[i].rng[1] != -1 ? _to[i]?.valueAsDate?.getTime() : -1
+
+          console.log(to, fcount.value[i].isRequired)
 
           exps.push({
             title, company, 
             addrln, mprops, 
             rng: [from, to],
           })
+
         }
 
         ctx.setDataForm({
@@ -163,15 +165,17 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
   const onCboxChange = (i: number) => {
     fcount.value = fcount.value.map((item, _i) => {
       if (_i != i) return item
-      item.current = !item.current
+
+      item.rng[1] = item.rng[1] == -1 ? 0 : -1
+
       return item
     })
   }
 
   useEffect(() => {
-    onJobExpCreate()
-
-  }, [])
+    fcount.value = ctx.state.data?.mprops.exps ?? []
+    if (fcount.value.length == 0) onJobExpCreate()
+  }, [ctx.state.data?.mprops.exps])
 
   return (
     <div className='onboard onboardBuilderExperience' role='article'>
@@ -185,7 +189,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
             <>
               {
                 fcount.value.map((item, i) => (
-                <div className={`onboardBuilderFormItem-${i}`} key={item.uuid}>
+                <div className={`onboardBuilderFormItem-${i}`} key={i}>
                   <CCLabel>
                     {content.forms.fields.control1.label}
                     <CCTextfield 
@@ -300,8 +304,8 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                   <CCLabel>
                     {content.forms.fields.control7.label}
                     <CCDatefield 
-                      value={item.from}
-                      onInput={e => { fcount.value[i].from = (e.target as any).value; }}
+                      value={item.rng[0] ? formatDate(new Date(item.rng[0])) : ''}
+                      onInput={e => { fcount.value[i].rng[0] = (e.target as any).value; }}
                       required
                       validate={content.forms.fields.control7.validate}
                       name={content.forms.fields.control7.name}
@@ -310,7 +314,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
 
                   <CCLabel className='onboardBuilderFormExpCheckbox'>
                     <CCCheckbox
-                      checked={item.current}
+                      checked={item.rng[1] === -1}
                       onChange={() => onCboxChange(i)}></CCCheckbox>
                     {content.forms.fields.control13.label}
                   </CCLabel>
@@ -318,10 +322,10 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                   <CCLabel>
                     {content.forms.fields.control8.label}
                     <CCDatefield 
-                      disabled={item.current}
-                      value={item.to}
-                      required={!item.current}
-                      onInput={e => { fcount.value[i].to = (e.target as any).value; }}
+                      disabled={item.rng[1] === -1}
+                      value={item.rng[1] !== -1 && item.rng[1] !== 0 ? formatDate(new Date(item.rng[1])) : null}
+                      required={item.rng[1] === 0}
+                      onInput={e => { fcount.value[i].rng[1] = (e.target as any).value; }}
                       validate={content.forms.fields.control8.validate}
                       name={content.forms.fields.control8.name}
                       placeholder={content.forms.fields.control8.placeholder}></CCDatefield>
@@ -332,7 +336,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                     rounded='md'
                     isBordered
                     colorVariant='error'
-                    onClick={() => onJobExpRemove(item.uuid)}>
+                    onClick={() => onJobExpRemove(i)}>
                     <CCIcon
                       className='mr-2'
                       iconSet='heroicons/outline'

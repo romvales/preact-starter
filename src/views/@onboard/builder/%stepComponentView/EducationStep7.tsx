@@ -15,7 +15,7 @@ import { contentProps, OnboardBuilder } from '@/services/Builder'
 import { CollegeDegreeEnum } from '@/helpers/constants/user-related-enums'
 
 import { JSXInternal } from 'preact/src/jsx'
-import { gatherNamedFormfields } from '.'
+import { formatDate, gatherNamedFormfields } from '.'
 
 export type EducationStep7Props = {
 
@@ -39,17 +39,20 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
         const from = fset.from.valueAsDate?.getTime()
         const to = fset.to.valueAsDate?.getTime()
 
-        ctx.state.data.edu.push({
+        ctx.state.data.edu[2] = {
           level: 'college',
           name, 
           addrln,
           rng: [from, to],
           mprops: { degree, fstudy }
-        })
+        }
 
         ctx.next()
       })
   }
+
+  const from = new Date(ctx.state.data?.edu[2]?.rng[0])
+  const to = new Date(ctx.state.data?.edu[2]?.rng[1])
 
   return (
     <div className='onboard onboardBuilderEducation step7' role='article'>
@@ -65,6 +68,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
           <CCLabel>
             {content.forms.fields.control1.label}
             <CCTextfield 
+              value={ctx.state.data?.edu[2]?.name}
               pattern={content.forms.fields.control1.pattern}
               required={content.forms.fields.control1.required}
               validate={content.forms.fields.control1.validate}
@@ -75,6 +79,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
           <CCLabel>
             {content.forms.fields.control2.label}
             <CCTextfield 
+              value={ctx.state.data?.edu[2]?.addrln}
               pattern={content.forms.fields.control2.pattern}
               required={content.forms.fields.control2.required}
               validate={content.forms.fields.control2.validate}
@@ -85,6 +90,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
           <CCLabel>
             {content.forms.fields.control3.label}
             <select
+              value={ctx.state.data?.edu[2]?.mprops.degree}
               required={content.forms.fields.control3.required}
               noValidate={content.forms.fields.control3.validate}
               name={content.forms.fields.control3.name}
@@ -103,6 +109,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
           <CCLabel>
             {content.forms.fields.control4.label}
             <CCTextfield 
+              value={ctx.state.data?.edu[2]?.mprops.fstudy}
               pattern={content.forms.fields.control4.pattern}
               required={content.forms.fields.control4.required}
               validate={content.forms.fields.control4.validate}
@@ -113,6 +120,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
           <CCLabel>
             {content.forms.fields.control5.label}
             <CCDatefield 
+              value={formatDate(from)}
               required={content.forms.fields.control5.required}
               validate={content.forms.fields.control5.validate}
               name={content.forms.fields.control5.name}
@@ -121,6 +129,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
           <CCLabel>
             {content.forms.fields.control6.label}
             <CCDatefield 
+              value={formatDate(to)}
               required={content.forms.fields.control6.required}
               validate={content.forms.fields.control6.validate}
               name={content.forms.fields.control6.name}

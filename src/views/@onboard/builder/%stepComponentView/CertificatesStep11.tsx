@@ -17,18 +17,17 @@ export type CertificatesStep11Props = {
 export const CertificatesStep11: FunctionComponent<CertificatesStep11Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
-  const fcount = useSignal<{ uuid: string, cert: string, year: number }[]>([])
+  const fcount = useSignal<{ cert: string, year: number }[]>(undefined)
 
   const onCertCreate = () => {
     fcount.value = [ ...fcount.value, {
-      uuid: crypto.randomUUID(),
       cert: null,
       year: null,
     } ]
   }
 
-  const onCertRemove = (uuid: string) => {
-    fcount.value = fcount.value.filter(({ uuid: _uuid }) => _uuid !== uuid)
+  const onCertRemove = (_i: number) => {
+    fcount.value = fcount.value.filter((_, i) => i != _i)
   }
 
   const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
@@ -70,9 +69,10 @@ export const CertificatesStep11: FunctionComponent<CertificatesStep11Props> = pr
   }
 
   useEffect(() => {
-    onCertCreate()
+    fcount.value = [ ...(ctx.state.data?.mprops.certs ?? []) ]
+    if (!fcount.value.length) onCertCreate()
 
-  }, [])
+  }, [ctx.state.data?.mprops.certs])
   
   return (
     <div className='onboard onboardBuilderCertificate'>
@@ -85,7 +85,7 @@ export const CertificatesStep11: FunctionComponent<CertificatesStep11Props> = pr
           content?.forms ?
             <>
               {
-                fcount.value.map(({ uuid, cert, year }, i) => (
+                fcount.value?.map(({ cert, year }, i) => (
                 <div className={`onboardBuilderFormItem-${i}`}>
                   <CCLabel>
                     {content.forms.fields.control1.label}
@@ -115,7 +115,7 @@ export const CertificatesStep11: FunctionComponent<CertificatesStep11Props> = pr
                     rounded='md'
                     isBordered
                     colorVariant='error'
-                    onClick={() => onCertRemove(uuid)}>
+                    onClick={() => onCertRemove(i)}>
                     <CCIcon
                       className='mr-2'
                       iconSet='heroicons/outline'

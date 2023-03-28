@@ -35,8 +35,10 @@
         @apply font-semibold text-[1.1rem] text-slate-700;
       }
 
-      .bhpStatusText {
-        @apply text-base font-light text-slate-700 pt-1;
+      select.bhpStatusText {
+        @apply text-sm px-4 py-3 w-48 text-right font-medium bg-gray-100 text-slate-500 border-0 rounded-full mt-2;
+
+        background-image: none;
       }
     }
   }
@@ -67,7 +69,7 @@
   }
 
   & > .uploadPictureArea {
-    @apply mx-auto py-8;
+    @apply py-8;
 
     .pictureArea {
       @apply rounded-full object-fill w-60 h-60;
@@ -183,5 +185,19 @@
 
   > input {
     @apply w-5 h-5 mr-3 mb-0;
+  }
+}
+
+
+.onboardRenderPreview {
+  @apply w-full flex flex-col items-center;
+
+  height: 14.85cm;
+
+  & > .orpFrame {
+    @apply bg-white h-full;
+
+    min-width: 21cm;
+    transform: scale(0.5);
   }
 }

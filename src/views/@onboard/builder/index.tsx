@@ -23,12 +23,14 @@ import {
   BuilderStep12, //
   BuilderStep13, //
 } from './%stepComponentView'
+import { RenderButton } from './%stepComponentView/RenderButton'
 
 import {
   BuilderContext,
   OnboardBuilderUrl,
 } from '@/services'
 import { useEffect } from 'preact/hooks'
+import { JSXInternal } from 'preact/src/jsx'
 
 export const route_options: RouteOptions = {
   altUrl: '/builder/:step*',
@@ -36,7 +38,7 @@ export const route_options: RouteOptions = {
 
 const onboard_builder_route: FunctionComponent = props => {
   useLayout('@onboard/builder')
-  
+
   const path = window.location.pathname
   const builderService = new BuilderService()
   const content = builderService.useContent()
@@ -44,6 +46,7 @@ const onboard_builder_route: FunctionComponent = props => {
   const isInProgress = progressPathRegex.test(path)
 
   useEffect(() => {
+    builderService.resume()
 
     // When a user accidentally navigated to a page without getting the
     // builderService started or there is no saved session, we redirect 
@@ -53,6 +56,12 @@ const onboard_builder_route: FunctionComponent = props => {
     }
 
   }, [window.location.pathname])
+
+  const onStepChange = (ev: JSXInternal.TargetedEvent<HTMLSelectElement>) => {
+    const select = ev.target as HTMLSelectElement
+    builderService.state.current = Number(select.value)
+    builderService.seek()
+  }
 
   return (
     <BuilderContext.Provider value={builderService}>
@@ -75,7 +84,16 @@ const onboard_builder_route: FunctionComponent = props => {
                   content?.builderHeaderContent ?
                     <>
                       <div className='bhpStatusCurrent'>{content.builderHeaderContent.current}</div>
-                      <div className='bhpStatusText'>{content.builderHeaderContent.desc}</div>
+                      <select 
+                        onChange={ev => onStepChange(ev)}
+                        value={builderService.state.current}
+                        className='bhpStatusText'>
+                        {
+                          builderService.contents.map((content, i) => (
+                            <option value={i}>{i+1}. {content.builderHeaderContent.desc}</option>
+                          ))
+                        }
+                      </select>
                     </>
                     :
                     <>

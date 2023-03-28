@@ -17,18 +17,17 @@ export type SkillsStep10Props = {
 export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
-  const fcount = useSignal<{ uuid: string, skill: string, rating: number }[]>([])
+  const fcount = useSignal<{ skill: string, rating: number }[]>(undefined)
 
   const onSkillCreate = () => {
     fcount.value = [ ...fcount.value, {
-      uuid: crypto.randomUUID(),
       skill: null,
       rating: 1,
     } ]
   }
 
-  const onSkillRemove = (uuid: string) => {
-    fcount.value = fcount.value.filter(({ uuid: _uuid }) => _uuid != uuid)
+  const onSkillRemove = (_i: number) => {
+    fcount.value = fcount.value.filter((_, i) => i != _i)
   }
 
 
@@ -71,9 +70,10 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
   }
 
   useEffect(() => {
-    onSkillCreate()
-
-  }, [])
+    fcount.value = [ ...(ctx.state.data?.mprops.skills ?? []) ]
+    if (!fcount.value.length) onSkillCreate()
+    
+  }, [ctx.state.data?.mprops.skills])
 
   return (
     <div className='onboard onboardBuilderSkills' role='article'>
@@ -86,8 +86,8 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
           content?.forms ?
             <>
               {
-                fcount.value.map(({ uuid, skill, rating }, i) => (
-                  <div className={`onboardBuilderFormItem-${i}`}>
+                fcount.value?.map(({ skill, rating }, i) => (
+                  <div className={`onboardBuilderFormItem-${i}`} key={i}>
                     <CCLabel>
                       {content.forms.fields.control1.label}
                       <CCTextfield 
@@ -119,7 +119,7 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
                       rounded='md'
                       isBordered
                       colorVariant='error'
-                      onClick={() => onSkillRemove(uuid)}>
+                      onClick={() => onSkillRemove(i)}>
                       <CCIcon
                         className='mr-2'
                         iconSet='heroicons/outline'

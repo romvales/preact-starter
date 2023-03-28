@@ -14,7 +14,7 @@ import {
 import { contentProps, OnboardBuilder } from '@/services/Builder'
 
 import { JSXInternal } from 'preact/src/jsx'
-import { gatherNamedFormfields } from '.'
+import { formatDate, gatherNamedFormfields } from '.'
 
 export type EducationStep6Props = {
 
@@ -36,17 +36,20 @@ export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
         const from = fset.from.valueAsDate?.getTime()
         const to = fset.to.valueAsDate?.getTime()
 
-        ctx.state.data.edu.push({
+        ctx.state.data.edu[1] = {
           level: 'secondary',
           name, 
           addrln,
           rng: [from, to],
-        })
+        }
 
         ctx.next()
       })
   }
   
+  const from = new Date(ctx.state.data?.edu[1]?.rng[0])
+  const to = new Date(ctx.state.data?.edu[1]?.rng[1])
+
   return (
     <div className='onboard onboardBuilderEducation step6' role='article'>
       <div className='onboardBuilderMessage'>
@@ -61,6 +64,7 @@ export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
           <CCLabel>
             {content.forms.fields.control1.label}
             <CCTextfield 
+              value={ctx.state.data?.edu[1]?.name}
               pattern={content.forms.fields.control1.pattern}
               required={content.forms.fields.control1.required}
               validate={content.forms.fields.control1.validate}
@@ -71,6 +75,7 @@ export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
           <CCLabel>
             {content.forms.fields.control2.label}
             <CCTextfield 
+              value={ctx.state.data?.edu[1]?.addrln}
               pattern={content.forms.fields.control2.pattern}
               required={content.forms.fields.control2.required}
               validate={content.forms.fields.control2.validate}
@@ -81,6 +86,7 @@ export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
           <CCLabel>
             {content.forms.fields.control3.label}
             <CCDatefield 
+              value={formatDate(from)}
               required={content.forms.fields.control3.required}
               validate={content.forms.fields.control3.validate}
               name={content.forms.fields.control3.name}
@@ -89,6 +95,7 @@ export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
           <CCLabel>
             {content.forms.fields.control4.label}
             <CCDatefield 
+              value={formatDate(to)}
               required={content.forms.fields.control4.required}
               validate={content.forms.fields.control4.validate}
               name={content.forms.fields.control4.name}

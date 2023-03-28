@@ -53,6 +53,7 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
             <CCLabel>
               {content.forms.fields.control1.label}
               <CCTextfield 
+                value={ctx.state.data?.religion}
                 pattern={content.forms.fields.control1.pattern}
                 required={content.forms.fields.control1.required}
                 validate={content.forms.fields.control1.validate}
@@ -101,7 +102,7 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
               {content.forms.fields.control4.label}
               <CCTextfield 
                 type='number'
-                value={0}
+                value={ctx.state.data?.children ?? 0}
                 min={0}
                 max={6}
                 required={content.forms.fields.control4.required}

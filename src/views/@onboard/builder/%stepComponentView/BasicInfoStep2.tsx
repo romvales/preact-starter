@@ -17,7 +17,7 @@ import {
   CCButton, 
   CCDatefield,
   CCIcon } from '@/components/chunks'
-import { gatherNamedFormfields } from '.'
+import { formatDate, gatherNamedFormfields } from '.'
 
 export type BasicInfoStep2Props = {
 
@@ -42,6 +42,8 @@ export const BasicInfoStep2: FunctionComponent<BasicInfoStep2Props> = props => {
       })
   }
 
+  const bdate = new Date(ctx.state.data?.bdate)
+
   return (
     <div className='onboard onboardBuilderBasicInfo step2' role='article'>
       <div className='onboardBuilderMessage'>
@@ -54,7 +56,8 @@ export const BasicInfoStep2: FunctionComponent<BasicInfoStep2Props> = props => {
             <>
             <CCLabel>
               {content.forms.fields.control1.label}
-              <CCDatefield 
+              <CCDatefield
+                value={bdate.getTime() != -1 && !isNaN(bdate.getTime()) ? formatDate(bdate) : null} 
                 required={content.forms.fields.control1.required}
                 validate={content.forms.fields.control1.validate}
                 name={content.forms.fields.control1.name}
@@ -64,6 +67,7 @@ export const BasicInfoStep2: FunctionComponent<BasicInfoStep2Props> = props => {
             <CCLabel>
               {content.forms.fields.control2.label}
               <CCTextfield 
+                value={ctx.state.data?.bplace}
                 pattern={content.forms.fields.control2.pattern}
                 required={content.forms.fields.control2.required}
                 validate={content.forms.fields.control2.validate}

@@ -4,7 +4,7 @@ import {
   BuilderContext, 
   BuilderService, 
   ImageKitService } from '@/services'
-import { contentProps, OnboardBuilder } from '@/services/Builder'
+import { contentProps } from '@/services/Builder'
 
 import { 
   CCButton, 
@@ -72,6 +72,14 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
     }
   }
 
+  const fullName = ctx.state?.data?.fname.split(' ') ?? []
+  let [ fname, mname, lname ] = fullName
+
+  if (fullName.length == 2) {
+    [fname, lname, mname] = fullName
+  }
+
+
   return (
     <div className='onboard onboardBuilderBasicInfo step1' role='article'>
       <div className='onboardBuilderMessage'>
@@ -101,6 +109,7 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
               <CCLabel>
                 {content.forms.fields.control1.label}
                 <CCTextfield
+                  value={fname}
                   pattern={content.forms.fields.control1.pattern}
                   required={content.forms.fields.control1.required}
                   validate={content.forms.fields.control1.validate}
@@ -111,6 +120,7 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
               <CCLabel>
                 {content.forms.fields.control2.label}
                 <CCTextfield 
+                  value={lname}
                   pattern={content.forms.fields.control2.pattern}
                   required={content.forms.fields.control2.required}
                   validate={content.forms.fields.control2.validate}
@@ -121,6 +131,7 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
               <CCLabel>
                 {content.forms.fields.control3.label}
                 <CCTextfield 
+                  value={mname}
                   pattern={content.forms.fields.control3.pattern}
                   required={content.forms.fields.control3.required}
                   validate={content.forms.fields.control3.validate}

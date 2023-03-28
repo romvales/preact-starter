@@ -14,9 +14,9 @@ import {
 import { 
   BuilderService,
   BuilderContext } from '@/services'
-import { contentProps, OnboardBuilder } from '@/services/Builder'
+import { contentProps } from '@/services/Builder'
 import { JSXInternal } from 'preact/src/jsx'
-import { gatherNamedFormfields } from '.'
+import { formatDate, gatherNamedFormfields } from '.'
 
 export type EmploymentGapStep9Props = {
   
@@ -27,14 +27,13 @@ type egapsProp = { uuid: string, egaps: string, from: number, current?: boolean,
 export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
-  const fcount = useSignal<egapsProp[]>([])
+  const fcount = useSignal<egapsProp[]>(undefined)
 
   const onGapCreate = () => {
     fcount.value = [ ...fcount.value, {
       uuid: crypto.randomUUID(),
       egaps: null,
       from: null,
-      current: null,
       to: null,
     } ]
   }
@@ -69,7 +68,7 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
         for (const [i, el] of Object.entries(_egaps)) {
           const egap = el.value
           const from = _from[i].valueAsDate?.getTime()
-          const to = !fcount.value[i].current ? _to[i].valueAsDate?.getTime() : -1
+          const to = _to[i].valueAsDate?.getTime() ?? -1
 
           egaps.push({ egaps: egap, from, to })
         }
@@ -88,10 +87,17 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
   const onCboxChange = (i: number) => {
     fcount.value = fcount.value.map((item, _i) => {
       if (_i != i) return item
-      item.current = !item.current
+
+      item.to = item.to == -1 ? 0 : -1
+
       return item
     })
   }
+
+  useEffect(() => {
+    fcount.value = [ ...(ctx.state.data?.mprops?.mprops?.egaps ?? []) ]
+
+  }, [ctx.state.data?.mprops?.mprops?.egaps])
   
   return (
     <div className='onboard onboardBuilderSkills' role='article'>
@@ -104,7 +110,7 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
           content?.forms ?
           <>
           {
-            fcount.value.map((item, i) => (
+            fcount.value?.map((item, i) => (
             <div key={item.uuid} className='onboardBuilderFormItem'>
               <CCLabel>
                 {content.forms.fields.control1.label}
@@ -121,6 +127,8 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
               <CCLabel>
                 {content.forms.fields.control2.label}
                 <CCDatefield 
+                  value={item.from ? formatDate(new Date(item.from)) : ''}
+                  onInput={e => { fcount.value[i].from = (e.target as any).value; }}
                   required={content.forms.fields.control2.required}
                   validate={content.forms.fields.control2.validate}
                   name={content.forms.fields.control2.name}
@@ -129,7 +137,7 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
 
               <CCLabel className='onboardBuilderFormExpCheckbox'>
                 <CCCheckbox
-                  checked={item.current}
+                  checked={item.to === -1}
                   onChange={() => onCboxChange(i)}></CCCheckbox>
                 {content.forms.fields.control6.label}
               </CCLabel>
@@ -137,8 +145,10 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
               <CCLabel>
                 {content.forms.fields.control3.label}
                 <CCDatefield 
-                  required={!item.current}
-                  disabled={item.current}
+                  value={item.to !== 0 && item.to !== -1 && item.to !== null ? formatDate(new Date(item.to)) : ''}
+                  onInput={e => { fcount.value[i].to = (e.target as any).value; }}
+                  required={item.to === 0 || item.to == null}
+                  disabled={item.to === -1}
                   validate={content.forms.fields.control3.validate}
                   name={content.forms.fields.control3.name}
                   placeholder={content.forms.fields.control3.placeholder}></CCDatefield>

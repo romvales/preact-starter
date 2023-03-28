@@ -75,7 +75,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control1.label}
             <select
-              value={136}
+              value={ctx.state.data?.addrs[0]?.country ?? 136}
               required={content.forms.fields.control1.required}
               noValidate={content.forms.fields.control1.validate}
               name={content.forms.fields.control1.name}
@@ -94,6 +94,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control2.label}
             <CCTextfield 
+              value={ctx.state.data?.addrs[0]?.city}
               pattern={content.forms.fields.control2.pattern}
               required={content.forms.fields.control2.required}
               validate={content.forms.fields.control2.validate}
@@ -104,6 +105,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control3.label}
             <CCTextfield 
+              value={ctx.state.data?.addrs[0]?.street}
               pattern={content.forms.fields.control3.pattern}
               required={content.forms.fields.control3.validate}
               validate={content.forms.fields.control3.validate}
@@ -114,6 +116,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control4.label}
             <CCTextfield 
+              value={ctx.state.data?.addrs[0]?.houseAptId}
               pattern={content.forms.fields.control4.pattern}
               required={content.forms.fields.control4.required}
               validate={content.forms.fields.control4.validate}
@@ -129,7 +132,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control1.label}
             <select
-              value={136}
+              value={ctx.state.data?.addrs[1]?.country ?? 136}
               required={content.forms.fields.control1.required}
               noValidate={content.forms.fields.control1.validate}
               name={content.forms.fields.control1.name}
@@ -148,6 +151,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control2.label}
             <CCTextfield 
+              value={ctx.state.data?.addrs[1]?.city}
               pattern={content.forms.fields.control2.pattern}
               required={content.forms.fields.control2.required}
               validate={content.forms.fields.control2.validate}
@@ -158,6 +162,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control3.label}
             <CCTextfield 
+              value={ctx.state.data?.addrs[1]?.street}
               pattern={content.forms.fields.control3.pattern}
               required={content.forms.fields.control3.required}
               validate={content.forms.fields.control3.validate}
@@ -168,6 +173,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control4.label}
             <CCTextfield 
+              value={ctx.state.data?.addrs[1]?.houseAptId}
               pattern={content.forms.fields.control4.pattern}
               required={content.forms.fields.control4.required}
               validate={content.forms.fields.control4.validate}
