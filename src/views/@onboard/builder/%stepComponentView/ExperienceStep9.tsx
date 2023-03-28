@@ -188,7 +188,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
           content?.forms ?
             <>
               {
-                fcount.value.map((item, i) => (
+                fcount.value?.map((item, i) => (
                 <div className={`onboardBuilderFormItem-${i}`} key={i}>
                   <CCLabel>
                     {content.forms.fields.control1.label}
