@@ -273,7 +273,7 @@ export const CVTemplate: FunctionComponent<CVTemplateProps> = props => {
                         <div className='company'>{exp.company}</div>
                         <div className='location'>{exp.addrln}</div>
                         <div className='time'>
-                          <time className='from'>{new Date(exp.rng[0]).getFullYear()}</time> - <time className='to'>Present</time>
+                          <time className='from'>{new Date(exp.rng[0]).getFullYear()}</time> - <time className='to'>{exp.rng[1] === -1 ? new Date(exp.rng[1]).getFullYear() : 'Present'}</time>
                         </div>
 
                         <ul className='resp'>
