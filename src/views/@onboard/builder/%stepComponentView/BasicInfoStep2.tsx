@@ -1,6 +1,6 @@
 
 import { FunctionComponent } from 'preact'
-import { StateUpdater, useContext } from 'preact/hooks'
+import { StateUpdater, useContext, useRef } from 'preact/hooks'
 import { JSXInternal } from 'preact/src/jsx'
 
 import {
@@ -26,19 +26,26 @@ export type BasicInfoStep2Props = {
 export const BasicInfoStep2: FunctionComponent<BasicInfoStep2Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
+  const formRef = useRef<HTMLFormElement>()
 
-  const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
+  const onControlStateChange = (ev: JSXInternal.TargetedEvent<HTMLFormElement | HTMLInputElement>) => {
     ev.preventDefault()
     
-    const form = (ev.target as HTMLFormElement).elements
+    const form = formRef.current.elements
 
     gatherNamedFormfields(form, content.forms.fields)
       .then(fset => {
         const bdate = fset.bdate.valueAsDate
         const bplace = fset.bplace.value
 
-        ctx.setDataForm({ bdate: bdate?.getTime(), bplace })
-        ctx.next()
+        const newState = { bdate: bdate?.getTime(), bplace }
+
+        if (ev.target instanceof HTMLFormElement) {
+          ctx.setDataForm(newState)
+          ctx.next()
+        } else {
+          ctx.persistChange(newState)
+        }
       })
   }
 
@@ -50,7 +57,10 @@ export const BasicInfoStep2: FunctionComponent<BasicInfoStep2Props> = props => {
       
       </div>
       
-      <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
+      <form
+        ref={formRef}
+        className='onboardBuilderForm' 
+        onSubmit={onControlStateChange}>
         {
           content?.forms ? 
             <>
@@ -58,6 +68,7 @@ export const BasicInfoStep2: FunctionComponent<BasicInfoStep2Props> = props => {
               {content.forms.fields.control1.label}
               <CCDatefield
                 value={bdate.getTime() != -1 && !isNaN(bdate.getTime()) ? formatDate(bdate) : null} 
+                onChange={onControlStateChange}
                 required={content.forms.fields.control1.required}
                 validate={content.forms.fields.control1.validate}
                 name={content.forms.fields.control1.name}
@@ -68,6 +79,7 @@ export const BasicInfoStep2: FunctionComponent<BasicInfoStep2Props> = props => {
               {content.forms.fields.control2.label}
               <CCTextfield 
                 value={ctx.state.data?.bplace}
+                onInput={onControlStateChange}
                 pattern={content.forms.fields.control2.pattern}
                 required={content.forms.fields.control2.required}
                 validate={content.forms.fields.control2.validate}

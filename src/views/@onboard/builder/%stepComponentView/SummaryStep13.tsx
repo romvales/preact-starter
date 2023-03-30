@@ -1,6 +1,7 @@
 
 import { FunctionComponent } from 'preact'
 import { useContext } from 'preact/hooks'
+import { JSXInternal } from 'preact/src/jsx'
 import { 
   CCButton,
   CCTextfield,
@@ -12,10 +13,7 @@ import {
 import {
   BuilderContext,
   BuilderService } from '@/services'
-import { contentProps } from '@/services/Builder'
-import { JSXInternal } from 'preact/src/jsx'
 import { initApiAxios } from '@/helpers/axios'
-import uploadPictureArea from '~Image/uploadPictureArea.svg'
 
 export type SummaryStep10Props = {}
 
@@ -44,8 +42,38 @@ export const SummaryStep13: FunctionComponent<SummaryStep10Props> = props => {
       })
   }
 
+  const onNavItemClicked = (i: number) => {
+    ctx.setState({ ...ctx.state, current: i, data: JSON.parse(localStorage.saveState) })
+    ctx.seek()
+  }
+
   return (
-    <div className='onboard onboardBuilderSummary' role='article'>      
+    <div className='onboard onboardBuilderSummary' role='article'>
+      <div className='onboardBuilderMessage'>
+        
+
+        <nav className='obmSummaryNav'>
+          <ul className='obmSummaryNavList'>
+          {
+            ctx.contents.slice(0, -1).map(({ builderHeaderContent }, i) => (
+            <li className='obmSummaryNavListItem' key={i}>
+              <details>
+                <summary>
+                  {builderHeaderContent.desc}
+                </summary>
+                {/* {JSON.stringify(ctx.state.data)} */}
+              </details>
+              <CCButton onClick={() => onNavItemClicked(i)}>
+                Change
+                <CCIcon iconSet='heroicons/outline' icon='chevron-double-right' iconSize='sm'></CCIcon>
+              </CCButton>
+            </li>
+            ))
+          }
+          </ul>
+        </nav>
+      </div>
+      
       <form className='onboardBuilderForm justify-start' onSubmit={onFormSubmit}>
         <CCButton
           rounded='md'

@@ -166,6 +166,10 @@ export class BuilderService<T = any> {
     setTimeout(() => this.saveStateToLocalStorage(this.state))
   }
 
+  persistChange(data: UserResumeProp<T>) {
+    setTimeout(() => this.saveStateToLocalStorage({ ...this.state, data: { ...this.state.data, ...data } }))
+  }
+
   next() {
     if (!this.state.started) {
       // error handling

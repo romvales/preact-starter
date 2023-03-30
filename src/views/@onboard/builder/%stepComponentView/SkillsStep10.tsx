@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'preact'
-import { StateUpdater, useContext, useEffect } from 'preact/hooks'
+import { StateUpdater, useContext, useEffect, useRef } from 'preact/hooks'
 import { useSignal } from '@preact/signals'
 import { CCLabel, CCTextfield, CCButton, CCIcon } from '@/components/chunks'
 
@@ -18,6 +18,7 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
   const fcount = useSignal<{ skill: string, rating: number }[]>(undefined)
+  const formRef = useRef<HTMLFormElement>()
 
   const onSkillCreate = () => {
     fcount.value = [ ...fcount.value, {
@@ -28,13 +29,14 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
 
   const onSkillRemove = (_i: number) => {
     fcount.value = fcount.value.filter((_, i) => i != _i)
+    ctx.persistChange({ ...ctx.state.data, mprops: { ...ctx.state.data.mprops, skills: fcount.value } })
   }
 
 
-  const onFormSubmit = (ev: JSXInternal.TargetedEvent) => {
+  const onControlStateChange = (ev: JSXInternal.TargetedEvent) => {
     ev.preventDefault()
     
-    const form = (ev.target as HTMLFormElement).elements
+    const form = formRef.current.elements
 
     gatherNamedFormfields(form, content.forms.fields)
       .then(fset => {
@@ -58,14 +60,19 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
           skills.push({ skill, rating })
         }
 
-        ctx.setDataForm({
+        const newState = {
           mprops: {
             ...ctx.state.data.mprops,
             skills,
           },
-        })
+        }
 
-        ctx.next()
+        if (ev.target instanceof HTMLFormElement) {
+          ctx.setDataForm(newState)
+          ctx.next()
+        } else {
+          ctx.persistChange(newState)
+        }
       })
   }
 
@@ -81,7 +88,10 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
       
       </div>
       
-      <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
+      <form 
+        ref={formRef}
+        className='onboardBuilderForm' 
+        onSubmit={onControlStateChange}>
         {
           content?.forms ?
             <>
@@ -92,7 +102,7 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
                       {content.forms.fields.control1.label}
                       <CCTextfield 
                         value={skill}
-                        onInput={ev => fcount.value[i].skill = (ev.target as HTMLInputElement).value }
+                        onInput={ev => { fcount.value[i].skill = (ev.target as HTMLInputElement).value; onControlStateChange(ev) } }
                         pattern={content.forms.fields.control1.pattern}
                         required={content.forms.fields.control1.required}
                         validate={content.forms.fields.control1.validate}
@@ -106,7 +116,7 @@ export const SkillsStep10: FunctionComponent<SkillsStep10Props> = props => {
                         value={rating}
                         min={1}
                         max={5}
-                        onInput={ev => fcount.value[i].rating = (ev.target as HTMLInputElement).valueAsNumber }
+                        onInput={ev => { fcount.value[i].rating = (ev.target as HTMLInputElement).valueAsNumber; onControlStateChange(ev) } }
                         required={content.forms.fields.control2.required}
                         validate={content.forms.fields.control2.validate}
                         name={content.forms.fields.control2.name}

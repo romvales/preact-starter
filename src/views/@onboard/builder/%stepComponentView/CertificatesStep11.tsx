@@ -1,12 +1,12 @@
 import { FunctionComponent } from 'preact'
-import { StateUpdater, useContext, useEffect } from 'preact/hooks'
+import { StateUpdater, useContext, useEffect, useRef } from 'preact/hooks'
 import { CCLabel, CCTextfield, CCButton, CCIcon } from '@/components/chunks'
 import { useSignal } from '@preact/signals'
 
 import {
   BuilderContext,
   BuilderService } from '@/services'
-import { contentProps, OnboardBuilder } from '@/services/Builder'
+import { contentProps } from '@/services/Builder'
 import { JSXInternal } from 'preact/src/jsx'
 import { gatherNamedFormfields } from '.'
 
@@ -18,6 +18,7 @@ export const CertificatesStep11: FunctionComponent<CertificatesStep11Props> = pr
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
   const fcount = useSignal<{ cert: string, year: number }[]>(undefined)
+  const formRef = useRef<HTMLFormElement>()
 
   const onCertCreate = () => {
     fcount.value = [ ...fcount.value, {
@@ -28,12 +29,13 @@ export const CertificatesStep11: FunctionComponent<CertificatesStep11Props> = pr
 
   const onCertRemove = (_i: number) => {
     fcount.value = fcount.value.filter((_, i) => i != _i)
+    ctx.persistChange({ ...ctx.state.data, mprops: { ...ctx.state.data.mprops, certs: fcount.value } })
   }
 
-  const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
+  const onControlStateChange = (ev: JSXInternal.TargetedEvent<HTMLFormElement | HTMLInputElement>) => {
     ev.preventDefault()
     
-    const form = (ev.target as HTMLFormElement).elements
+    const form = formRef.current.elements
 
     gatherNamedFormfields(form, content.forms.fields)
       .then(fset => {
@@ -57,14 +59,19 @@ export const CertificatesStep11: FunctionComponent<CertificatesStep11Props> = pr
           certs.push({ cert, year })
         }
 
-        ctx.setDataForm({
+        const newState = {
           mprops: {
             ...ctx.state.data.mprops,
             certs,
           }
-        })
+        }
 
-        ctx.next()
+        if (ev.target instanceof HTMLFormElement) {
+          ctx.setDataForm(newState)
+          ctx.next()
+        } else {
+          ctx.persistChange(newState)
+        }
       })
   }
 
@@ -80,7 +87,10 @@ export const CertificatesStep11: FunctionComponent<CertificatesStep11Props> = pr
       
       </div>
       
-      <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
+      <form 
+        ref={formRef}
+        className='onboardBuilderForm' 
+        onSubmit={onControlStateChange}>
         {
           content?.forms ?
             <>
@@ -91,7 +101,7 @@ export const CertificatesStep11: FunctionComponent<CertificatesStep11Props> = pr
                     {content.forms.fields.control1.label}
                     <CCTextfield 
                       value={cert}
-                      onInput={e => { fcount.value[i].cert = (e.target as any).value; }}
+                      onInput={e => { fcount.value[i].cert = (e.target as any).value; onControlStateChange(e) }}
                       required
                       validate={content.forms.fields.control1.validate}
                       name={content.forms.fields.control1.name}
@@ -102,7 +112,7 @@ export const CertificatesStep11: FunctionComponent<CertificatesStep11Props> = pr
                     {content.forms.fields.control2.label}
                     <CCTextfield 
                       value={year}
-                      onInput={e => { fcount.value[i].year = (e.target as any).value; }}
+                      onInput={e => { fcount.value[i].year = (e.target as any).value; onControlStateChange(e) }}
                       required
                       validate={content.forms.fields.control2.validate}
                       name={content.forms.fields.control2.name}

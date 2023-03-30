@@ -20,7 +20,6 @@ export const RenderButton: FunctionComponent<RenderButtonProps> = props => {
 
   const onRenderClick = async (ev: JSXInternal.TargetedEvent<HTMLButtonElement>) => {
     ev.preventDefault()
-
     const apiEndpoint = initApiAxios()
 
     await apiEndpoint.put(`/@onboard_builder/update/${ctx.state.uuid}`, { data: ctx.state.data })

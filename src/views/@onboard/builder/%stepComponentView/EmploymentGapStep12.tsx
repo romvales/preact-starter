@@ -1,6 +1,6 @@
 
 import { FunctionComponent } from 'preact'
-import { useContext, useEffect } from 'preact/hooks'
+import { useContext, useEffect, useRef } from 'preact/hooks'
 import { useSignal } from '@preact/signals'
 
 import {
@@ -22,30 +22,31 @@ export type EmploymentGapStep9Props = {
   
 }
 
-type egapsProp = { uuid: string, egaps: string, from: number, current?: boolean, to: number }
+type egapsProp = { egaps: string, from: number, current?: boolean, to: number }
 
 export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
   const fcount = useSignal<egapsProp[]>(undefined)
+  const formRef = useRef<HTMLFormElement>()
 
   const onGapCreate = () => {
     fcount.value = [ ...fcount.value, {
-      uuid: crypto.randomUUID(),
       egaps: null,
       from: null,
       to: null,
     } ]
   }
 
-  const onGapRemove = (uuid: string) => {
-    fcount.value = fcount.value.filter(item => item.uuid != uuid)
+  const onGapRemove = (_i: number) => {
+    fcount.value = fcount.value.filter((_, i) => i != _i)
+    ctx.persistChange({ ...ctx.state.data, mprops: { ...ctx.state.data, mprops: { egaps: fcount.value } } })
   }
   
-  const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
+  const onControlStateChange = (ev: JSXInternal.TargetedEvent<HTMLFormElement | HTMLInputElement>) => {
     ev.preventDefault()
     
-    const form = (ev.target as HTMLFormElement).elements
+    const form = formRef.current.elements
 
     gatherNamedFormfields(form, content.forms.fields)
       .then(fset => {
@@ -73,14 +74,19 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
           egaps.push({ egaps: egap, from, to })
         }
 
-        ctx.setDataForm({
+        const newState = {
           mprops: {
             ...ctx.state.data.mprops,
             mprops: { egaps },
           },
-        })
-        
-        ctx.next()
+        }
+
+        if (ev.target instanceof HTMLFormElement) {
+          ctx.setDataForm(newState)
+          ctx.next()
+        } else {
+          ctx.persistChange(newState)
+        }
       })
   }
 
@@ -105,18 +111,21 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
       
       </div>
 
-      <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
+      <form 
+        ref={formRef}
+        className='onboardBuilderForm' 
+        onSubmit={onControlStateChange}>
         {
           content?.forms ?
           <>
           {
             fcount.value?.map((item, i) => (
-            <div key={item.uuid} className='onboardBuilderFormItem'>
+            <div key={i} className='onboardBuilderFormItem'>
               <CCLabel>
                 {content.forms.fields.control1.label}
                 <CCTextfield
                   value={item.egaps}
-                  onInput={(ev: any) => fcount.value[i].egaps = ev.target.value}
+                  onInput={(ev: any) => { fcount.value[i].egaps = ev.target.value; onControlStateChange(ev) }}
                   required={content.forms.fields.control1.required}
                   validate={content.forms.fields.control1.validate}
                   name={content.forms.fields.control1.name}
@@ -128,7 +137,7 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
                 {content.forms.fields.control2.label}
                 <CCDatefield 
                   value={item.from ? formatDate(new Date(item.from)) : ''}
-                  onInput={e => { fcount.value[i].from = (e.target as any).value; }}
+                  onInput={e => { fcount.value[i].from = (e.target as any).value; onControlStateChange(e) }}
                   required={content.forms.fields.control2.required}
                   validate={content.forms.fields.control2.validate}
                   name={content.forms.fields.control2.name}
@@ -146,7 +155,7 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
                 {content.forms.fields.control3.label}
                 <CCDatefield 
                   value={item.to !== 0 && item.to !== -1 && item.to !== null ? formatDate(new Date(item.to)) : ''}
-                  onInput={e => { fcount.value[i].to = (e.target as any).value; }}
+                  onInput={e => { fcount.value[i].to = (e.target as any).value; onControlStateChange(e) }}
                   required={item.to === 0 || item.to == null}
                   disabled={item.to === -1}
                   validate={content.forms.fields.control3.validate}
@@ -155,7 +164,7 @@ export const EmploymentGapStep12: FunctionComponent<EmploymentGapStep9Props> = p
               </CCLabel>
 
               <CCButton
-                onClick={() => onGapRemove(item.uuid)}
+                onClick={() => onGapRemove(i)}
                 className='onboardRemoveButton'
                 rounded='md'
                 isBordered

@@ -1,6 +1,6 @@
 
 import { FunctionComponent } from 'preact'
-import { useContext } from 'preact/hooks'
+import { useContext, useRef } from 'preact/hooks'
 import { 
   CCDatefield,
   CCLabel, 
@@ -24,11 +24,12 @@ export type EducationStep7Props = {
 export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
+  const formRef = useRef<HTMLFormElement>()
 
-  const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
+  const onControlStateChange = (ev: JSXInternal.TargetedEvent<HTMLFormElement | HTMLInputElement | HTMLSelectElement>) => {
     ev.preventDefault()
     
-    const form = (ev.target as HTMLFormElement).elements
+    const form = formRef.current.elements
 
     gatherNamedFormfields(form, content.forms.fields)
       .then(fset => {
@@ -47,7 +48,11 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
           mprops: { degree, fstudy }
         }
 
-        ctx.next()
+        if (ev.target instanceof HTMLFormElement) {
+          ctx.next()
+        } else {
+          ctx.persistChange({ edu: ctx.state.data.edu })
+        }
       })
   }
 
@@ -60,7 +65,10 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
       
       </div>
       
-      <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
+      <form 
+        ref={formRef}
+        className='onboardBuilderForm' 
+        onSubmit={onControlStateChange}>
         College
         {
           content?.forms ?
@@ -72,6 +80,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
               pattern={content.forms.fields.control1.pattern}
               required={content.forms.fields.control1.required}
               validate={content.forms.fields.control1.validate}
+              onInput={onControlStateChange}
               name={content.forms.fields.control1.name}
               placeholder={content.forms.fields.control1.placeholder}
               type='text'></CCTextfield>
@@ -83,6 +92,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
               pattern={content.forms.fields.control2.pattern}
               required={content.forms.fields.control2.required}
               validate={content.forms.fields.control2.validate}
+              onInput={onControlStateChange}
               name={content.forms.fields.control2.name}
               placeholder={content.forms.fields.control2.placeholder}
               type='text'></CCTextfield>
@@ -93,6 +103,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
               value={ctx.state.data?.edu[2]?.mprops.degree}
               required={content.forms.fields.control3.required}
               noValidate={content.forms.fields.control3.validate}
+              onChange={onControlStateChange}
               name={content.forms.fields.control3.name}
               placeholder={content.forms.fields.control3.placeholder}>
               {
@@ -113,6 +124,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
               pattern={content.forms.fields.control4.pattern}
               required={content.forms.fields.control4.required}
               validate={content.forms.fields.control4.validate}
+              onInput={onControlStateChange}
               name={content.forms.fields.control4.name}
               placeholder={content.forms.fields.control4.placeholder}
               type='text'></CCTextfield>
@@ -123,6 +135,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
               value={formatDate(from)}
               required={content.forms.fields.control5.required}
               validate={content.forms.fields.control5.validate}
+              onInput={onControlStateChange}
               name={content.forms.fields.control5.name}
               placeholder={content.forms.fields.control5.placeholder}></CCDatefield>
           </CCLabel>
@@ -132,6 +145,7 @@ export const EducationStep7: FunctionComponent<EducationStep7Props> = props => {
               value={formatDate(to)}
               required={content.forms.fields.control6.required}
               validate={content.forms.fields.control6.validate}
+              onChange={onControlStateChange}
               name={content.forms.fields.control6.name}
               placeholder={content.forms.fields.control6.placeholder}></CCDatefield>
           </CCLabel>

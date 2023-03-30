@@ -1,6 +1,6 @@
 
 import { FunctionComponent } from 'preact'
-import { useContext } from 'preact/hooks'
+import { useContext, useRef } from 'preact/hooks'
 
 import {
   BuilderService,
@@ -20,11 +20,12 @@ export type AddressStep4Props = {
 export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
+  const formRef = useRef<HTMLFormElement>()
 
-  const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
+  const onControlStateChange = (ev: JSXInternal.TargetedEvent<HTMLFormElement | HTMLInputElement | HTMLSelectElement>) => {
     ev.preventDefault()
 
-    const form = (ev.target as HTMLFormElement).elements
+    const form = formRef.current.elements
 
     gatherNamedFormfields(form, content.forms.fields)
       .then(fset => {
@@ -38,7 +39,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
         const pstreet = fset.street[1].value
         const phouseAptId = fset.houseAptId[1].value
 
-        ctx.setDataForm({
+        const newState = {
           addrs: [
             {
               type: 'current',
@@ -55,16 +56,24 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
               houseAptId: phouseAptId,
             }
           ]
-        })
-        
-        ctx.next()
+        }
+
+        if (ev.target instanceof HTMLFormElement) {
+          ctx.setDataForm(newState)
+          ctx.next()
+        } else {
+          ctx.persistChange(newState)
+        }
       })
   }
 
   return (
     <div className='onboard onboardBuilderAddress' role='article'>
       
-      <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
+      <form 
+        ref={formRef}
+        className='onboardBuilderForm' 
+        onSubmit={onControlStateChange}>
         {
           content?.forms ?
           <>
@@ -76,6 +85,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
             {content.forms.fields.control1.label}
             <select
               value={ctx.state.data?.addrs[0]?.country ?? 136}
+              onChange={onControlStateChange}
               required={content.forms.fields.control1.required}
               noValidate={content.forms.fields.control1.validate}
               name={content.forms.fields.control1.name}
@@ -94,6 +104,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control2.label}
             <CCTextfield 
+              onInput={onControlStateChange}
               value={ctx.state.data?.addrs[0]?.city}
               pattern={content.forms.fields.control2.pattern}
               required={content.forms.fields.control2.required}
@@ -105,6 +116,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control3.label}
             <CCTextfield 
+              onInput={onControlStateChange}
               value={ctx.state.data?.addrs[0]?.street}
               pattern={content.forms.fields.control3.pattern}
               required={content.forms.fields.control3.validate}
@@ -116,6 +128,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control4.label}
             <CCTextfield 
+              onInput={onControlStateChange}
               value={ctx.state.data?.addrs[0]?.houseAptId}
               pattern={content.forms.fields.control4.pattern}
               required={content.forms.fields.control4.required}
@@ -132,6 +145,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control1.label}
             <select
+              onChange={onControlStateChange}
               value={ctx.state.data?.addrs[1]?.country ?? 136}
               required={content.forms.fields.control1.required}
               noValidate={content.forms.fields.control1.validate}
@@ -151,6 +165,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control2.label}
             <CCTextfield 
+              onInput={onControlStateChange}
               value={ctx.state.data?.addrs[1]?.city}
               pattern={content.forms.fields.control2.pattern}
               required={content.forms.fields.control2.required}
@@ -162,6 +177,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control3.label}
             <CCTextfield 
+              onInput={onControlStateChange}
               value={ctx.state.data?.addrs[1]?.street}
               pattern={content.forms.fields.control3.pattern}
               required={content.forms.fields.control3.required}
@@ -173,6 +189,7 @@ export const AddressStep4: FunctionComponent<AddressStep4Props> = props => {
           <CCLabel>
             {content.forms.fields.control4.label}
             <CCTextfield 
+              onInput={onControlStateChange}
               value={ctx.state.data?.addrs[1]?.houseAptId}
               pattern={content.forms.fields.control4.pattern}
               required={content.forms.fields.control4.required}

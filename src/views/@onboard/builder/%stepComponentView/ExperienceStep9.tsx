@@ -1,6 +1,6 @@
 
 import { FunctionComponent } from 'preact'
-import { StateUpdater, useContext, useEffect } from 'preact/hooks'
+import { StateUpdater, useContext, useEffect, useRef } from 'preact/hooks'
 import { JSXInternal } from 'preact/src/jsx'
 import { useSignal } from '@preact/signals'
 import { 
@@ -39,6 +39,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
   const fcount = useSignal<experienceFormFieldType[]>(undefined)
+  const formRef = useRef<HTMLFormElement>()
 
   const onJobExpCreate = () => {
     fcount.value = [ ...fcount.value, {
@@ -56,12 +57,13 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
 
   const onJobExpRemove = (_i: number) => {
     fcount.value = fcount.value.filter((_, i) => i != _i)
+    ctx.persistChange({ ...ctx.state.data, mprops: { ...ctx.state.data.mprops, exps: fcount.value } })
   }
 
-  const onFormSubmit = (ev: JSXInternal.TargetedEvent) => {
+  const onControlStateChange = (ev: JSXInternal.TargetedEvent) => {
     ev.preventDefault()
 
-    const form = (ev.target as HTMLFormElement).elements
+    const form = formRef.current.elements
 
     gatherNamedFormfields(form, content.forms.fields)
       .then(fset => {
@@ -105,14 +107,19 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
 
         }
 
-        ctx.setDataForm({
+        const newState = {
           mprops: {
             ...ctx.state.data?.mprops,
             exps,
           }
-        })
+        }
 
-        ctx.next()
+        if (ev.target instanceof HTMLFormElement) {
+          ctx.setDataForm(newState)
+          ctx.next()
+        } else {
+          ctx.persistChange(newState)
+        }
       })
   }
 
@@ -183,7 +190,10 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
       
       </div>
       
-      <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
+      <form 
+        ref={formRef}
+        className='onboardBuilderForm' 
+        onSubmit={onControlStateChange}>
         {
           content?.forms ?
             <>
@@ -194,7 +204,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                     {content.forms.fields.control1.label}
                     <CCTextfield 
                       value={item.title}
-                      onInput={e => { fcount.value[i].title = (e.target as any).value; }}
+                      onInput={e => { fcount.value[i].title = (e.target as any).value; onControlStateChange(e) }}
                       pattern={content.forms.fields.control1.pattern}
                       required={content.forms.fields.control1.required}
                       validate={content.forms.fields.control1.validate}
@@ -206,7 +216,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                     {content.forms.fields.control2.label}
                     <CCTextfield 
                       value={item.company}
-                      onInput={e => { fcount.value[i].company = (e.target as any).value; }}
+                      onInput={e => { fcount.value[i].company = (e.target as any).value; onControlStateChange(e) }}
                       pattern={content.forms.fields.control2.pattern}
                       required={content.forms.fields.control2.required}
                       validate={content.forms.fields.control2.validate}
@@ -218,7 +228,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                     {content.forms.fields.control3.label}
                     <CCTextfield 
                       value={item.addrln}
-                      onInput={e => { fcount.value[i].addrln = (e.target as any).value; }}
+                      onInput={e => { fcount.value[i].addrln = (e.target as any).value; onControlStateChange(e) }}
                       pattern={content.forms.fields.control3.pattern}
                       required={content.forms.fields.control3.required}
                       validate={content.forms.fields.control3.validate}
@@ -269,6 +279,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                       className='obhcaseInput'
                       pattern={content.forms.fields.control6.pattern}
                       validate={content.forms.fields.control6.validate}
+                      onInput={onControlStateChange}
                       name={content.forms.fields.control6.name}
                       placeholder={content.forms.fields.control6.placeholder}
                       type='text'></CCTextfield>
@@ -305,7 +316,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                     {content.forms.fields.control7.label}
                     <CCDatefield 
                       value={item.rng[0] ? formatDate(new Date(item.rng[0])) : ''}
-                      onInput={e => { fcount.value[i].rng[0] = (e.target as any).value; }}
+                      onInput={e => { fcount.value[i].rng[0] = (e.target as any).value; onControlStateChange(e) }}
                       required
                       validate={content.forms.fields.control7.validate}
                       name={content.forms.fields.control7.name}
@@ -325,7 +336,7 @@ export const ExperienceStep9: FunctionComponent<ExperienceStep9Props> = props =>
                       disabled={item.rng[1] === -1}
                       value={item.rng[1] !== -1 && item.rng[1] !== 0 ? formatDate(new Date(item.rng[1])) : null}
                       required={item.rng[1] === 0}
-                      onInput={e => { fcount.value[i].rng[1] = (e.target as any).value; }}
+                      onInput={e => { fcount.value[i].rng[1] = (e.target as any).value; onControlStateChange(e) }}
                       validate={content.forms.fields.control8.validate}
                       name={content.forms.fields.control8.name}
                       placeholder={content.forms.fields.control8.placeholder}></CCDatefield>

@@ -60,13 +60,14 @@ const onboard_builder_route: FunctionComponent = props => {
   const onStepChange = (ev: JSXInternal.TargetedEvent<HTMLSelectElement>) => {
     const select = ev.target as HTMLSelectElement
     builderService.state.current = Number(select.value)
+    builderService.setState({ ...builderService.state, data: JSON.parse(localStorage.saveState) })
     builderService.seek()
   }
 
   return (
     <BuilderContext.Provider value={builderService}>
       <CCPortal selector='.appBuilderHeader'>
-        <div className='abhWrapper'>
+        <nav className='abhWrapper'>
           {
             !isInProgress ?
             <div className='builderHeader builderHeaderInitial'>
@@ -99,10 +100,10 @@ const onboard_builder_route: FunctionComponent = props => {
                     <>
                       <CCSkeleton 
                         className='mb-2'
-                        height='1.5rem' 
-                        width='6rem' 
-                        animated 
-                        animationClass='animate-pulse' 
+                        height='1.5rem'
+                        width='6rem'
+                        animated
+                        animationClass='animate-pulse'
                         rounded='md'></CCSkeleton>
                       <CCSkeleton 
                         rounded='md'
@@ -115,7 +116,7 @@ const onboard_builder_route: FunctionComponent = props => {
               </div>
             </div>
           }
-        </div>
+        </nav>
       </CCPortal>
 
       <Router url={path}>

@@ -201,3 +201,34 @@
     transform: scale(0.5);
   }
 }
+
+.onboardBuilderMessage {
+
+  .obmSummaryNavList > .obmSummaryNavListItem {
+    @apply flex justify-between items-start;
+
+    details {
+      summary {
+          @apply uppercase list-none font-medium text-slate-600 text-[1rem] pb-4;
+
+        &::-webkit-details-marker, &::marker {
+          @apply hidden;
+        }
+      }
+    }
+
+    button {
+      @apply bg-transparent;
+    }
+
+    button > .ccButtonText {
+      @apply flex items-center bg-transparent text-secondary-c04 text-opacity-70 text-sm;
+
+      & > .ccIcon {
+        @apply ml-1 w-5 stroke-2 mt-[0.125rem];
+      }
+    }
+  }  
+
+
+}

@@ -1,6 +1,6 @@
 
 import { FunctionComponent } from 'preact'
-import { StateUpdater, useContext } from 'preact/hooks'
+import { StateUpdater, useContext, useRef } from 'preact/hooks'
 import { CCLabel, CCTextfield, CCButton, CCIcon } from '@/components/chunks'
 
 import {
@@ -22,11 +22,12 @@ export type BasicInfoStep3Props = {
 export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
+  const formRef = useRef<HTMLFormElement>()
 
-  const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
+  const onControlStateChange = (ev: JSXInternal.TargetedEvent<HTMLFormElement | HTMLInputElement | HTMLSelectElement>) => {
     ev.preventDefault()
     
-    const form = (ev.target as HTMLFormElement).elements
+    const form = formRef.current.elements
 
     gatherNamedFormfields(form, content.forms.fields)
       .then(fset => {
@@ -35,8 +36,14 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
         const rstatus = fset.rstatus.value
         const children = fset.children.valueAsNumber
 
-        ctx.setDataForm({ religion, cship, rstatus, children })
-        ctx.next()
+        const newState = { religion, cship, rstatus, children }
+
+        if (ev.target instanceof HTMLFormElement) {
+          ctx.setDataForm(newState)
+          ctx.next()
+        } else {
+          ctx.persistChange(newState)
+        }
       })
   }
 
@@ -46,7 +53,10 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
       
       </div>
       
-      <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
+      <form 
+        ref={formRef}
+        className='onboardBuilderForm' 
+        onSubmit={onControlStateChange}>
         {
           content?.forms ?
             <>
@@ -54,6 +64,7 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
               {content.forms.fields.control1.label}
               <CCTextfield 
                 value={ctx.state.data?.religion}
+                onInput={onControlStateChange}
                 pattern={content.forms.fields.control1.pattern}
                 required={content.forms.fields.control1.required}
                 validate={content.forms.fields.control1.validate}
@@ -65,6 +76,7 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
               {content.forms.fields.control2.label}
               <select
                 defaultValue={'4'}
+                onChange={onControlStateChange}
                 required={content.forms.fields.control2.required}
                 noValidate={content.forms.fields.control2.validate}
                 name={content.forms.fields.control2.name}
@@ -85,6 +97,7 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
               <select
                 required={content.forms.fields.control3.required}
                 noValidate={content.forms.fields.control3.validate}
+                onChange={onControlStateChange}
                 name={content.forms.fields.control3.name}
                 placeholder={content.forms.fields.control3.placeholder}>
                 {
@@ -105,6 +118,7 @@ export const BasicInfoStep3: FunctionComponent<BasicInfoStep3Props> = props => {
                 value={ctx.state.data?.children ?? 0}
                 min={0}
                 max={6}
+                onChange={onControlStateChange}
                 required={content.forms.fields.control4.required}
                 validate={content.forms.fields.control4.validate}
                 name={content.forms.fields.control4.name}

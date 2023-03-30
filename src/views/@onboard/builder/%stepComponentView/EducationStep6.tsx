@@ -1,6 +1,6 @@
 
 import { FunctionComponent } from 'preact'
-import { useContext } from 'preact/hooks'
+import { useContext, useRef } from 'preact/hooks'
 import { 
   CCDatefield,
   CCLabel, 
@@ -23,11 +23,12 @@ export type EducationStep6Props = {
 export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
+  const formRef = useRef<HTMLFormElement>()
 
   const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
     ev.preventDefault()
     
-    const form = (ev.target as HTMLFormElement).elements
+    const form = formRef.current.elements
 
     gatherNamedFormfields(form, content.forms.fields)
       .then(fset => {
@@ -43,7 +44,11 @@ export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
           rng: [from, to],
         }
 
-        ctx.next()
+        if (ev.target instanceof HTMLFormElement) {
+          ctx.next()
+        } else {
+          ctx.persistChange({ edu: ctx.state.data.edu })
+        }
       })
   }
   
@@ -56,7 +61,10 @@ export const EducationStep6: FunctionComponent<EducationStep6Props> = props => {
       
       </div>
       
-      <form className='onboardBuilderForm' onSubmit={onFormSubmit}>
+      <form 
+        ref={formRef}
+        className='onboardBuilderForm' 
+        onSubmit={onFormSubmit}>
         Secondary
         {
           content?.forms ?

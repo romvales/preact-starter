@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'preact'
-import { useContext } from 'preact/hooks'
+import { useContext, useRef } from 'preact/hooks'
 import { 
   BuilderContext, 
   BuilderService, 
@@ -26,24 +26,30 @@ export type BasicInfoStep1Props = {
 export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
   const ctx: BuilderService = useContext(BuilderContext)
   const content: contentProps = ctx.useContent()
+  const formRef = useRef<HTMLFormElement>()
   
-  const onFormSubmit = (ev: JSXInternal.TargetedEvent<HTMLFormElement>) => {
+  const onControlStateChange = (ev: JSXInternal.TargetedEvent<HTMLFormElement | HTMLInputElement>) => {
     ev.preventDefault()
     
-    const form = ev.target as HTMLFormElement
-    const elements = form.elements
+    const form = formRef.current.elements
 
-    gatherNamedFormfields(elements, content.forms.fields)
+    gatherNamedFormfields(form, content.forms.fields)
       .then((fset) => {
         const fname = fset.fname.value        
         const lname = fset.lname.value
         const mname = fset.mname.value
         const fullName = [ fname, mname, lname ].join(' ').replace(/\s{2,}/, ' ')
 
-        ctx.setDataForm({ fname: fullName })
-        ctx.next()
+        const newState = { fname: fullName }
+        
+        if (ev.target instanceof HTMLFormElement) {
+          ctx.setDataForm(newState)
+          ctx.next()
+        } else {
+          ctx.persistChange(newState)
+        }
       })
-  }
+  } 
 
   const onClickPhotoCreate = () => {
     const input = document.createElement('input')
@@ -63,7 +69,9 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
           fileName: ctx.state.uuid,
           tags: ['profile'],
         })
-          .then(res => ctx.setDataForm({ profileUrl: res.url }))
+          .then(res => {
+            ctx.setDataForm({ profileUrl: res.url })
+          })
 
         fr.removeEventListener('load', null)
       }, false)
@@ -83,12 +91,13 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
   return (
     <div className='onboard onboardBuilderBasicInfo step1' role='article'>
       <div className='onboardBuilderMessage'>
-      
+        
       </div>
 
       <form 
+        ref={formRef}
         className='onboardBuilderForm'
-        onSubmit={onFormSubmit}>
+        onSubmit={onControlStateChange}>
         
         {
           ctx.state.data?.profileUrl?.length ?
@@ -110,6 +119,7 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
                 {content.forms.fields.control1.label}
                 <CCTextfield
                   value={fname}
+                  onInput={onControlStateChange}
                   pattern={content.forms.fields.control1.pattern}
                   required={content.forms.fields.control1.required}
                   validate={content.forms.fields.control1.validate}
@@ -121,6 +131,7 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
                 {content.forms.fields.control2.label}
                 <CCTextfield 
                   value={lname}
+                  onInput={onControlStateChange}
                   pattern={content.forms.fields.control2.pattern}
                   required={content.forms.fields.control2.required}
                   validate={content.forms.fields.control2.validate}
@@ -132,6 +143,7 @@ export const BasicInfoStep1: FunctionComponent<BasicInfoStep1Props> = props => {
                 {content.forms.fields.control3.label}
                 <CCTextfield 
                   value={mname}
+                  onInput={onControlStateChange}
                   pattern={content.forms.fields.control3.pattern}
                   required={content.forms.fields.control3.required}
                   validate={content.forms.fields.control3.validate}

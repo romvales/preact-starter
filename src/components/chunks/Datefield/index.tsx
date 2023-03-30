@@ -12,6 +12,7 @@ export type DatefieldProps = {
   name?: string
   disabled?: boolean
   onInput?: JSXInternal.GenericEventHandler<HTMLInputElement>
+  onChange?: JSXInternal.GenericEventHandler<HTMLInputElement>
 }
 
 export const Datefield: FunctionComponent<DatefieldProps> = props => {
@@ -24,6 +25,7 @@ export const Datefield: FunctionComponent<DatefieldProps> = props => {
   return (
     <>
     <input 
+      onChange={props.onChange}
       onInput={props.onInput}
       disabled={props.disabled}
       required={props.required}
